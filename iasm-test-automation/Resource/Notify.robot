@@ -1,6 +1,6 @@
 *** Settings ***
 Resource    Action.robot
-Library  Selenium2Library
+Library  Selenium2Library    run_on_failure=Nothing
 
 *** Variables ***
 

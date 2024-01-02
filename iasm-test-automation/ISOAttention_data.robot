@@ -1,5 +1,5 @@
 *** Settings ***
-Library  Selenium2Library
+Library  Selenium2Library    run_on_failure=Nothing
 Resource    Resource\\Action.robot
 Resource    Resource\\Variables\\Variables.robot
 Resource    Resource\\Login.robot
@@ -20,6 +20,7 @@ Resource    Resource\\Data_dropdown_list.robot
 
 Suite Setup    Open Browser Chrome and use user
 Suite Teardown    Close Browser 
+Test Teardown	Run Keyword If Test Failed	Capture Page Screenshot
 
 *** Variables ***
 

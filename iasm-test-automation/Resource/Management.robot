@@ -1,6 +1,6 @@
 *** Settings ***
 Resource    Action.robot
-Library  Selenium2Library
+Library  Selenium2Library    run_on_failure=Nothing
 
 *** Variables ***
 
@@ -116,6 +116,18 @@ User permission management Search
     Wait And Click    //span[@class='p-multiselect-close-icon pi pi-times']
     Wait And Input    //div[contains(@class,'col-4')]/div[2]/input[contains(@type,'text')]    ${permission_management_name}
     Wait And Click    //*[contains(text(),'搜尋')] 
+    Sleep    500ms
+
+User permission management Search default
+    [Arguments]    ${permission_management_number}
+    #Wait And Click  //p-dropdown[@classname='units-dropdown']//*[contains(text(),'請選擇(部)')] 
+    #Wait And Click  //li[contains(@aria-label,'${department_name}')]
+    #Wait And Click  //div[@class='p-multiselect-label p-placeholder' and contains(text(),'請選擇(科)')]
+    #Wait And Click    //div[@class='p-checkbox p-component ng-star-inserted']
+    #Wait And Click    //span[@class='p-multiselect-close-icon pi pi-times']
+    Wait And Input    //div[contains(@class,'col-4')]/div[1]/input[contains(@type,'text')]    ${permission_management_number}
+    Wait And Click    //*[contains(text(),'搜尋')]
+    Wait And Click    //button[@icon='pi pi-file-edit']
     Sleep    500ms
 
 User permission management add - dep

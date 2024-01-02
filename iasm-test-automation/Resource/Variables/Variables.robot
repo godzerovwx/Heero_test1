@@ -188,6 +188,10 @@ ${agent_end_day}    15
 ${permission_management_Attention}    梁○全
 ${permission_management_Operations_Supervisor}    王○全
 ${permission_management_Unit_Head}    RP○○3
+${permission_management_number_Attention}    00595173
+${permission_management_number_Operations_Supervisor}    00515494
+${permission_management_number_Unit_Head}    00549100
+${permission_management_number_ISOAttention}    00590983
 ${permission_management_department_name}    資訊架構部
 ${permission_management_division_name}    資訊架構發展科
 ${permission_management_error_code_same_role}    角色請勿重複新增

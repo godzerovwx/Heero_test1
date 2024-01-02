@@ -1,5 +1,5 @@
 *** Settings ***
-Library  Selenium2Library
+Library  Selenium2Library    run_on_failure=Nothing
 Resource    Resource\\Action.robot
 Resource    Resource\\Variables\\Variables.robot
 Resource    Resource\\Login.robot
@@ -20,6 +20,7 @@ Resource    Resource\\Data_dropdown_list.robot
 
 Suite Setup    Open Browser Chrome and use user
 Suite Teardown    Close Browser 
+Test Teardown	Run Keyword If Test Failed	Capture Page Screenshot
 
 *** Variables ***
 
@@ -38,7 +39,7 @@ Suite Teardown    Close Browser
 經辦-首頁-工作區資產查詢按鈕驗證
     Wait And Click  //button[contains(@class,'p-element p-button action-button p-component')]
     Verify the testcase is pass (data is existed)    //*[contains(text(),'${work_search_button}')]
-    
+
 經辦-資產管理-單筆新增-硬體資產驗證
     Create hard data    ${hard_data_name}
     Verify the testcase is pass (data is existed)    //*[contains(text(),'${hard_data_name}')]
