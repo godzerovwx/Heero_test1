@@ -1,7 +1,7 @@
 *** Settings ***
 Library  Selenium2Library    run_on_failure=Nothing
 Library    AutoItLibrary
-Resource    Variables\\Variables.robot
+Resource    Variables/Variables.robot
 Resource    Asset_management.robot
 Resource    Home_page_button.robot
 Resource    Login.robot

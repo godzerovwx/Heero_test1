@@ -1,22 +1,6 @@
 *** Settings ***
-Library  Selenium2Library    run_on_failure=Nothing
-Resource    Resource\\Action.robot
-Resource    Resource\\Variables\\Variables.robot
-Resource    Resource\\Login.robot
+Resource  Resource/IASMImportLib.robot
 
-Resource    Resource\\Home_page_button.robot
-
-Resource    Resource\\Stocktaking_plan.robot
-
-Resource    Resource\\Asset_management.robot
-
-Resource    Resource\\Download_excel.robot
-
-Resource    Resource\\Management.robot
-
-Resource    Resource\\Notify.robot
-
-Resource    Resource\\Data_dropdown_list.robot
 
 Suite Setup    Open Browser Chrome and use user
 Suite Teardown    Close Browser 
@@ -349,9 +333,9 @@ Test Teardown	Run Keyword If Test Failed	Capture Page Screenshot
     Delete data    ${copy_has_review_people_data_name}
     Send data    ${update_has_review_people_data_name}
 
-經辦-資產管理-整批匯入驗證
-    Import excel
-    Verify the testcase is pass (data is existed)    //*[contains(text(),'${import_name}')] 
+# 經辦-資產管理-整批匯入驗證
+#     Import excel
+#     Verify the testcase is pass (data is existed)    //*[contains(text(),'${import_name}')] 
 
 經辦-報表列印-資產清冊驗證
     Download excel

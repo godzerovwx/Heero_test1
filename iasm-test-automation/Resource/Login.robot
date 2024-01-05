@@ -6,7 +6,8 @@ Resource    Action.robot
 
 *** Keywords ***
 Open Browser Chrome and use user
-    Open Browser  ${URL}  chrome
+    Open Browser  ${URL}  browser=headlesschrome
+    Set Window Size    1920    1080
     Maximize Browser Window
 Login Attention
     Wait And Click  //button[contains(@label,'${Attention}')]

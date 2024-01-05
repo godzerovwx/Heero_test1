@@ -1,0 +1,184 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  gcp-iasm-lab
+
+
+stages:
+  - stage:Test1
+    jobs:
+      - job: Testing1
+        timeoutInMinutes: 120
+        steps:
+        - script: |
+            echo Add other tasks to build, test, and deploy your project.
+            echo See https://aka.ms/yaml
+          displayName: 'Run a multi-line script'
+        - script: |
+            python -m pip install --upgrade pip
+            pip install -r requirements.txt
+          displayName: 'Install dependencies'
+        - script: |
+            robot -x outputxunit.xml ./Attention_data.robot
+          displayName: 'Run Robot'
+
+        - task: PublishTestResults@2
+          inputs:
+            testResultsFiles: 'outputxunit.xml'
+            testRunTitle: My test
+          condition: succeededOrFailed()
+          displayName: 'Publish Test Results outputxunit.xml'
+        - task: CmdLine@2
+          inputs:
+            script: |
+              mkdir $(System.DefaultWorkingDirectory)/log
+              cp ./*.png $(System.DefaultWorkingDirectory)/log
+              cp ./*.html $(System.DefaultWorkingDirectory)/log
+          condition: succeededOrFailed()
+          displayName: 'Copy screenshot and html to folder'
+        - task: PublishBuildArtifacts@1
+          inputs:
+            PathtoPublish: '$(System.DefaultWorkingDirectory)/log'
+            ArtifactName: 'log1'
+          condition: succeededOrFailed()
+          displayName: upload log
+  - stage:Test2
+    jobs:
+      - job: Testing2
+        timeoutInMinutes: 120
+        steps:
+        - script: |
+            echo Add other tasks to build, test, and deploy your project.
+            echo See https://aka.ms/yaml
+          displayName: 'Run a multi-line script'
+        - script: |
+            robot -x outputxunit.xml ./Operations_Supervisor_data.robot
+          displayName: 'Run Robot'
+
+        - task: PublishTestResults@2
+          inputs:
+            testResultsFiles: 'outputxunit.xml'
+            testRunTitle: My test
+          condition: succeededOrFailed()
+          displayName: 'Publish Test Results outputxunit.xml'
+        - task: CmdLine@2
+          inputs:
+            script: |
+              mkdir $(System.DefaultWorkingDirectory)/log
+              cp ./*.png $(System.DefaultWorkingDirectory)/log
+              cp ./*.html $(System.DefaultWorkingDirectory)/log
+          condition: succeededOrFailed()
+          displayName: 'Copy screenshot and html to folder'
+        - task: PublishBuildArtifacts@1
+          inputs:
+            PathtoPublish: '$(System.DefaultWorkingDirectory)/log'
+            ArtifactName: 'log2'
+          condition: succeededOrFailed()
+          displayName: upload log
+  - stage:Test3
+    jobs:
+      - job: Testing3
+        timeoutInMinutes: 120
+        steps:
+        - script: |
+            echo Add other tasks to build, test, and deploy your project.
+            echo See https://aka.ms/yaml
+          displayName: 'Run a multi-line script'
+        - script: |
+            robot -x outputxunit.xml ./ISOAttention_data.robot
+          displayName: 'Run Robot'
+
+        - task: PublishTestResults@2
+          inputs:
+            testResultsFiles: 'outputxunit.xml'
+            testRunTitle: My test
+          condition: succeededOrFailed()
+          displayName: 'Publish Test Results outputxunit.xml'
+        - task: CmdLine@2
+          inputs:
+            script: |
+              mkdir $(System.DefaultWorkingDirectory)/log
+              cp ./*.png $(System.DefaultWorkingDirectory)/log
+              cp ./*.html $(System.DefaultWorkingDirectory)/log
+          condition: succeededOrFailed()
+          displayName: 'Copy screenshot and html to folder'
+        - task: PublishBuildArtifacts@1
+          inputs:
+            PathtoPublish: '$(System.DefaultWorkingDirectory)/log'
+            ArtifactName: 'log3'
+          condition: succeededOrFailed()
+          displayName: upload log
+  - stage:Test4
+    jobs:
+      - job: Testing4
+        timeoutInMinutes: 120
+        steps:
+        - script: |
+            echo Add other tasks to build, test, and deploy your project.
+            echo See https://aka.ms/yaml
+          displayName: 'Run a multi-line script'
+        - script: |
+            robot -x outputxunit.xml ./Unit_Head.robot
+          displayName: 'Run Robot'
+
+        - task: PublishTestResults@2
+          inputs:
+            testResultsFiles: 'outputxunit.xml'
+            testRunTitle: My test
+          condition: succeededOrFailed()
+          displayName: 'Publish Test Results outputxunit.xml'
+        - task: CmdLine@2
+          inputs:
+            script: |
+              mkdir $(System.DefaultWorkingDirectory)/log
+              cp ./*.png $(System.DefaultWorkingDirectory)/log
+              cp ./*.html $(System.DefaultWorkingDirectory)/log
+          condition: succeededOrFailed()
+          displayName: 'Copy screenshot and html to folder'
+        - task: PublishBuildArtifacts@1
+          inputs:
+            PathtoPublish: '$(System.DefaultWorkingDirectory)/log'
+            ArtifactName: 'log4'
+          condition: succeededOrFailed()
+          displayName: upload log
+  - stage:Test5
+    jobs:
+      - job: Testing5
+        timeoutInMinutes: 120
+        steps:
+        - script: |
+            echo Add other tasks to build, test, and deploy your project.
+            echo See https://aka.ms/yaml
+          displayName: 'Run a multi-line script'
+        - script: |
+            robot -x outputxunit.xml ./System_Admin.robot
+          displayName: 'Run Robot'
+
+        - task: PublishTestResults@2
+          inputs:
+            testResultsFiles: 'outputxunit.xml'
+            testRunTitle: My test
+          condition: succeededOrFailed()
+          displayName: 'Publish Test Results outputxunit.xml'
+        - task: CmdLine@2
+          inputs:
+            script: |
+              mkdir $(System.DefaultWorkingDirectory)/log
+              cp ./*.png $(System.DefaultWorkingDirectory)/log
+              cp ./*.html $(System.DefaultWorkingDirectory)/log
+          condition: succeededOrFailed()
+          displayName: 'Copy screenshot and html to folder'
+        - task: PublishBuildArtifacts@1
+          inputs:
+            PathtoPublish: '$(System.DefaultWorkingDirectory)/log'
+            ArtifactName: 'log5'
+          condition: succeededOrFailed()
+          displayName: upload log
+
+
