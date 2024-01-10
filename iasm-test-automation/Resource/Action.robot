@@ -1,6 +1,6 @@
 *** Settings ***
 Library  Selenium2Library    run_on_failure=Nothing
-Library    AutoItLibrary
+#Library    AutoItLibrary
 Resource    Variables/Variables.robot
 Resource    Asset_management.robot
 Resource    Home_page_button.robot
@@ -38,17 +38,17 @@ prereq to has review data
     Login Attention
 Wait And Input
   [Arguments]  ${locator}  ${text}
-  Wait Until Element Is Visible   ${locator}   
-  Wait Until Element Is Enabled   ${locator} 
-  Wait Until Page Contains Element   ${locator}    10s
+  Wait Until Element Is Visible   ${locator}   timeout=5s
+  Wait Until Element Is Enabled   ${locator}    timeout=5s
+  Wait Until Page Contains Element   ${locator}    timeout=5s
   Sleep    500ms
   Input Text  ${locator}  ${text}
   
 Wait And Click
   [Arguments]  ${locator}
-  Wait Until Element Is Visible   ${locator}   
-  Wait Until Element Is Enabled   ${locator}   
-  Wait Until Page Contains Element   ${locator}    10s
+  Wait Until Element Is Visible   ${locator}     timeout=5s
+  Wait Until Element Is Enabled   ${locator}    timeout=5s   
+  Wait Until Page Contains Element   ${locator}    timeout=5s
   Sleep    500ms
   Click Element  ${locator}
 
@@ -57,12 +57,12 @@ Select calendar month and day
     Wait And Click    //div[contains(@class,'p-datepicker-header')]/button[2]
     Wait And Click    //span[not(contains(@class,'p-disabled')) and contains(text(),'${locator_day}')]
 
-Upload file
-  SLEEP  1s
-  Control Send     開啟    ${EMPTY}    [CLASS:Edit; INSTANCE:1]   ${path_to_update_excel_file}
-  SLEEP  1s
-  Control Click    開啟    ${EMPTY}    Button1
-  SLEEP  1s
+#Upload file
+#  SLEEP  1s
+#  Control Send     開啟    ${EMPTY}    [CLASS:Edit; INSTANCE:1]   ${path_to_update_excel_file}
+#  SLEEP  1s
+#  Control Click    開啟    ${EMPTY}    Button1
+#  SLEEP  1s
 
 #找父節點Xpath
 Get Ancestor XPath

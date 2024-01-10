@@ -251,7 +251,11 @@ Agent manage update
     Wait And Click  //span[text()='儲存']
     Wait And Click  //button[@class='p-element p-button functional-button p-component ng-star-inserted']
     Sleep    500ms  
+
 Agent manage search
+    Wait And Click    //*[contains(text(),'清除')]
+    Wait And Click    //*[contains(text(),'確定')]
+    Wait And Click    //*[contains(text(),'確定')]
     Wait And Click  //p-calendar[contains(@inputid,'basic')]
     Select calendar month and day    ${agent_start_day}
     Wait And Click  //div[contains(@class,'w-100 d-flex justify-content-start searchbar pt-5 pb-2')]//p-calendar[2]

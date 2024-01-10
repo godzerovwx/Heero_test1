@@ -240,7 +240,7 @@ Test Teardown	Run Keyword If Test Failed	Capture Page Screenshot
     Wait And Click  //img[@class='img2 tab-icon ng-star-inserted']
     Verify the testcase is pass (data is not existed)    //*[contains(text(),'${update_has_review_hard_data_name}')]
 
-經辦-復原資料步驟
+經辦-復原硬體資料步驟
     Wait And Click  //span[@class='tab-icon p-button-icon pi pi-user-edit ng-star-inserted']
     Delete data    ${copy_has_review_hard_data_name}
     Send data    ${update_has_review_hard_data_name}
@@ -262,7 +262,7 @@ Test Teardown	Run Keyword If Test Failed	Capture Page Screenshot
     Wait And Click  //img[@class='img2 tab-icon ng-star-inserted']
     Verify the testcase is pass (data is not existed)    //*[contains(text(),'${update_has_review_soft_data_name}')]
 
-經辦-復原資料步驟
+經辦-復原軟體資料步驟
     Wait And Click  //span[@class='tab-icon p-button-icon pi pi-user-edit ng-star-inserted']
     Delete data    ${copy_has_review_soft_data_name}
     Send data    ${update_has_review_soft_data_name}
@@ -284,7 +284,7 @@ Test Teardown	Run Keyword If Test Failed	Capture Page Screenshot
     Wait And Click  //img[@class='img2 tab-icon ng-star-inserted']
     Verify the testcase is pass (data is not existed)    //*[contains(text(),'${update_has_review_data_data_name}')]
 
-經辦-復原資料步驟
+經辦-復原資料資料步驟
     Wait And Click  //span[@class='tab-icon p-button-icon pi pi-user-edit ng-star-inserted']
     Delete data    ${copy_has_review_data_data_name}
     Send data    ${update_has_review_data_data_name}
@@ -306,7 +306,7 @@ Test Teardown	Run Keyword If Test Failed	Capture Page Screenshot
     Wait And Click  //img[@class='img2 tab-icon ng-star-inserted']
     Verify the testcase is pass (data is not existed)    //*[contains(text(),'${update_has_review_paper_data_name}')]
 
-經辦-復原資料步驟
+經辦-復原紙本資料步驟
     Wait And Click  //span[@class='tab-icon p-button-icon pi pi-user-edit ng-star-inserted']
     Delete data    ${copy_has_review_paper_data_name}
     Send data    ${update_has_review_paper_data_name}
@@ -328,14 +328,14 @@ Test Teardown	Run Keyword If Test Failed	Capture Page Screenshot
     Wait And Click  //img[@class='img2 tab-icon ng-star-inserted']
     Verify the testcase is pass (data is not existed)    //*[contains(text(),'${update_has_review_people_data_name}')]
 
-經辦-復原資料步驟
+經辦-復原人員資料步驟
     Wait And Click  //span[@class='tab-icon p-button-icon pi pi-user-edit ng-star-inserted']
     Delete data    ${copy_has_review_people_data_name}
     Send data    ${update_has_review_people_data_name}
 
-# 經辦-資產管理-整批匯入驗證
-#     Import excel
-#     Verify the testcase is pass (data is existed)    //*[contains(text(),'${import_name}')] 
+#經辦-資產管理-整批匯入驗證
+#    Import excel
+#    Verify the testcase is pass (data is existed)    //*[contains(text(),'${import_name}')] 
 
 經辦-報表列印-資產清冊驗證
     Download excel
@@ -347,9 +347,9 @@ Test Teardown	Run Keyword If Test Failed	Capture Page Screenshot
 經辦-管理-代理人管理新增重複代理人訊息驗證
     Agent manage add again   ${agent_name_for_Attention} 
 
-#經辦-管理-代理人管理查詢驗證
-#    Agent manage search
-#    Verify the testcase is pass (data is existed)    //*[contains(text(),'${agent_add_reason}')]
+經辦-管理-代理人管理查詢驗證
+    Agent manage search
+    Verify the testcase is pass (data is existed)    //*[contains(text(),'${agent_add_reason}')]
 
 經辦-管理-代理人管理更新驗證
     Agent manage update

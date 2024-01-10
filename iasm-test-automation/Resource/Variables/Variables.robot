@@ -42,7 +42,7 @@ ${has_work_search_link}    已審核資產查詢
 ${report_printing_link}    報表列印
 ${asset_inventory_link}    資產清冊
 
-${management_link}    管理
+${management_link}    管理			
 ${asset_group_maintenance_link}    資產群組維護
 ${role_function_management_link}    角色功能管理
 ${user_rights_management_link}    使用者權限管理
@@ -94,14 +94,18 @@ ${Arrival_day}    15
 #資產管理相關參數-已審核查詢中 在xxx日期前未異動參數
 ${not_change_day}    15
 
-${department_name}    資訊架構部
-${division_name}    資訊架構發展科
+${department_name}    法令遵循部
+#${department_name}    中台發展部
+${division_name}    法令遵循一科
+#${division_name}    中台發展部
+${group_name}    H3-後勤支援應用硬體
 
 ${hard_group_name}    H3-後勤支援應用硬體
 ${soft_group_name}    S3-後勤支援應用軟體
 ${data_group_name}    F2-極機密資料/一般直接識別個人 
 ${paper_group_name}    D2-極機密紙本/一般直接識別個人 
 ${people_group_name}    P2-長期駐點資訊作業維運委外人員 
+${stop_status}    : 停用
 
 #資產管理-查看資產頁面相關參數
 ${read_data_title}    查看資產
@@ -112,6 +116,7 @@ ${history_time_name}    流程狀態時間
 
 #盤點計畫相關參數
 ${stocktaking_plan_name}    測試盤點計畫
+#${stocktaking_plan_name}    aaa
 
 ${investigate_start_year}    2023
 ${investigate_start_month}    十二月
@@ -124,7 +129,7 @@ ${review_start_month}    十二月
 ${review_start_day}    16
 ${review_end_year}    2023
 ${review_end_month}    十二月
-${review_end_day}    16
+${review_end_day}    16					   
 ${stocktaking_plan_note}    新建測試盤點計畫
 ${update_stocktaking_plan_note}    更新測試計畫
 ${stocktaking_plan_not_access_message}    尚未到審核期間，無法覆核
@@ -134,13 +139,13 @@ ${history_stocktaking_plan}    盤點部門
 ${history_stocktaking_table_name}    歷史紀錄
 ${check_history_stocktaking_plan_for_IOS}    盤點計畫已結束
 ${check_history_stocktaking_plan_for_UH}    已核准
-${uncheck_history_stocktaking_plan_for_UH}    未核准
-
+${uncheck_history_stocktaking_plan_for_UH}    未核准																  
 ${agent_error_code_2024}    儲存失敗，盤點計畫時間不能重疊，請確認
 
 #報表列印-資產清冊相關參數
-#${path_to_update_excel_file}    C:\\Users\\TPI\\Downloads\\資產清冊-20231030095231.xlsx    
-${path_to_update_excel_file}    C:\\資產清冊-20231030095231.xlsx  
+#${path_to_update_excel_file}    C:\\資產清冊-20231030095231.xlsx     #改成相對位置
+${OUTPUT_DIR}    C:\\Users\\TPI
+${path_to_update_excel_file}    test_UAT.xlsx     #改成相對位置
 ${import_name}    盤點單位-部門 
 
 #管理-資產群組維護相關參數
@@ -162,38 +167,39 @@ ${Role_function_management_name_OS_en}    測試腳色功能_科級單位_英文
 ${Role_function_management_scope_OS}    科級單位
 ${Role_function_management_update}    報表列印
 
-${Role_function_management_no_role}    彭○瑜
+${Role_function_management_no_role}    劉○澤
+
 
 #管理-常用部門組織管理相關參數
 ${Most_used_department_list}    常用清單列表
 
 #管理-代理人管理相關參數
 ${agent_remind}    近3個月代理人設定
-${agent_error_code_2084}    儲存失敗，因代理期間重疊，請確認
+${agent_error_code_2084}    儲存失敗，因代理期間重疊，請確認																		  
 ${agent_add}    新增代理人
 ${agent_add_reason}    測試新增代理人
 ${agent_update_reason}    測試修改
-${agent_name_for_Attention}    彭○瑜
-${agent_name_for_ISOAttention}    曾○樺
-${agent_name_for_Operations_Supervisor}    王○全
-${agent_name_for_Unit_Head}    黃○富
+${agent_name_for_Attention}    劉○澤
+${agent_name_for_ISOAttention}    劉○澤
+${agent_name_for_Operations_Supervisor}    李○
+${agent_name_for_Unit_Head}    周○宏
 ${agent_start_year}    2023
 ${agent_start_month}    十二月
 ${agent_start_day}    15
 ${agent_end_year}    2023
 ${agent_end_month}    十二月
-${agent_end_day}    15
+${agent_end_day}    15				  
 
 #管理-使用者權限管理相關參數
-${permission_management_Attention}    梁○全
-${permission_management_Operations_Supervisor}    王○全
-${permission_management_Unit_Head}    RP○○3
-${permission_management_number_Attention}    00595173
-${permission_management_number_Operations_Supervisor}    00515494
-${permission_management_number_Unit_Head}    00549100
-${permission_management_number_ISOAttention}    00590983
-${permission_management_department_name}    資訊架構部
-${permission_management_division_name}    資訊架構發展科
+${permission_management_Attention}    劉○澤
+${permission_management_Operations_Supervisor}    李○
+${permission_management_Unit_Head}    陳○喧
+${permission_management_number_Attention}    00589597	
+${permission_management_number_Operations_Supervisor}    00544621
+${permission_management_number_Unit_Head}    00512885
+${permission_management_number_ISOAttention}    00589597												 
+${permission_management_department_name}    法令遵循部
+${permission_management_division_name}    法令遵循一科
 ${permission_management_error_code_same_role}    角色請勿重複新增
 
 #管理-共用選單管理相關參數

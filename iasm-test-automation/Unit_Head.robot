@@ -100,9 +100,9 @@ Test Teardown	Run Keyword If Test Failed	Capture Page Screenshot
 單位主管-管理-代理人管理新增重複代理人驗證
     Agent manage add again   ${agent_name_for_Unit_Head}
 
-#單位主管-管理-代理人管理查詢驗證
-#    Agent manage search
-#    Verify the testcase is pass (data is existed)    //*[text()='${agent_add_reason}']
+單位主管-管理-代理人管理查詢驗證
+    Agent manage search
+    Verify the testcase is pass (data is existed)    //*[text()='${agent_add_reason}']
 
 單位主管-管理-代理人管理更新驗證
     Agent manage update

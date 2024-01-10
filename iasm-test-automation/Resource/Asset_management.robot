@@ -195,9 +195,11 @@ Create people data
 Import excel
     Wait And Click  //i[@class='pi pi-copy']
     Wait And Click  //a[@href='/assetsManager/import']
-    Wait And Click    //span[contains(text(),'點擊')]   
-    Upload file
-    Wait And Click  //button[@class='p-element p-button functional-button p-component']  
+    #Wait And Click    //span[contains(text(),'點擊')]   
+    Sleep  2s
+    Choose File     //input[@type='file']    ${OUTPUT_DIR}\\${path_to_update_excel_file}
+    #Upload file
+    Wait And Click  //button[@class='p-element p-button functional-button p-component']   
     Sleep    5s
     
 Search has review data

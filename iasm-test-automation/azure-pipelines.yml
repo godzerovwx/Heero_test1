@@ -9,12 +9,12 @@ trigger:
 pool:
   gcp-iasm-lab
 
-
 stages:
-  - stage:Test1
+  - stage: Attention_data
     jobs:
-      - job: Testing1
+      - job: Attention_data
         timeoutInMinutes: 120
+        continueOnError: true
         steps:
         - script: |
             echo Add other tasks to build, test, and deploy your project.
@@ -31,7 +31,7 @@ stages:
         - task: PublishTestResults@2
           inputs:
             testResultsFiles: 'outputxunit.xml'
-            testRunTitle: My test
+            testRunTitle: Attention_data test
           condition: succeededOrFailed()
           displayName: 'Publish Test Results outputxunit.xml'
         - task: CmdLine@2
@@ -45,18 +45,24 @@ stages:
         - task: PublishBuildArtifacts@1
           inputs:
             PathtoPublish: '$(System.DefaultWorkingDirectory)/log'
-            ArtifactName: 'log1'
+            ArtifactName: 'Attention_data_log'
           condition: succeededOrFailed()
           displayName: upload log
-  - stage:Test2
+
+  - stage: Operations_Supervisor_data
     jobs:
-      - job: Testing2
+      - job: Operations_Supervisor_data
         timeoutInMinutes: 120
+        continueOnError: true
         steps:
         - script: |
             echo Add other tasks to build, test, and deploy your project.
             echo See https://aka.ms/yaml
           displayName: 'Run a multi-line script'
+        - script: |
+            python -m pip install --upgrade pip
+            pip install -r requirements.txt
+          displayName: 'Install dependencies'
         - script: |
             robot -x outputxunit.xml ./Operations_Supervisor_data.robot
           displayName: 'Run Robot'
@@ -64,7 +70,7 @@ stages:
         - task: PublishTestResults@2
           inputs:
             testResultsFiles: 'outputxunit.xml'
-            testRunTitle: My test
+            testRunTitle: Operations_Supervisor_data test
           condition: succeededOrFailed()
           displayName: 'Publish Test Results outputxunit.xml'
         - task: CmdLine@2
@@ -78,13 +84,14 @@ stages:
         - task: PublishBuildArtifacts@1
           inputs:
             PathtoPublish: '$(System.DefaultWorkingDirectory)/log'
-            ArtifactName: 'log2'
+            ArtifactName: 'Operations_Supervisor_data_log'
           condition: succeededOrFailed()
           displayName: upload log
-  - stage:Test3
+  - stage: ISOAttention_data
     jobs:
-      - job: Testing3
+      - job: ISOAttention_data
         timeoutInMinutes: 120
+        continueOnError: true
         steps:
         - script: |
             echo Add other tasks to build, test, and deploy your project.
@@ -97,7 +104,7 @@ stages:
         - task: PublishTestResults@2
           inputs:
             testResultsFiles: 'outputxunit.xml'
-            testRunTitle: My test
+            testRunTitle: ISOAttention_data test
           condition: succeededOrFailed()
           displayName: 'Publish Test Results outputxunit.xml'
         - task: CmdLine@2
@@ -111,13 +118,14 @@ stages:
         - task: PublishBuildArtifacts@1
           inputs:
             PathtoPublish: '$(System.DefaultWorkingDirectory)/log'
-            ArtifactName: 'log3'
+            ArtifactName: 'ISOAttention_data_log'
           condition: succeededOrFailed()
           displayName: upload log
-  - stage:Test4
+  - stage: Unit_Head
     jobs:
-      - job: Testing4
+      - job: Unit_Head
         timeoutInMinutes: 120
+        continueOnError: true
         steps:
         - script: |
             echo Add other tasks to build, test, and deploy your project.
@@ -130,7 +138,7 @@ stages:
         - task: PublishTestResults@2
           inputs:
             testResultsFiles: 'outputxunit.xml'
-            testRunTitle: My test
+            testRunTitle: Unit_Head test
           condition: succeededOrFailed()
           displayName: 'Publish Test Results outputxunit.xml'
         - task: CmdLine@2
@@ -144,13 +152,14 @@ stages:
         - task: PublishBuildArtifacts@1
           inputs:
             PathtoPublish: '$(System.DefaultWorkingDirectory)/log'
-            ArtifactName: 'log4'
+            ArtifactName: 'Unit_Head_log'
           condition: succeededOrFailed()
           displayName: upload log
-  - stage:Test5
+  - stage: System_Admin
     jobs:
-      - job: Testing5
+      - job: System_Admin
         timeoutInMinutes: 120
+        continueOnError: true
         steps:
         - script: |
             echo Add other tasks to build, test, and deploy your project.
@@ -163,7 +172,7 @@ stages:
         - task: PublishTestResults@2
           inputs:
             testResultsFiles: 'outputxunit.xml'
-            testRunTitle: My test
+            testRunTitle: System_Admin test
           condition: succeededOrFailed()
           displayName: 'Publish Test Results outputxunit.xml'
         - task: CmdLine@2
@@ -177,7 +186,7 @@ stages:
         - task: PublishBuildArtifacts@1
           inputs:
             PathtoPublish: '$(System.DefaultWorkingDirectory)/log'
-            ArtifactName: 'log5'
+            ArtifactName: 'System_Admin_log'
           condition: succeededOrFailed()
           displayName: upload log
 
