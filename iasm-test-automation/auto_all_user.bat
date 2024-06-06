@@ -1,1 +1,1 @@
-robot Attention_data.robot Operations_Supervisor_data.robot ISOAttention_data.robot Unit_Head.robot System_Admin.robot
+robot Attention_data.robot Operations_Supervisor_data.robot ISOAttention_data.robot Unit_Head.robot System_Admin.robot Cloud_Attention.robot Cloud_Operations_Supervisor.robot Cloud_Unit_Head.robot

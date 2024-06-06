@@ -9,8 +9,16 @@ Test Teardown	Run Keyword If Test Failed	Capture Page Screenshot
 
 *** Test Cases ***
 #*** Comments ***
-單位主管-盤點計畫-點擊盤點計畫驗證-準備資料工作
+單位主管-資產管理-工作區資產查詢-全部資產-查看驗證-準備資料工作
+    Login Attention
+    Create hard data    ${hard_data_name}  ${department_name}  ${division_name}  ${department_name}  ${division_name}
+    Create soft data    ${soft_data_name}  ${department_name}  ${division_name}  ${department_name}  ${division_name}
+    Create data data    ${data_data_name}  ${department_name}  ${division_name}  ${department_name}  ${division_name}
+    Create paper data    ${paper_data_name}  ${department_name}  ${division_name}  ${department_name}  ${division_name}
+    Create people data    ${people_data_name}  ${department_name}  ${division_name}  ${department_name}  ${division_name}
     Close Browser
+
+單位主管-盤點計畫-點擊盤點計畫驗證-準備資料工作
     Open Browser Chrome and use user
     Login ISOAttention
     Create stocktaking plan    ${stocktaking_plan_name}
@@ -29,7 +37,7 @@ Test Teardown	Run Keyword If Test Failed	Capture Page Screenshot
     Sleep    500ms
     Delete stocktaking plan    ${stocktaking_plan_name}
     Close Browser
-*** Test Cases ***
+
 單位主管-盤點計畫-歷史計畫驗證
     Open Browser Chrome and use user
     Login Unit Head
@@ -42,12 +50,16 @@ Test Teardown	Run Keyword If Test Failed	Capture Page Screenshot
 單位主管-資產管理-工作區資產查詢-全部資產-查看驗證
     Search data    ${hard_data_name}
     Asset data dropdown list Read Verify    ${hard_data_name}
+    Reload Page
     Search data    ${soft_data_name}
     Asset data dropdown list Read Verify    ${soft_data_name}
+    Reload Page
     Search data    ${data_data_name}
     Asset data dropdown list Read Verify    ${data_data_name}
+    Reload Page
     Search data    ${paper_data_name}
     Asset data dropdown list Read Verify    ${paper_data_name}
+    Reload Page
     Search data    ${people_data_name}
     Asset data dropdown list Read Verify    ${people_data_name}
 
@@ -55,14 +67,19 @@ Test Teardown	Run Keyword If Test Failed	Capture Page Screenshot
     Reload Page
     Search has review data    ${has_review_hard_data_name}
     Asset data dropdown list Read Verify    ${has_review_hard_data_name}
+    Reload Page
     Search has review data    ${has_review_soft_data_name}
     Asset data dropdown list Read Verify    ${has_review_soft_data_name}
+    Reload Page
     Search has review data    ${has_review_data_data_name}
     Asset data dropdown list Read Verify    ${has_review_data_data_name}
+    Reload Page
     Search has review data    ${has_review_paper_data_name}
     Asset data dropdown list Read Verify    ${has_review_paper_data_name}
+    Reload Page
     Search has review data    ${has_review_people_data_name}
     Asset data dropdown list Read Verify    ${has_review_people_data_name}
+    Reload Page
 
 單位主管-報表列印-資產清冊驗證
     Download excel
@@ -75,8 +92,8 @@ Test Teardown	Run Keyword If Test Failed	Capture Page Screenshot
 
 單位主管-管理-使用者權限管理新增驗證
     Wait And Click  //button[@icon='pi pi-file-edit']
-    User permission management add - dep div    ${Operations_Supervisor}
-    User permission management add - dep div again    ${Operations_Supervisor}
+    User permission management add - dep div    ${Operations_Supervisor}    ${permission_management_department_name}  ${permission_management_division_name}
+    User permission management add - dep div    ${Operations_Supervisor}    ${permission_management_department_name}  ${permission_management_division_name}
     Verify the testcase is pass (data is existed)    //*[contains(text(),'${permission_management_error_code_same_role}')]
     Wait And Click    //*[contains(text(),'${ok}')]
     User permission management save
@@ -116,6 +133,15 @@ Test Teardown	Run Keyword If Test Failed	Capture Page Screenshot
     Reload Page
     Notify 
     
+單位主管-資產管理-工作區資產查詢-全部資產-查看驗證-刪除資料工作
+    Close Browser
+    Open Browser Chrome and use user
+    Login Attention
+    Delete data    ${hard_data_name}
+    Delete data    ${soft_data_name}
+    Delete data    ${data_data_name}
+    Delete data    ${paper_data_name}
+    Delete data    ${people_data_name}
 *** Keywords ***
 
 *** Comments ***

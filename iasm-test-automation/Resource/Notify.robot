@@ -20,11 +20,11 @@ Select user for notify
     ...    ELSE    Verify the testcase is pass (data is existed)    //*[contains(text(),'${start_string}')]         
 
 Notify for Attention action
-    Wait And Click  //h5[contains(text(),'已啟動')]
+    Wait And Click  //h5[contains(text(),'${start_string}')]
     Verify the testcase is pass (data is existed)    //*[text()='${home_table_string_edit_return}'] 
 
 Notify for Operations Supervisor action
-    Wait And Click  //h5[text()='您有待審核資產']
+    Wait And Click  //h5[text()='${have_assets_review}']
     Verify the testcase is pass (data is existed)    //*[text()='${home_table_string_send}'] 
 
 *** Comments ***

@@ -1,6 +1,7 @@
 *** Settings ***
 Library  Selenium2Library    run_on_failure=Nothing
 Library    OperatingSystem
+#Library    Resource/my_custom_library.py
 
 Resource    Action.robot
 Resource    Variables/Variables.robot
@@ -12,4 +13,3 @@ Resource    Download_excel.robot
 Resource    Management.robot
 Resource    Notify.robot
 Resource    Data_dropdown_list.robot
-Library  Selenium2Library

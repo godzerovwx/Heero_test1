@@ -9,60 +9,86 @@ Resource    Login.robot
 *** Variables ***
 
 *** Keywords ***
-prereq to has review data
-    Create hard data    ${has_review_hard_data_name}
-    Create soft data    ${has_review_soft_data_name}
-    Create data data    ${has_review_data_data_name}
-    Create paper data    ${has_review_paper_data_name}
-    Create people data    ${has_review_people_data_name}
+prereq to has review hard data
+    Create hard data    ${has_review_hard_data_name}  ${department_name}  ${division_name}  ${department_name}  ${division_name}
     Send data    ${has_review_hard_data_name}
-    Wait And Click  //*[text()='編輯中/退回件']
-    Send data    ${has_review_soft_data_name}
-    Wait And Click  //*[text()='編輯中/退回件']
-    Send data    ${has_review_data_data_name}
-    Wait And Click  //*[text()='編輯中/退回件']
-    Send data    ${has_review_paper_data_name}
-    Wait And Click  //*[text()='編輯中/退回件']
-    Send data    ${has_review_people_data_name}
-    Wait And Click  //*[text()='編輯中/退回件']
+    Wait And Click  //*[text()='${home_table_string_edit_return}']
     Close Browser
     Open Browser Chrome and use user
     Login Operations Supervisor
     Review data    ${has_review_hard_data_name}
+    Close Browser
+    Open Browser Chrome and use user
+    Login Attention
+
+prereq to has review soft data
+    Create soft data    ${has_review_soft_data_name}  ${department_name}  ${division_name}  ${department_name}  ${division_name}
+    Send data    ${has_review_soft_data_name}
+    Wait And Click  //*[text()='${home_table_string_edit_return}']
+    Close Browser
+    Open Browser Chrome and use user
+    Login Operations Supervisor
     Review data    ${has_review_soft_data_name}
+    Close Browser
+    Open Browser Chrome and use user
+    Login Attention
+
+prereq to has review data data
+    Create data data    ${has_review_data_data_name}  ${department_name}  ${division_name}  ${department_name}  ${division_name}
+    Send data    ${has_review_data_data_name}
+    Wait And Click  //*[text()='${home_table_string_edit_return}']
+    Close Browser
+    Open Browser Chrome and use user
+    Login Operations Supervisor
     Review data    ${has_review_data_data_name}
+    Close Browser
+    Open Browser Chrome and use user
+    Login Attention
+
+prereq to has review paper data
+    Create paper data    ${has_review_paper_data_name}  ${department_name}  ${division_name}  ${department_name}  ${division_name}
+    Send data    ${has_review_paper_data_name}
+    Wait And Click  //*[text()='${home_table_string_edit_return}']
+    Close Browser
+    Open Browser Chrome and use user
+    Login Operations Supervisor
     Review data    ${has_review_paper_data_name}
+    Close Browser
+    Open Browser Chrome and use user
+    Login Attention
+
+prereq to has review people data
+    Create people data    ${has_review_people_data_name}  ${department_name}  ${division_name}  ${department_name}  ${division_name}
+    Send data    ${has_review_people_data_name}
+    Wait And Click  //*[text()='${home_table_string_edit_return}']
+    Close Browser
+    Open Browser Chrome and use user
+    Login Operations Supervisor
     Review data    ${has_review_people_data_name}
     Close Browser
     Open Browser Chrome and use user
     Login Attention
+
 Wait And Input
-  [Arguments]  ${locator}  ${text}
-  Wait Until Element Is Visible   ${locator}   timeout=5s
-  Wait Until Element Is Enabled   ${locator}    timeout=5s
-  Wait Until Page Contains Element   ${locator}    timeout=5s
-  Sleep    500ms
-  Input Text  ${locator}  ${text}
-  
+    [Arguments]  ${locator}  ${text}
+    Wait Until Element Is Visible   ${locator}   timeout=30s
+    Wait Until Element Is Enabled   ${locator}    timeout=30s
+    Wait Until Page Contains Element   ${locator}    timeout=30s
+    Sleep    500ms
+    Input Text  ${locator}  ${text}
+
 Wait And Click
-  [Arguments]  ${locator}
-  Wait Until Element Is Visible   ${locator}     timeout=5s
-  Wait Until Element Is Enabled   ${locator}    timeout=5s   
-  Wait Until Page Contains Element   ${locator}    timeout=5s
-  Sleep    500ms
-  Click Element  ${locator}
+    [Arguments]  ${locator}
+    Wait Until Element Is Visible   ${locator}     timeout=30s
+    Wait Until Element Is Enabled   ${locator}    timeout=30s   
+    Wait Until Page Contains Element   ${locator}    timeout=30s
+    Sleep    500ms
+    Click Element  ${locator}
 
 Select calendar month and day
     [Arguments]  ${locator_day}
     Wait And Click    //div[contains(@class,'p-datepicker-header')]/button[2]
     Wait And Click    //span[not(contains(@class,'p-disabled')) and contains(text(),'${locator_day}')]
-
-#Upload file
-#  SLEEP  1s
-#  Control Send     開啟    ${EMPTY}    [CLASS:Edit; INSTANCE:1]   ${path_to_update_excel_file}
-#  SLEEP  1s
-#  Control Click    開啟    ${EMPTY}    Button1
-#  SLEEP  1s
 
 #找父節點Xpath
 Get Ancestor XPath
