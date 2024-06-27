@@ -20,9 +20,6 @@ Suite Teardown    Close Browser
     #Close Browser
     #Open Browser Chrome and use user
 
-#測試-登入
-#    Login System Admin
-
 地端角色登入確認
     Login Attention
     Close Browser
@@ -39,6 +36,16 @@ Suite Teardown    Close Browser
     Login System Admin
     Close Browser
 
+測試-登入
+    Open Browser Chrome and use user
+    Login Attention
+經辦-首頁-雲端新資產下載
+    ${cloud_new_data_status} =    Run Keyword And Return Status    Wait Until Element Is Visible    //div[@class="action-button-export"]
+    Run Keyword If   '${cloud_new_data_status}' == '${true}'  Run Keywords  Wait And Click    //div[@class="action-button-export"]  AND  Sleep    5s  AND  Verify the testcase is pass (data is existed)    //div[@class="action-button-export"]/div[text()='${cloud_data_string}']
+    ...    ELSE    Verify the testcase is pass (data is not existed)    //div[@class="action-button-export"]/div[text()='${cloud_data_string}'] 
+
+    
+*** Comments ***
 經辦-資產管理-已審核頁面-全部資產-查看驗證-準備資料工作
     Open Browser Chrome and use user
     Login Attention

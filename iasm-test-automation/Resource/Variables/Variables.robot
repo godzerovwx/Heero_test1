@@ -55,6 +55,7 @@ ${assign}    指派
 ${not_assign}    不指派
 ${not_assign_yet}    尚未指派
 ${send_success}    送審完成
+${cloud_data_string}    雲端新資產
 
 
 #展開清單參數

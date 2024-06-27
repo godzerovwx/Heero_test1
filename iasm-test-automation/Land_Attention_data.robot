@@ -48,6 +48,11 @@ Suite Teardown    Close Browser
     ${has_review_people_data_status} =    Run Keyword And Return Status    Wait Until Element Is Visible    //*[contains(text(),'${has_review_people_data_name}')]
     Run Keyword If  '${has_review_people_data_status}' != '${true}'    prereq to has review people data
 
+經辦-首頁-雲端新資產下載按鈕驗證
+    ${cloud_new_data_status} =    Run Keyword And Return Status    Wait Until Element Is Visible    //div[@class="action-button-export"]
+    Run Keyword If   '${cloud_new_data_status}' == '${true}'  Run Keywords  Wait And Click    //div[@class="action-button-export"]  AND  Sleep    5s  AND  Verify the testcase is pass (data is existed)    //div[@class="action-button-export"]/div[text()='${cloud_data_string}']
+    ...    ELSE    Verify the testcase is pass (data is not existed)    //div[@class="action-button-export"]/div[text()='${cloud_data_string}'] 
+
 經辦-首頁-工作區資產查詢按鈕驗證
     Wait And Click  //button[contains(@class,'p-element p-button action-button p-component')]
     Verify the testcase is pass (data is existed)    //*[contains(text(),'${work_search_button}')]
