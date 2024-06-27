@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1 (Python 3.11.5 on win32)" generated="20240605 17:47:02.592" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1 (Python 3.11.5 on win32)" generated="20240627 15:21:57.012" rpa="false" schemaversion="4">
 <suite id="s1" name="Test Code" source="C:\資產管理平台\auto\testcase\iasm-test-automation\test_code.robot">
 <kw name="Open Browser Chrome and use user" library="Login" type="SETUP">
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${prefs}</var>
 <arg>download.default_directory=${OUTPUT_DIR}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20240605 17:47:02.861" level="INFO">${prefs} = {'download.default_directory': 'C:\\Users\\TPI'}</msg>
-<status status="PASS" starttime="20240605 17:47:02.861" endtime="20240605 17:47:02.861"/>
+<msg timestamp="20240627 15:21:57.295" level="INFO">${prefs} = {'download.default_directory': 'C:\\Users\\TPI'}</msg>
+<status status="PASS" starttime="20240627 15:21:57.294" endtime="20240627 15:21:57.295"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${chrome_options}</var>
 <arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
 <arg>sys, selenium.webdriver</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240605 17:47:02.861" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000020D1DB79F10&gt;</msg>
-<status status="PASS" starttime="20240605 17:47:02.861" endtime="20240605 17:47:02.861"/>
+<msg timestamp="20240627 15:21:57.295" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000015DEE2AA590&gt;</msg>
+<status status="PASS" starttime="20240627 15:21:57.295" endtime="20240627 15:21:57.295"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${chrome_options}</arg>
@@ -23,1181 +23,678 @@
 <arg>prefs</arg>
 <arg>${prefs}</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20240605 17:47:02.861" endtime="20240605 17:47:02.861"/>
+<status status="PASS" starttime="20240627 15:21:57.295" endtime="20240627 15:21:57.295"/>
 </kw>
 <kw name="Open Browser" library="Selenium2Library">
 <arg>${URL}</arg>
-<arg>chrome</arg>
+<arg>headlesschrome</arg>
 <arg>options=${chrome_options}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20240605 17:47:02.861" level="INFO">Opening browser 'chrome' to base url 'https://iasm-lab.net/change-role'.</msg>
-<status status="PASS" starttime="20240605 17:47:02.861" endtime="20240605 17:47:04.547"/>
+<msg timestamp="20240627 15:21:57.296" level="INFO">Opening browser 'headlesschrome' to base url 'https://iasm-lab.net/change-role'.</msg>
+<status status="PASS" starttime="20240627 15:21:57.295" endtime="20240627 15:22:01.198"/>
 </kw>
-<kw name="Maximize Browser Window" library="Selenium2Library">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20240605 17:47:04.547" endtime="20240605 17:47:04.569"/>
+<kw name="Set Window Size" library="Selenium2Library">
+<arg>1920</arg>
+<arg>1080</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20240627 15:22:01.198" endtime="20240627 15:22:01.219"/>
 </kw>
-<status status="PASS" starttime="20240605 17:47:02.861" endtime="20240605 17:47:04.569"/>
+<status status="PASS" starttime="20240627 15:21:57.294" endtime="20240627 15:22:01.219"/>
 </kw>
-<test id="s1-t1" name="雲端經辦-資產管理-雲端資產分派-登入" line="22">
-<kw name="Login Cloud Attention" library="Login">
+<test id="s1-t1" name="地端角色登入確認" line="26">
+<kw name="Login Attention" library="Login">
 <kw name="Wait And Click" library="Action">
-<arg>//button[contains(@label,'${Cloud_Attention}')]</arg>
+<arg>//button[contains(@label,'${Attention}')]</arg>
 <kw name="Wait Until Element Is Visible" library="Selenium2Library">
 <arg>${locator}</arg>
 <arg>timeout=30s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:47:04.569" endtime="20240605 17:47:04.602"/>
+<status status="PASS" starttime="20240627 15:22:01.221" endtime="20240627 15:22:01.249"/>
 </kw>
 <kw name="Wait Until Element Is Enabled" library="Selenium2Library">
 <arg>${locator}</arg>
 <arg>timeout=30s</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20240605 17:47:04.602" endtime="20240605 17:47:04.648"/>
+<status status="PASS" starttime="20240627 15:22:01.249" endtime="20240627 15:22:01.279"/>
 </kw>
 <kw name="Wait Until Page Contains Element" library="Selenium2Library">
 <arg>${locator}</arg>
 <arg>timeout=30s</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20240605 17:47:04.648" endtime="20240605 17:47:04.648"/>
+<status status="PASS" starttime="20240627 15:22:01.279" endtime="20240627 15:22:01.290"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>500ms</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:47:05.148" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:47:04.648" endtime="20240605 17:47:05.148"/>
+<msg timestamp="20240627 15:22:01.791" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:01.290" endtime="20240627 15:22:01.791"/>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
 <arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20240605 17:47:05.148" level="INFO">Clicking element '//button[contains(@label,'雲端經辦')]'.</msg>
-<status status="PASS" starttime="20240605 17:47:05.148" endtime="20240605 17:47:05.204"/>
-</kw>
-<status status="PASS" starttime="20240605 17:47:04.569" endtime="20240605 17:47:05.205"/>
-</kw>
-<kw name="Wait Until Element Is Not Visible" library="Selenium2Library">
-<arg>//*[contains(text(),'loading')]</arg>
-<arg>timeout=90</arg>
-<doc>Waits until the element ``locator`` is not visible.</doc>
-<status status="PASS" starttime="20240605 17:47:05.205" endtime="20240605 17:47:05.213"/>
+<msg timestamp="20240627 15:22:01.792" level="INFO">Clicking element '//button[contains(@label,'經辦')]'.</msg>
+<status status="PASS" starttime="20240627 15:22:01.791" endtime="20240627 15:22:01.839"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>500ms</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:47:05.713" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:47:05.213" endtime="20240605 17:47:05.713"/>
+<msg timestamp="20240627 15:22:02.339" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:01.839" endtime="20240627 15:22:02.339"/>
 </kw>
-<status status="PASS" starttime="20240605 17:47:04.569" endtime="20240605 17:47:05.713"/>
+<status status="PASS" starttime="20240627 15:22:01.220" endtime="20240627 15:22:02.339"/>
+</kw>
+<kw name="Check_panel_is_ready" library="Login">
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>1</value>
+<value>10</value>
+<iter>
+<var name="${i}">1</var>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${loading_status}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>//svg[@class="p-progress-spinner-svg"]</arg>
+<arg>timeout=3</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>//svg[@class="p-progress-spinner-svg"]</arg>
+<arg>timeout=3</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20240627 15:22:05.526" level="FAIL">Element '//svg[@class="p-progress-spinner-svg"]' not visible after 3 seconds.</msg>
+<status status="FAIL" starttime="20240627 15:22:02.340" endtime="20240627 15:22:05.529"/>
+</kw>
+<msg timestamp="20240627 15:22:05.529" level="INFO">${loading_status} = False</msg>
+<status status="PASS" starttime="20240627 15:22:02.340" endtime="20240627 15:22:05.529"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${loading_status}' == '${true}'</arg>
+<arg>Reload Page</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20240627 15:22:05.530" endtime="20240627 15:22:05.530"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${loading_status}' == '${false}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<msg timestamp="20240627 15:22:05.531" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20240627 15:22:05.530" endtime="20240627 15:22:05.531"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:02.340" endtime="20240627 15:22:05.531"/>
+</iter>
+<status status="PASS" starttime="20240627 15:22:02.339" endtime="20240627 15:22:05.531"/>
+</for>
+<status status="PASS" starttime="20240627 15:22:02.339" endtime="20240627 15:22:05.531"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:06.032" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:05.531" endtime="20240627 15:22:06.032"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:01.220" endtime="20240627 15:22:06.032"/>
+</kw>
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20240627 15:22:06.033" endtime="20240627 15:22:08.109"/>
+</kw>
+<kw name="Open Browser Chrome and use user" library="Login">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${prefs}</var>
+<arg>download.default_directory=${OUTPUT_DIR}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20240627 15:22:08.110" level="INFO">${prefs} = {'download.default_directory': 'C:\\Users\\TPI'}</msg>
+<status status="PASS" starttime="20240627 15:22:08.110" endtime="20240627 15:22:08.110"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${chrome_options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240627 15:22:08.110" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000015DEE345FD0&gt;</msg>
+<status status="PASS" starttime="20240627 15:22:08.110" endtime="20240627 15:22:08.110"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_experimental_option</arg>
+<arg>prefs</arg>
+<arg>${prefs}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20240627 15:22:08.111" endtime="20240627 15:22:08.111"/>
+</kw>
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${URL}</arg>
+<arg>headlesschrome</arg>
+<arg>options=${chrome_options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20240627 15:22:08.111" level="INFO">Opening browser 'headlesschrome' to base url 'https://iasm-lab.net/change-role'.</msg>
+<status status="PASS" starttime="20240627 15:22:08.111" endtime="20240627 15:22:09.609"/>
+</kw>
+<kw name="Set Window Size" library="Selenium2Library">
+<arg>1920</arg>
+<arg>1080</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20240627 15:22:09.609" endtime="20240627 15:22:09.631"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:08.110" endtime="20240627 15:22:09.631"/>
+</kw>
+<kw name="Login Operations Supervisor" library="Login">
+<kw name="Wait And Click" library="Action">
+<arg>//button[contains(@label,'${Operations_Supervisor}')]</arg>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:22:09.632" endtime="20240627 15:22:09.653"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20240627 15:22:09.653" endtime="20240627 15:22:09.673"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240627 15:22:09.674" endtime="20240627 15:22:09.679"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:10.181" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:09.680" endtime="20240627 15:22:10.181"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240627 15:22:10.182" level="INFO">Clicking element '//button[contains(@label,'科級主管')]'.</msg>
+<status status="PASS" starttime="20240627 15:22:10.181" endtime="20240627 15:22:10.225"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:10.727" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:10.225" endtime="20240627 15:22:10.727"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:09.632" endtime="20240627 15:22:10.727"/>
+</kw>
+<kw name="Check_panel_is_ready" library="Login">
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>1</value>
+<value>10</value>
+<iter>
+<var name="${i}">1</var>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${loading_status}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>//svg[@class="p-progress-spinner-svg"]</arg>
+<arg>timeout=3</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>//svg[@class="p-progress-spinner-svg"]</arg>
+<arg>timeout=3</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20240627 15:22:13.922" level="FAIL">Element '//svg[@class="p-progress-spinner-svg"]' not visible after 3 seconds.</msg>
+<status status="FAIL" starttime="20240627 15:22:10.729" endtime="20240627 15:22:13.922"/>
+</kw>
+<msg timestamp="20240627 15:22:13.922" level="INFO">${loading_status} = False</msg>
+<status status="PASS" starttime="20240627 15:22:10.729" endtime="20240627 15:22:13.922"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${loading_status}' == '${true}'</arg>
+<arg>Reload Page</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20240627 15:22:13.923" endtime="20240627 15:22:13.923"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${loading_status}' == '${false}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<msg timestamp="20240627 15:22:13.923" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20240627 15:22:13.923" endtime="20240627 15:22:13.923"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:10.728" endtime="20240627 15:22:13.923"/>
+</iter>
+<status status="PASS" starttime="20240627 15:22:10.728" endtime="20240627 15:22:13.923"/>
+</for>
+<status status="PASS" starttime="20240627 15:22:10.727" endtime="20240627 15:22:13.923"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:14.423" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:13.923" endtime="20240627 15:22:14.423"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:09.632" endtime="20240627 15:22:14.423"/>
+</kw>
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20240627 15:22:14.424" endtime="20240627 15:22:16.499"/>
+</kw>
+<kw name="Open Browser Chrome and use user" library="Login">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${prefs}</var>
+<arg>download.default_directory=${OUTPUT_DIR}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20240627 15:22:16.500" level="INFO">${prefs} = {'download.default_directory': 'C:\\Users\\TPI'}</msg>
+<status status="PASS" starttime="20240627 15:22:16.499" endtime="20240627 15:22:16.500"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${chrome_options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240627 15:22:16.500" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000015DEE348110&gt;</msg>
+<status status="PASS" starttime="20240627 15:22:16.500" endtime="20240627 15:22:16.500"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_experimental_option</arg>
+<arg>prefs</arg>
+<arg>${prefs}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20240627 15:22:16.500" endtime="20240627 15:22:16.500"/>
+</kw>
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${URL}</arg>
+<arg>headlesschrome</arg>
+<arg>options=${chrome_options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20240627 15:22:16.501" level="INFO">Opening browser 'headlesschrome' to base url 'https://iasm-lab.net/change-role'.</msg>
+<status status="PASS" starttime="20240627 15:22:16.500" endtime="20240627 15:22:17.987"/>
+</kw>
+<kw name="Set Window Size" library="Selenium2Library">
+<arg>1920</arg>
+<arg>1080</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20240627 15:22:17.987" endtime="20240627 15:22:18.008"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:16.499" endtime="20240627 15:22:18.008"/>
+</kw>
+<kw name="Login ISOAttention" library="Login">
+<kw name="Wait And Click" library="Action">
+<arg>//button[contains(@label,'${ISOAttention}')]</arg>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:22:18.009" endtime="20240627 15:22:18.031"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20240627 15:22:18.032" endtime="20240627 15:22:18.065"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240627 15:22:18.065" endtime="20240627 15:22:18.071"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:18.572" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:18.071" endtime="20240627 15:22:18.572"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240627 15:22:18.572" level="INFO">Clicking element '//button[contains(@label,'ISO經辦')]'.</msg>
+<status status="PASS" starttime="20240627 15:22:18.572" endtime="20240627 15:22:18.609"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:19.112" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:18.609" endtime="20240627 15:22:19.112"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:18.009" endtime="20240627 15:22:19.112"/>
+</kw>
+<kw name="Check_panel_is_ready" library="Login">
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>1</value>
+<value>10</value>
+<iter>
+<var name="${i}">1</var>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${loading_status}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>//svg[@class="p-progress-spinner-svg"]</arg>
+<arg>timeout=3</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>//svg[@class="p-progress-spinner-svg"]</arg>
+<arg>timeout=3</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20240627 15:22:22.287" level="FAIL">Element '//svg[@class="p-progress-spinner-svg"]' not visible after 3 seconds.</msg>
+<status status="FAIL" starttime="20240627 15:22:19.113" endtime="20240627 15:22:22.288"/>
+</kw>
+<msg timestamp="20240627 15:22:22.288" level="INFO">${loading_status} = False</msg>
+<status status="PASS" starttime="20240627 15:22:19.113" endtime="20240627 15:22:22.288"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${loading_status}' == '${true}'</arg>
+<arg>Reload Page</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20240627 15:22:22.288" endtime="20240627 15:22:22.288"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${loading_status}' == '${false}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<msg timestamp="20240627 15:22:22.289" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20240627 15:22:22.289" endtime="20240627 15:22:22.289"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:19.112" endtime="20240627 15:22:22.289"/>
+</iter>
+<status status="PASS" starttime="20240627 15:22:19.112" endtime="20240627 15:22:22.289"/>
+</for>
+<status status="PASS" starttime="20240627 15:22:19.112" endtime="20240627 15:22:22.289"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:22.791" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:22.290" endtime="20240627 15:22:22.791"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:18.009" endtime="20240627 15:22:22.791"/>
+</kw>
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20240627 15:22:22.792" endtime="20240627 15:22:24.854"/>
+</kw>
+<kw name="Open Browser Chrome and use user" library="Login">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${prefs}</var>
+<arg>download.default_directory=${OUTPUT_DIR}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20240627 15:22:24.856" level="INFO">${prefs} = {'download.default_directory': 'C:\\Users\\TPI'}</msg>
+<status status="PASS" starttime="20240627 15:22:24.856" endtime="20240627 15:22:24.857"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${chrome_options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240627 15:22:24.858" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000015DEA9005D0&gt;</msg>
+<status status="PASS" starttime="20240627 15:22:24.857" endtime="20240627 15:22:24.858"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_experimental_option</arg>
+<arg>prefs</arg>
+<arg>${prefs}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20240627 15:22:24.858" endtime="20240627 15:22:24.858"/>
+</kw>
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${URL}</arg>
+<arg>headlesschrome</arg>
+<arg>options=${chrome_options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20240627 15:22:24.859" level="INFO">Opening browser 'headlesschrome' to base url 'https://iasm-lab.net/change-role'.</msg>
+<status status="PASS" starttime="20240627 15:22:24.858" endtime="20240627 15:22:26.408"/>
+</kw>
+<kw name="Set Window Size" library="Selenium2Library">
+<arg>1920</arg>
+<arg>1080</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20240627 15:22:26.408" endtime="20240627 15:22:26.439"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:24.855" endtime="20240627 15:22:26.439"/>
+</kw>
+<kw name="Login Unit Head" library="Login">
+<kw name="Wait And Click" library="Action">
+<arg>//button[contains(@label,'${Unit_Head}')]</arg>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:22:26.441" endtime="20240627 15:22:26.461"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20240627 15:22:26.461" endtime="20240627 15:22:26.493"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240627 15:22:26.493" endtime="20240627 15:22:26.500"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:27.001" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:26.500" endtime="20240627 15:22:27.001"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240627 15:22:27.002" level="INFO">Clicking element '//button[contains(@label,'單位主管')]'.</msg>
+<status status="PASS" starttime="20240627 15:22:27.001" endtime="20240627 15:22:27.048"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:27.549" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:27.048" endtime="20240627 15:22:27.549"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:26.441" endtime="20240627 15:22:27.549"/>
+</kw>
+<kw name="Check_panel_is_ready" library="Login">
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>1</value>
+<value>10</value>
+<iter>
+<var name="${i}">1</var>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${loading_status}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>//svg[@class="p-progress-spinner-svg"]</arg>
+<arg>timeout=3</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>//svg[@class="p-progress-spinner-svg"]</arg>
+<arg>timeout=3</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20240627 15:22:30.712" level="FAIL">Element '//svg[@class="p-progress-spinner-svg"]' not visible after 3 seconds.</msg>
+<status status="FAIL" starttime="20240627 15:22:27.551" endtime="20240627 15:22:30.713"/>
+</kw>
+<msg timestamp="20240627 15:22:30.713" level="INFO">${loading_status} = False</msg>
+<status status="PASS" starttime="20240627 15:22:27.550" endtime="20240627 15:22:30.713"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${loading_status}' == '${true}'</arg>
+<arg>Reload Page</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20240627 15:22:30.713" endtime="20240627 15:22:30.713"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${loading_status}' == '${false}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<msg timestamp="20240627 15:22:30.713" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20240627 15:22:30.713" endtime="20240627 15:22:30.713"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:27.550" endtime="20240627 15:22:30.713"/>
+</iter>
+<status status="PASS" starttime="20240627 15:22:27.550" endtime="20240627 15:22:30.715"/>
+</for>
+<status status="PASS" starttime="20240627 15:22:27.549" endtime="20240627 15:22:30.715"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:31.215" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:30.715" endtime="20240627 15:22:31.215"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:26.440" endtime="20240627 15:22:31.215"/>
+</kw>
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20240627 15:22:31.215" endtime="20240627 15:22:33.277"/>
+</kw>
+<kw name="Open Browser Chrome and use user" library="Login">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${prefs}</var>
+<arg>download.default_directory=${OUTPUT_DIR}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20240627 15:22:33.280" level="INFO">${prefs} = {'download.default_directory': 'C:\\Users\\TPI'}</msg>
+<status status="PASS" starttime="20240627 15:22:33.279" endtime="20240627 15:22:33.280"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${chrome_options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240627 15:22:33.281" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000015DEE34AF50&gt;</msg>
+<status status="PASS" starttime="20240627 15:22:33.280" endtime="20240627 15:22:33.281"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_experimental_option</arg>
+<arg>prefs</arg>
+<arg>${prefs}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" starttime="20240627 15:22:33.281" endtime="20240627 15:22:33.281"/>
+</kw>
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${URL}</arg>
+<arg>headlesschrome</arg>
+<arg>options=${chrome_options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20240627 15:22:33.281" level="INFO">Opening browser 'headlesschrome' to base url 'https://iasm-lab.net/change-role'.</msg>
+<status status="PASS" starttime="20240627 15:22:33.281" endtime="20240627 15:22:34.845"/>
+</kw>
+<kw name="Set Window Size" library="Selenium2Library">
+<arg>1920</arg>
+<arg>1080</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20240627 15:22:34.847" endtime="20240627 15:22:34.875"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:33.279" endtime="20240627 15:22:34.875"/>
+</kw>
+<kw name="Login System Admin" library="Login">
+<kw name="Wait And Click" library="Action">
+<arg>//button[contains(@label,'${System_Admin}')]</arg>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:22:34.876" endtime="20240627 15:22:34.904"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20240627 15:22:34.904" endtime="20240627 15:22:34.930"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240627 15:22:34.930" endtime="20240627 15:22:34.941"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:35.441" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:34.941" endtime="20240627 15:22:35.441"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240627 15:22:35.442" level="INFO">Clicking element '//button[contains(@label,'公司負責人')]'.</msg>
+<status status="PASS" starttime="20240627 15:22:35.441" endtime="20240627 15:22:35.486"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:35.986" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:35.486" endtime="20240627 15:22:35.986"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:34.876" endtime="20240627 15:22:35.986"/>
+</kw>
+<kw name="Check_panel_is_ready" library="Login">
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>1</value>
+<value>10</value>
+<iter>
+<var name="${i}">1</var>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${loading_status}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>//svg[@class="p-progress-spinner-svg"]</arg>
+<arg>timeout=3</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>//svg[@class="p-progress-spinner-svg"]</arg>
+<arg>timeout=3</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20240627 15:22:39.157" level="FAIL">Element '//svg[@class="p-progress-spinner-svg"]' not visible after 3 seconds.</msg>
+<status status="FAIL" starttime="20240627 15:22:35.986" endtime="20240627 15:22:39.159"/>
+</kw>
+<msg timestamp="20240627 15:22:39.159" level="INFO">${loading_status} = False</msg>
+<status status="PASS" starttime="20240627 15:22:35.986" endtime="20240627 15:22:39.159"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${loading_status}' == '${true}'</arg>
+<arg>Reload Page</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20240627 15:22:39.159" endtime="20240627 15:22:39.160"/>
+</kw>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${loading_status}' == '${false}'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<msg timestamp="20240627 15:22:39.161" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20240627 15:22:39.160" endtime="20240627 15:22:39.161"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:35.986" endtime="20240627 15:22:39.161"/>
+</iter>
+<status status="PASS" starttime="20240627 15:22:35.986" endtime="20240627 15:22:39.161"/>
+</for>
+<status status="PASS" starttime="20240627 15:22:35.986" endtime="20240627 15:22:39.161"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:39.662" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:39.162" endtime="20240627 15:22:39.662"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:34.875" endtime="20240627 15:22:39.662"/>
+</kw>
+<kw name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20240627 15:22:39.663" endtime="20240627 15:22:41.735"/>
 </kw>
 <kw name="Run Keyword If Test Failed" library="BuiltIn" type="TEARDOWN">
 <arg>Capture Page Screenshot</arg>
 <doc>Runs the given keyword with the given arguments, if the test failed.</doc>
-<status status="PASS" starttime="20240605 17:47:05.713" endtime="20240605 17:47:05.713"/>
+<status status="PASS" starttime="20240627 15:22:41.737" endtime="20240627 15:22:41.737"/>
 </kw>
-<status status="PASS" starttime="20240605 17:47:04.569" endtime="20240605 17:47:05.713"/>
+<status status="PASS" starttime="20240627 15:22:01.219" endtime="20240627 15:22:41.738"/>
 </test>
-<test id="s1-t2" name="雲端經辦-資產管理-雲端資產分派-準備工作-確認有兩筆有序號的軟體跟資料資產" line="25">
-<kw name="Wait And Click" library="Action">
-<arg>//i[@class="pi pi-copy"]</arg>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:47:05.720" endtime="20240605 17:47:05.873"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20240605 17:47:05.873" endtime="20240605 17:47:05.887"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20240605 17:47:05.887" endtime="20240605 17:47:05.887"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>500ms</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:47:06.388" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:47:05.887" endtime="20240605 17:47:06.388"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20240605 17:47:06.388" level="INFO">Clicking element '//i[@class="pi pi-copy"]'.</msg>
-<status status="PASS" starttime="20240605 17:47:06.388" endtime="20240605 17:47:06.433"/>
-</kw>
-<status status="PASS" starttime="20240605 17:47:05.720" endtime="20240605 17:47:06.433"/>
-</kw>
-<kw name="Wait And Click" library="Action">
-<arg>//a[@href="/assetsManager/cloud/AssetAllocation"]</arg>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:47:06.434" endtime="20240605 17:47:06.448"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20240605 17:47:06.448" endtime="20240605 17:47:06.464"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20240605 17:47:06.464" endtime="20240605 17:47:06.469"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>500ms</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:47:06.969" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:47:06.469" endtime="20240605 17:47:06.970"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20240605 17:47:06.971" level="INFO">Clicking element '//a[@href="/assetsManager/cloud/AssetAllocation"]'.</msg>
-<status status="PASS" starttime="20240605 17:47:06.970" endtime="20240605 17:47:07.014"/>
-</kw>
-<status status="PASS" starttime="20240605 17:47:06.434" endtime="20240605 17:47:07.014"/>
-</kw>
-<kw name="Wait And Click" library="Action">
-<arg>//thead/tr/th[6]/p-sorticon/i</arg>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:47:07.015" endtime="20240605 17:47:07.030"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20240605 17:47:07.031" endtime="20240605 17:47:07.041"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20240605 17:47:07.041" endtime="20240605 17:47:07.049"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>500ms</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:47:07.549" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:47:07.049" endtime="20240605 17:47:07.549"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20240605 17:47:07.549" level="INFO">Clicking element '//thead/tr/th[6]/p-sorticon/i'.</msg>
-<status status="PASS" starttime="20240605 17:47:07.549" endtime="20240605 17:47:07.602"/>
-</kw>
-<status status="PASS" starttime="20240605 17:47:07.015" endtime="20240605 17:47:07.602"/>
-</kw>
-<kw name="Check_number_asset_on_software_data" library="Asset_management">
-<arg>${list_data}</arg>
-<arg>${department_name}-${division_name}</arg>
-<kw name="Set Variable" library="BuiltIn">
-<var>${total_count}</var>
-<arg>0</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20240605 17:47:07.602" level="INFO">${total_count} = 0</msg>
-<status status="PASS" starttime="20240605 17:47:07.602" endtime="20240605 17:47:07.602"/>
-</kw>
-<for flavor="IN RANGE">
-<var>${i}</var>
-<value>1</value>
-<value>5</value>
-<iter>
-<var name="${i}">1</var>
-<kw name="Check_asset_status" library="Asset_management">
-<var>${asset_number_status}</var>
-<var>${asset_type_status}</var>
-<var>${asset_unit_status}</var>
-<arg>${i}</arg>
-<arg>${asset_type}</arg>
-<arg>${asset_unit}</arg>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${asset_number_status}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>//tbody/tr[${place}]/td[2][contains(text(),'DA') or contains(text(),'SW')]</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>//tbody/tr[${place}]/td[2][contains(text(),'DA') or contains(text(),'SW')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:47:07.602" endtime="20240605 17:47:07.614"/>
-</kw>
-<msg timestamp="20240605 17:47:07.614" level="INFO">${asset_number_status} = True</msg>
-<status status="PASS" starttime="20240605 17:47:07.602" endtime="20240605 17:47:07.614"/>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${asset_type_status}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>//tbody/tr[${place}]/td[6][contains(text(),'${asset_type}')]</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>//tbody/tr[${place}]/td[6][contains(text(),'${asset_type}')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:47:07.614" endtime="20240605 17:47:08.272"/>
-</kw>
-<msg timestamp="20240605 17:47:08.272" level="INFO">${asset_type_status} = True</msg>
-<status status="PASS" starttime="20240605 17:47:07.614" endtime="20240605 17:47:08.272"/>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${asset_unit_status}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>//tbody/tr[${place}]/td[8]/p[1][contains(text(),'${asset_unit}')]</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>//tbody/tr[${place}]/td[8]/p[1][contains(text(),'${asset_unit}')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<msg timestamp="20240605 17:47:13.417" level="FAIL">Element '//tbody/tr[1]/td[8]/p[1][contains(text(),'法令遵循部-法令遵循一科')]' not visible after 5 seconds.</msg>
-<status status="FAIL" starttime="20240605 17:47:08.273" endtime="20240605 17:47:13.417"/>
-</kw>
-<msg timestamp="20240605 17:47:13.417" level="INFO">${asset_unit_status} = False</msg>
-<status status="PASS" starttime="20240605 17:47:08.272" endtime="20240605 17:47:13.417"/>
-</kw>
-<msg timestamp="20240605 17:47:13.417" level="INFO">${asset_number_status} = True</msg>
-<msg timestamp="20240605 17:47:13.417" level="INFO">${asset_type_status} = True</msg>
-<msg timestamp="20240605 17:47:13.417" level="INFO">${asset_unit_status} = False</msg>
-<status status="PASS" starttime="20240605 17:47:07.602" endtime="20240605 17:47:13.417"/>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<var>${total_count}</var>
-<arg>'${asset_number_status}'=='${true}' and '${asset_type_status}'=='${true}' and '${asset_unit_status}'=='${true}'</arg>
-<arg>Evaluate</arg>
-<arg>int(${total_count}) + 1</arg>
-<arg>ELSE</arg>
-<arg>Evaluate</arg>
-<arg>int(${total_count})</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<kw name="Evaluate" library="BuiltIn">
-<arg>int(${total_count})</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" starttime="20240605 17:47:13.417" endtime="20240605 17:47:13.417"/>
-</kw>
-<msg timestamp="20240605 17:47:13.417" level="INFO">${total_count} = 0</msg>
-<status status="PASS" starttime="20240605 17:47:13.417" endtime="20240605 17:47:13.417"/>
-</kw>
-<kw name="Exit For Loop If" library="BuiltIn">
-<arg>'${total_count}'=='2'</arg>
-<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
-<status status="PASS" starttime="20240605 17:47:13.417" endtime="20240605 17:47:13.417"/>
-</kw>
-<status status="PASS" starttime="20240605 17:47:07.602" endtime="20240605 17:47:13.417"/>
-</iter>
-<iter>
-<var name="${i}">2</var>
-<kw name="Check_asset_status" library="Asset_management">
-<var>${asset_number_status}</var>
-<var>${asset_type_status}</var>
-<var>${asset_unit_status}</var>
-<arg>${i}</arg>
-<arg>${asset_type}</arg>
-<arg>${asset_unit}</arg>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${asset_number_status}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>//tbody/tr[${place}]/td[2][contains(text(),'DA') or contains(text(),'SW')]</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>//tbody/tr[${place}]/td[2][contains(text(),'DA') or contains(text(),'SW')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<msg timestamp="20240605 17:47:18.436" level="FAIL">Element '//tbody/tr[2]/td[2][contains(text(),'DA') or contains(text(),'SW')]' not visible after 5 seconds.</msg>
-<status status="FAIL" starttime="20240605 17:47:13.417" endtime="20240605 17:47:18.438"/>
-</kw>
-<msg timestamp="20240605 17:47:18.438" level="INFO">${asset_number_status} = False</msg>
-<status status="PASS" starttime="20240605 17:47:13.417" endtime="20240605 17:47:18.438"/>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${asset_type_status}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>//tbody/tr[${place}]/td[6][contains(text(),'${asset_type}')]</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>//tbody/tr[${place}]/td[6][contains(text(),'${asset_type}')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:47:18.438" endtime="20240605 17:47:18.446"/>
-</kw>
-<msg timestamp="20240605 17:47:18.446" level="INFO">${asset_type_status} = True</msg>
-<status status="PASS" starttime="20240605 17:47:18.438" endtime="20240605 17:47:18.446"/>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${asset_unit_status}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>//tbody/tr[${place}]/td[8]/p[1][contains(text(),'${asset_unit}')]</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>//tbody/tr[${place}]/td[8]/p[1][contains(text(),'${asset_unit}')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<msg timestamp="20240605 17:47:23.450" level="FAIL">Element '//tbody/tr[2]/td[8]/p[1][contains(text(),'法令遵循部-法令遵循一科')]' not visible after 5 seconds.</msg>
-<status status="FAIL" starttime="20240605 17:47:18.446" endtime="20240605 17:47:23.450"/>
-</kw>
-<msg timestamp="20240605 17:47:23.450" level="INFO">${asset_unit_status} = False</msg>
-<status status="PASS" starttime="20240605 17:47:18.446" endtime="20240605 17:47:23.450"/>
-</kw>
-<msg timestamp="20240605 17:47:23.450" level="INFO">${asset_number_status} = False</msg>
-<msg timestamp="20240605 17:47:23.450" level="INFO">${asset_type_status} = True</msg>
-<msg timestamp="20240605 17:47:23.450" level="INFO">${asset_unit_status} = False</msg>
-<status status="PASS" starttime="20240605 17:47:13.417" endtime="20240605 17:47:23.450"/>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<var>${total_count}</var>
-<arg>'${asset_number_status}'=='${true}' and '${asset_type_status}'=='${true}' and '${asset_unit_status}'=='${true}'</arg>
-<arg>Evaluate</arg>
-<arg>int(${total_count}) + 1</arg>
-<arg>ELSE</arg>
-<arg>Evaluate</arg>
-<arg>int(${total_count})</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<kw name="Evaluate" library="BuiltIn">
-<arg>int(${total_count})</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" starttime="20240605 17:47:23.450" endtime="20240605 17:47:23.450"/>
-</kw>
-<msg timestamp="20240605 17:47:23.450" level="INFO">${total_count} = 0</msg>
-<status status="PASS" starttime="20240605 17:47:23.450" endtime="20240605 17:47:23.450"/>
-</kw>
-<kw name="Exit For Loop If" library="BuiltIn">
-<arg>'${total_count}'=='2'</arg>
-<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
-<status status="PASS" starttime="20240605 17:47:23.450" endtime="20240605 17:47:23.450"/>
-</kw>
-<status status="PASS" starttime="20240605 17:47:13.417" endtime="20240605 17:47:23.450"/>
-</iter>
-<iter>
-<var name="${i}">3</var>
-<kw name="Check_asset_status" library="Asset_management">
-<var>${asset_number_status}</var>
-<var>${asset_type_status}</var>
-<var>${asset_unit_status}</var>
-<arg>${i}</arg>
-<arg>${asset_type}</arg>
-<arg>${asset_unit}</arg>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${asset_number_status}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>//tbody/tr[${place}]/td[2][contains(text(),'DA') or contains(text(),'SW')]</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>//tbody/tr[${place}]/td[2][contains(text(),'DA') or contains(text(),'SW')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<msg timestamp="20240605 17:47:28.668" level="FAIL">Element '//tbody/tr[3]/td[2][contains(text(),'DA') or contains(text(),'SW')]' not visible after 5 seconds.</msg>
-<status status="FAIL" starttime="20240605 17:47:23.450" endtime="20240605 17:47:28.668"/>
-</kw>
-<msg timestamp="20240605 17:47:28.668" level="INFO">${asset_number_status} = False</msg>
-<status status="PASS" starttime="20240605 17:47:23.450" endtime="20240605 17:47:28.668"/>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${asset_type_status}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>//tbody/tr[${place}]/td[6][contains(text(),'${asset_type}')]</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>//tbody/tr[${place}]/td[6][contains(text(),'${asset_type}')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:47:28.668" endtime="20240605 17:47:28.684"/>
-</kw>
-<msg timestamp="20240605 17:47:28.684" level="INFO">${asset_type_status} = True</msg>
-<status status="PASS" starttime="20240605 17:47:28.668" endtime="20240605 17:47:28.684"/>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${asset_unit_status}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>//tbody/tr[${place}]/td[8]/p[1][contains(text(),'${asset_unit}')]</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>//tbody/tr[${place}]/td[8]/p[1][contains(text(),'${asset_unit}')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<msg timestamp="20240605 17:47:33.704" level="FAIL">Element '//tbody/tr[3]/td[8]/p[1][contains(text(),'法令遵循部-法令遵循一科')]' not visible after 5 seconds.</msg>
-<status status="FAIL" starttime="20240605 17:47:28.684" endtime="20240605 17:47:33.704"/>
-</kw>
-<msg timestamp="20240605 17:47:33.704" level="INFO">${asset_unit_status} = False</msg>
-<status status="PASS" starttime="20240605 17:47:28.684" endtime="20240605 17:47:33.704"/>
-</kw>
-<msg timestamp="20240605 17:47:33.704" level="INFO">${asset_number_status} = False</msg>
-<msg timestamp="20240605 17:47:33.704" level="INFO">${asset_type_status} = True</msg>
-<msg timestamp="20240605 17:47:33.704" level="INFO">${asset_unit_status} = False</msg>
-<status status="PASS" starttime="20240605 17:47:23.450" endtime="20240605 17:47:33.704"/>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<var>${total_count}</var>
-<arg>'${asset_number_status}'=='${true}' and '${asset_type_status}'=='${true}' and '${asset_unit_status}'=='${true}'</arg>
-<arg>Evaluate</arg>
-<arg>int(${total_count}) + 1</arg>
-<arg>ELSE</arg>
-<arg>Evaluate</arg>
-<arg>int(${total_count})</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<kw name="Evaluate" library="BuiltIn">
-<arg>int(${total_count})</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" starttime="20240605 17:47:33.704" endtime="20240605 17:47:33.704"/>
-</kw>
-<msg timestamp="20240605 17:47:33.704" level="INFO">${total_count} = 0</msg>
-<status status="PASS" starttime="20240605 17:47:33.704" endtime="20240605 17:47:33.704"/>
-</kw>
-<kw name="Exit For Loop If" library="BuiltIn">
-<arg>'${total_count}'=='2'</arg>
-<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
-<status status="PASS" starttime="20240605 17:47:33.704" endtime="20240605 17:47:33.704"/>
-</kw>
-<status status="PASS" starttime="20240605 17:47:23.450" endtime="20240605 17:47:33.704"/>
-</iter>
-<iter>
-<var name="${i}">4</var>
-<kw name="Check_asset_status" library="Asset_management">
-<var>${asset_number_status}</var>
-<var>${asset_type_status}</var>
-<var>${asset_unit_status}</var>
-<arg>${i}</arg>
-<arg>${asset_type}</arg>
-<arg>${asset_unit}</arg>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${asset_number_status}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>//tbody/tr[${place}]/td[2][contains(text(),'DA') or contains(text(),'SW')]</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>//tbody/tr[${place}]/td[2][contains(text(),'DA') or contains(text(),'SW')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<msg timestamp="20240605 17:47:38.720" level="FAIL">Element '//tbody/tr[4]/td[2][contains(text(),'DA') or contains(text(),'SW')]' not visible after 5 seconds.</msg>
-<status status="FAIL" starttime="20240605 17:47:33.704" endtime="20240605 17:47:38.720"/>
-</kw>
-<msg timestamp="20240605 17:47:38.720" level="INFO">${asset_number_status} = False</msg>
-<status status="PASS" starttime="20240605 17:47:33.704" endtime="20240605 17:47:38.720"/>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${asset_type_status}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>//tbody/tr[${place}]/td[6][contains(text(),'${asset_type}')]</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>//tbody/tr[${place}]/td[6][contains(text(),'${asset_type}')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:47:38.720" endtime="20240605 17:47:38.743"/>
-</kw>
-<msg timestamp="20240605 17:47:38.743" level="INFO">${asset_type_status} = True</msg>
-<status status="PASS" starttime="20240605 17:47:38.720" endtime="20240605 17:47:38.743"/>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${asset_unit_status}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>//tbody/tr[${place}]/td[8]/p[1][contains(text(),'${asset_unit}')]</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>//tbody/tr[${place}]/td[8]/p[1][contains(text(),'${asset_unit}')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<msg timestamp="20240605 17:47:43.797" level="FAIL">Element '//tbody/tr[4]/td[8]/p[1][contains(text(),'法令遵循部-法令遵循一科')]' not visible after 5 seconds.</msg>
-<status status="FAIL" starttime="20240605 17:47:38.743" endtime="20240605 17:47:43.797"/>
-</kw>
-<msg timestamp="20240605 17:47:43.797" level="INFO">${asset_unit_status} = False</msg>
-<status status="PASS" starttime="20240605 17:47:38.743" endtime="20240605 17:47:43.797"/>
-</kw>
-<msg timestamp="20240605 17:47:43.797" level="INFO">${asset_number_status} = False</msg>
-<msg timestamp="20240605 17:47:43.797" level="INFO">${asset_type_status} = True</msg>
-<msg timestamp="20240605 17:47:43.797" level="INFO">${asset_unit_status} = False</msg>
-<status status="PASS" starttime="20240605 17:47:33.704" endtime="20240605 17:47:43.797"/>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<var>${total_count}</var>
-<arg>'${asset_number_status}'=='${true}' and '${asset_type_status}'=='${true}' and '${asset_unit_status}'=='${true}'</arg>
-<arg>Evaluate</arg>
-<arg>int(${total_count}) + 1</arg>
-<arg>ELSE</arg>
-<arg>Evaluate</arg>
-<arg>int(${total_count})</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<kw name="Evaluate" library="BuiltIn">
-<arg>int(${total_count})</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" starttime="20240605 17:47:43.797" endtime="20240605 17:47:43.797"/>
-</kw>
-<msg timestamp="20240605 17:47:43.797" level="INFO">${total_count} = 0</msg>
-<status status="PASS" starttime="20240605 17:47:43.797" endtime="20240605 17:47:43.797"/>
-</kw>
-<kw name="Exit For Loop If" library="BuiltIn">
-<arg>'${total_count}'=='2'</arg>
-<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
-<status status="PASS" starttime="20240605 17:47:43.797" endtime="20240605 17:47:43.797"/>
-</kw>
-<status status="PASS" starttime="20240605 17:47:33.704" endtime="20240605 17:47:43.797"/>
-</iter>
-<status status="PASS" starttime="20240605 17:47:07.602" endtime="20240605 17:47:43.797"/>
-</for>
-<kw name="Run Keyword If" library="BuiltIn">
-<arg>'${total_count}'!='2'</arg>
-<arg>Create_number_asset</arg>
-<arg>${total_count}</arg>
-<arg>${asset_type}</arg>
-<arg>${not_assign_yet}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<kw name="Create_number_asset" library="Asset_management">
-<arg>${total_count}</arg>
-<arg>${asset_type}</arg>
-<arg>${not_assign_yet}</arg>
-<for flavor="IN RANGE">
-<var>${need_create_asset_number}</var>
-<value>0</value>
-<value>2-${total_count}</value>
-<iter>
-<var name="${need_create_asset_number}">0</var>
-<for flavor="IN RANGE">
-<var>${i}</var>
-<value>1</value>
-<value>101</value>
-<iter>
-<var name="${i}">1</var>
-<kw name="Check_asset_status" library="Asset_management">
-<var>${asset_number_status}</var>
-<var>${asset_type_status}</var>
-<var>${asset_unit_status}</var>
-<arg>${i}</arg>
-<arg>${asset_type}</arg>
-<arg>${asset_unit}</arg>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${asset_number_status}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>//tbody/tr[${place}]/td[2][contains(text(),'DA') or contains(text(),'SW')]</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>//tbody/tr[${place}]/td[2][contains(text(),'DA') or contains(text(),'SW')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<msg timestamp="20240605 17:47:48.824" level="FAIL">Element '//tbody/tr[1]/td[2][contains(text(),'DA') or contains(text(),'SW')]' not visible after 5 seconds.</msg>
-<status status="FAIL" starttime="20240605 17:47:43.797" endtime="20240605 17:47:48.824"/>
-</kw>
-<msg timestamp="20240605 17:47:48.824" level="INFO">${asset_number_status} = False</msg>
-<status status="PASS" starttime="20240605 17:47:43.797" endtime="20240605 17:47:48.824"/>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${asset_type_status}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>//tbody/tr[${place}]/td[6][contains(text(),'${asset_type}')]</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>//tbody/tr[${place}]/td[6][contains(text(),'${asset_type}')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:47:48.824" endtime="20240605 17:47:48.856"/>
-</kw>
-<msg timestamp="20240605 17:47:48.856" level="INFO">${asset_type_status} = True</msg>
-<status status="PASS" starttime="20240605 17:47:48.824" endtime="20240605 17:47:48.856"/>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${asset_unit_status}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>//tbody/tr[${place}]/td[8]/p[1][contains(text(),'${asset_unit}')]</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>//tbody/tr[${place}]/td[8]/p[1][contains(text(),'${asset_unit}')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:47:48.856" endtime="20240605 17:47:48.869"/>
-</kw>
-<msg timestamp="20240605 17:47:48.869" level="INFO">${asset_unit_status} = True</msg>
-<status status="PASS" starttime="20240605 17:47:48.856" endtime="20240605 17:47:48.869"/>
-</kw>
-<msg timestamp="20240605 17:47:48.869" level="INFO">${asset_number_status} = False</msg>
-<msg timestamp="20240605 17:47:48.869" level="INFO">${asset_type_status} = True</msg>
-<msg timestamp="20240605 17:47:48.869" level="INFO">${asset_unit_status} = True</msg>
-<status status="PASS" starttime="20240605 17:47:43.797" endtime="20240605 17:47:48.869"/>
-</kw>
-<kw name="Get Text" library="Selenium2Library">
-<var>${save_hostname}</var>
-<arg>//table[@id="pr_id_3-table"]/tbody//tr[${i}]/td[10][text()]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20240605 17:47:48.885" level="INFO">${save_hostname} = cathay-apim-ut</msg>
-<status status="PASS" starttime="20240605 17:47:48.869" endtime="20240605 17:47:48.900"/>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<arg>'${asset_number_status}'=='${false}' and '${asset_type_status}'=='${true}' and '${asset_unit_status}'=='${true}'</arg>
-<arg>Asset_to_assign</arg>
-<arg>${i}</arg>
-<arg>${department_name}</arg>
-<arg>${division_name}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<kw name="Asset_to_assign" library="Asset_management">
-<arg>${i}</arg>
-<arg>${department_name}</arg>
-<arg>${division_name}</arg>
-<kw name="Wait And Click" library="Action">
-<arg>//tbody/tr[${place}]/td[2]</arg>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:47:48.901" endtime="20240605 17:47:48.917"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20240605 17:47:48.917" endtime="20240605 17:47:48.932"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20240605 17:47:48.932" endtime="20240605 17:47:48.932"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>500ms</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:47:49.433" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:47:48.932" endtime="20240605 17:47:49.433"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20240605 17:47:49.433" level="INFO">Clicking element '//tbody/tr[1]/td[2]'.</msg>
-<status status="PASS" starttime="20240605 17:47:49.433" endtime="20240605 17:47:49.500"/>
-</kw>
-<status status="PASS" starttime="20240605 17:47:48.901" endtime="20240605 17:47:49.500"/>
-</kw>
-<kw name="Wait And Click" library="Action">
-<arg>//span[contains(text(),'${assign}')]</arg>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:47:49.500" endtime="20240605 17:47:49.515"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20240605 17:47:49.515" endtime="20240605 17:47:49.547"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20240605 17:47:49.547" endtime="20240605 17:47:49.547"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>500ms</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:47:50.048" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:47:49.547" endtime="20240605 17:47:50.048"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20240605 17:47:50.048" level="INFO">Clicking element '//span[contains(text(),'指派')]'.</msg>
-<status status="PASS" starttime="20240605 17:47:50.048" endtime="20240605 17:47:50.122"/>
-</kw>
-<status status="PASS" starttime="20240605 17:47:49.500" endtime="20240605 17:47:50.122"/>
-</kw>
-<kw name="Wait And Click" library="Action">
-<arg>//span[contains(text(),'${ok}')]</arg>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:47:50.122" endtime="20240605 17:47:50.144"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20240605 17:47:50.144" endtime="20240605 17:47:50.155"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20240605 17:47:50.155" endtime="20240605 17:47:50.173"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>500ms</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:47:50.673" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:47:50.173" endtime="20240605 17:47:50.673"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20240605 17:47:50.673" level="INFO">Clicking element '//span[contains(text(),'確定')]'.</msg>
-<status status="PASS" starttime="20240605 17:47:50.673" endtime="20240605 17:47:50.733"/>
-</kw>
-<status status="PASS" starttime="20240605 17:47:50.122" endtime="20240605 17:47:50.733"/>
-</kw>
-<kw name="Wait And Click" library="Action">
-<arg>//span[contains(text(),'${select_dep}')]</arg>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:47:50.733" endtime="20240605 17:47:50.743"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20240605 17:47:50.743" endtime="20240605 17:47:50.776"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20240605 17:47:50.776" endtime="20240605 17:47:50.776"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>500ms</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:47:51.276" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:47:50.776" endtime="20240605 17:47:51.276"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20240605 17:47:51.276" level="INFO">Clicking element '//span[contains(text(),'請選擇(部)')]'.</msg>
-<status status="PASS" starttime="20240605 17:47:51.276" endtime="20240605 17:47:51.356"/>
-</kw>
-<status status="PASS" starttime="20240605 17:47:50.733" endtime="20240605 17:47:51.356"/>
-</kw>
-<kw name="Wait And Click" library="Action">
-<arg>//li[@aria-label='${dep_name}']</arg>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:47:51.356" endtime="20240605 17:47:51.377"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20240605 17:47:51.377" endtime="20240605 17:47:51.397"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20240605 17:47:51.398" endtime="20240605 17:47:51.407"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>500ms</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:47:51.908" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:47:51.407" endtime="20240605 17:47:51.908"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20240605 17:47:51.909" level="INFO">Clicking element '//li[@aria-label='法令遵循部']'.</msg>
-<status status="PASS" starttime="20240605 17:47:51.908" endtime="20240605 17:47:51.976"/>
-</kw>
-<status status="PASS" starttime="20240605 17:47:51.356" endtime="20240605 17:47:51.976"/>
-</kw>
-<kw name="Wait And Click" library="Action">
-<arg>//span[contains(text(),'${select_div}')]</arg>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:47:51.976" endtime="20240605 17:47:52.006"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20240605 17:47:52.006" endtime="20240605 17:47:52.022"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20240605 17:47:52.022" endtime="20240605 17:47:52.022"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>500ms</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:47:52.523" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:47:52.022" endtime="20240605 17:47:52.523"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20240605 17:47:52.523" level="INFO">Clicking element '//span[contains(text(),'請選擇(科)')]'.</msg>
-<status status="PASS" starttime="20240605 17:47:52.523" endtime="20240605 17:47:52.575"/>
-</kw>
-<status status="PASS" starttime="20240605 17:47:51.976" endtime="20240605 17:47:52.575"/>
-</kw>
-<kw name="Wait And Click" library="Action">
-<arg>//li[@aria-label='${div_name}']</arg>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:47:52.575" endtime="20240605 17:47:52.594"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20240605 17:47:52.594" endtime="20240605 17:47:52.613"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20240605 17:47:52.613" endtime="20240605 17:47:52.613"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>500ms</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:47:53.113" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:47:52.613" endtime="20240605 17:47:53.113"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20240605 17:47:53.113" level="INFO">Clicking element '//li[@aria-label='法令遵循一科']'.</msg>
-<status status="PASS" starttime="20240605 17:47:53.113" endtime="20240605 17:47:53.175"/>
-</kw>
-<status status="PASS" starttime="20240605 17:47:52.575" endtime="20240605 17:47:53.175"/>
-</kw>
-<kw name="Wait And Click" library="Action">
-<arg>//span[contains(text(),'${save}')]</arg>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:47:53.175" endtime="20240605 17:47:53.190"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20240605 17:47:53.190" endtime="20240605 17:47:53.207"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20240605 17:47:53.207" endtime="20240605 17:47:53.207"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>500ms</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:47:53.707" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:47:53.207" endtime="20240605 17:47:53.707"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20240605 17:47:53.707" level="INFO">Clicking element '//span[contains(text(),'儲存')]'.</msg>
-<status status="PASS" starttime="20240605 17:47:53.707" endtime="20240605 17:47:53.768"/>
-</kw>
-<status status="PASS" starttime="20240605 17:47:53.175" endtime="20240605 17:47:53.768"/>
-</kw>
-<kw name="Wait And Click" library="Action">
-<arg>//span[contains(text(),'${ok}')]</arg>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:47:53.768" endtime="20240605 17:47:54.009"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20240605 17:47:54.009" endtime="20240605 17:47:54.045"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20240605 17:47:54.045" endtime="20240605 17:47:54.070"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>500ms</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:47:54.571" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:47:54.070" endtime="20240605 17:47:54.571"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20240605 17:47:54.571" level="INFO">Clicking element '//span[contains(text(),'確定')]'.</msg>
-<status status="PASS" starttime="20240605 17:47:54.571" endtime="20240605 17:47:54.618"/>
-</kw>
-<status status="PASS" starttime="20240605 17:47:53.768" endtime="20240605 17:47:54.618"/>
-</kw>
-<status status="PASS" starttime="20240605 17:47:48.901" endtime="20240605 17:47:54.618"/>
-</kw>
-<status status="PASS" starttime="20240605 17:47:48.901" endtime="20240605 17:47:54.618"/>
-</kw>
-<kw name="Check_send_asset" library="Asset_management">
-<arg>${false}</arg>
-<arg>${asset_type}</arg>
-<arg>${department_name}-${division_name}</arg>
-<for flavor="IN RANGE">
-<var>${i}</var>
-<value>1</value>
-<value>101</value>
-<iter>
-<var name="${i}">1</var>
-<kw name="Check_asset_status" library="Asset_management">
-<var>${asset_number_status}</var>
-<var>${asset_type_status}</var>
-<var>${asset_unit_status}</var>
-<arg>${i}</arg>
-<arg>${asset_type}</arg>
-<arg>${asset_unit}</arg>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${asset_number_status}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>//tbody/tr[${place}]/td[2][contains(text(),'DA') or contains(text(),'SW')]</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>//tbody/tr[${place}]/td[2][contains(text(),'DA') or contains(text(),'SW')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<msg timestamp="20240605 17:47:59.640" level="FAIL">Element '//tbody/tr[1]/td[2][contains(text(),'DA') or contains(text(),'SW')]' not visible after 5 seconds.</msg>
-<status status="FAIL" starttime="20240605 17:47:54.618" endtime="20240605 17:47:59.640"/>
-</kw>
-<msg timestamp="20240605 17:47:59.640" level="INFO">${asset_number_status} = False</msg>
-<status status="PASS" starttime="20240605 17:47:54.618" endtime="20240605 17:47:59.640"/>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${asset_type_status}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>//tbody/tr[${place}]/td[6][contains(text(),'${asset_type}')]</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>//tbody/tr[${place}]/td[6][contains(text(),'${asset_type}')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:47:59.640" endtime="20240605 17:47:59.671"/>
-</kw>
-<msg timestamp="20240605 17:47:59.671" level="INFO">${asset_type_status} = True</msg>
-<status status="PASS" starttime="20240605 17:47:59.640" endtime="20240605 17:47:59.671"/>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${asset_unit_status}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>//tbody/tr[${place}]/td[8]/p[1][contains(text(),'${asset_unit}')]</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>//tbody/tr[${place}]/td[8]/p[1][contains(text(),'${asset_unit}')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:47:59.671" endtime="20240605 17:47:59.687"/>
-</kw>
-<msg timestamp="20240605 17:47:59.687" level="INFO">${asset_unit_status} = True</msg>
-<status status="PASS" starttime="20240605 17:47:59.671" endtime="20240605 17:47:59.687"/>
-</kw>
-<msg timestamp="20240605 17:47:59.687" level="INFO">${asset_number_status} = False</msg>
-<msg timestamp="20240605 17:47:59.687" level="INFO">${asset_type_status} = True</msg>
-<msg timestamp="20240605 17:47:59.687" level="INFO">${asset_unit_status} = True</msg>
-<status status="PASS" starttime="20240605 17:47:54.618" endtime="20240605 17:47:59.687"/>
-</kw>
-<kw name="Get Text" library="Selenium2Library">
-<var>${save_hostname}</var>
-<arg>//table[@id="pr_id_3-table"]/tbody//tr[${i}]/td[10][text()]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20240605 17:47:59.695" level="INFO">${save_hostname} = cathay-apim-ut</msg>
-<status status="PASS" starttime="20240605 17:47:59.687" endtime="20240605 17:47:59.695"/>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<var>${send_status_result}</var>
-<arg>'${asset_number_status}'=='${asset_number_yesorno}' and '${asset_type_status}'=='${true}' and '${asset_unit_status}'=='${true}'</arg>
-<arg>Asset_to_send</arg>
-<arg>${i}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<kw name="Asset_to_send" library="Asset_management">
-<arg>${i}</arg>
-<kw name="Wait And Click" library="Action">
-<arg>//tbody/tr[${place}]/td[2]</arg>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:47:59.695" endtime="20240605 17:47:59.711"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20240605 17:47:59.711" endtime="20240605 17:47:59.726"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20240605 17:47:59.726" endtime="20240605 17:47:59.726"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>500ms</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:48:00.227" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:47:59.726" endtime="20240605 17:48:00.227"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20240605 17:48:00.227" level="INFO">Clicking element '//tbody/tr[1]/td[2]'.</msg>
-<status status="PASS" starttime="20240605 17:48:00.227" endtime="20240605 17:48:00.276"/>
-</kw>
-<status status="PASS" starttime="20240605 17:47:59.695" endtime="20240605 17:48:00.276"/>
-</kw>
-<kw name="Wait And Click" library="Action">
-<arg>//span[text()='${send_status}']</arg>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:48:00.276" endtime="20240605 17:48:00.308"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20240605 17:48:00.308" endtime="20240605 17:48:00.325"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20240605 17:48:00.341" endtime="20240605 17:48:00.342"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>500ms</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:48:00.842" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:48:00.342" endtime="20240605 17:48:00.842"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20240605 17:48:00.842" level="INFO">Clicking element '//span[text()='送審']'.</msg>
-<status status="PASS" starttime="20240605 17:48:00.842" endtime="20240605 17:48:00.896"/>
-</kw>
-<status status="PASS" starttime="20240605 17:48:00.276" endtime="20240605 17:48:00.896"/>
-</kw>
-<kw name="Wait And Click" library="Action">
-<arg>//span[text()='${ok}']</arg>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:48:00.896" endtime="20240605 17:48:00.912"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20240605 17:48:00.912" endtime="20240605 17:48:00.928"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20240605 17:48:00.928" endtime="20240605 17:48:00.928"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>500ms</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:48:01.429" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:48:00.928" endtime="20240605 17:48:01.429"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20240605 17:48:01.429" level="INFO">Clicking element '//span[text()='確定']'.</msg>
-<status status="PASS" starttime="20240605 17:48:01.429" endtime="20240605 17:48:01.482"/>
-</kw>
-<status status="PASS" starttime="20240605 17:48:00.896" endtime="20240605 17:48:01.482"/>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${send_status_result}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>//div/label[contains(text(),'${send_success}')]</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>//div/label[contains(text(),'${send_success}')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:48:01.482" endtime="20240605 17:48:01.727"/>
-</kw>
-<msg timestamp="20240605 17:48:01.727" level="INFO">${send_status_result} = True</msg>
-<status status="PASS" starttime="20240605 17:48:01.482" endtime="20240605 17:48:01.727"/>
-</kw>
-<kw name="Wait And Click" library="Action">
-<arg>//span[text()='${ok}']</arg>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:48:01.727" endtime="20240605 17:48:01.761"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20240605 17:48:01.761" endtime="20240605 17:48:01.794"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20240605 17:48:01.794" endtime="20240605 17:48:01.799"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>500ms</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:48:02.300" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:48:01.799" endtime="20240605 17:48:02.300"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20240605 17:48:02.300" level="INFO">Clicking element '//span[text()='確定']'.</msg>
-<status status="PASS" starttime="20240605 17:48:02.300" endtime="20240605 17:48:02.347"/>
-</kw>
-<status status="PASS" starttime="20240605 17:48:01.727" endtime="20240605 17:48:02.347"/>
-</kw>
-<status status="PASS" starttime="20240605 17:47:59.695" endtime="20240605 17:48:02.347"/>
-</kw>
-<msg timestamp="20240605 17:48:02.347" level="INFO">${send_status_result} = True</msg>
-<status status="PASS" starttime="20240605 17:47:59.695" endtime="20240605 17:48:02.347"/>
-</kw>
-<kw name="Exit For Loop If" library="BuiltIn">
-<arg>'${asset_number_status}'=='${asset_number_yesorno}' and '${asset_type_status}'=='${true}' and '${asset_unit_status}'=='${true}'</arg>
-<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
-<msg timestamp="20240605 17:48:02.347" level="INFO">Exiting for loop altogether.</msg>
-<status status="PASS" starttime="20240605 17:48:02.347" endtime="20240605 17:48:02.347"/>
-</kw>
-<status status="PASS" starttime="20240605 17:47:54.618" endtime="20240605 17:48:02.347"/>
-</iter>
-<status status="PASS" starttime="20240605 17:47:54.618" endtime="20240605 17:48:02.347"/>
-</for>
-<kw name="Run Keyword If" library="BuiltIn">
-<arg>'${send_status_result}'=='${asset_number_yesorno}'</arg>
-<arg>Check_send_data</arg>
-<arg>${save_hostname}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" starttime="20240605 17:48:02.347" endtime="20240605 17:48:02.347"/>
-</kw>
-<status status="PASS" starttime="20240605 17:47:54.618" endtime="20240605 17:48:02.347"/>
-</kw>
+<test id="s1-t2" name="經辦-資產管理-已審核頁面-全部資產-查看驗證-準備資料工作" line="42">
 <kw name="Open Browser Chrome and use user" library="Login">
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${prefs}</var>
 <arg>download.default_directory=${OUTPUT_DIR}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20240605 17:48:02.347" level="INFO">${prefs} = {'download.default_directory': 'C:\\Users\\TPI'}</msg>
-<status status="PASS" starttime="20240605 17:48:02.347" endtime="20240605 17:48:02.347"/>
+<msg timestamp="20240627 15:22:41.742" level="INFO">${prefs} = {'download.default_directory': 'C:\\Users\\TPI'}</msg>
+<status status="PASS" starttime="20240627 15:22:41.742" endtime="20240627 15:22:41.743"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${chrome_options}</var>
 <arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
 <arg>sys, selenium.webdriver</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240605 17:48:02.347" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000020D1DC57BD0&gt;</msg>
-<status status="PASS" starttime="20240605 17:48:02.347" endtime="20240605 17:48:02.347"/>
+<msg timestamp="20240627 15:22:41.743" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000015DEE349BD0&gt;</msg>
+<status status="PASS" starttime="20240627 15:22:41.743" endtime="20240627 15:22:41.743"/>
 </kw>
 <kw name="Call Method" library="BuiltIn">
 <arg>${chrome_options}</arg>
@@ -1205,449 +702,23 @@
 <arg>prefs</arg>
 <arg>${prefs}</arg>
 <doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20240605 17:48:02.347" endtime="20240605 17:48:02.347"/>
+<status status="PASS" starttime="20240627 15:22:41.743" endtime="20240627 15:22:41.743"/>
 </kw>
 <kw name="Open Browser" library="Selenium2Library">
 <arg>${URL}</arg>
-<arg>chrome</arg>
+<arg>headlesschrome</arg>
 <arg>options=${chrome_options}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20240605 17:48:02.347" level="INFO">Opening browser 'chrome' to base url 'https://iasm-lab.net/change-role'.</msg>
-<status status="PASS" starttime="20240605 17:48:02.347" endtime="20240605 17:48:04.055"/>
-</kw>
-<kw name="Maximize Browser Window" library="Selenium2Library">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20240605 17:48:04.055" endtime="20240605 17:48:04.074"/>
-</kw>
-<status status="PASS" starttime="20240605 17:48:02.347" endtime="20240605 17:48:04.074"/>
-</kw>
-<kw name="Login Cloud Operations Supervisor" library="Login">
-<kw name="Wait And Click" library="Action">
-<arg>//button[contains(@label,'${Cloud_Operations_Supervisor}')]</arg>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:48:04.074" endtime="20240605 17:48:04.110"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20240605 17:48:04.110" endtime="20240605 17:48:04.154"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20240605 17:48:04.154" endtime="20240605 17:48:04.168"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>500ms</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:48:04.668" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:48:04.168" endtime="20240605 17:48:04.668"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20240605 17:48:04.668" level="INFO">Clicking element '//button[contains(@label,'雲端科級主管')]'.</msg>
-<status status="PASS" starttime="20240605 17:48:04.668" endtime="20240605 17:48:04.724"/>
-</kw>
-<status status="PASS" starttime="20240605 17:48:04.074" endtime="20240605 17:48:04.724"/>
-</kw>
-<kw name="Wait Until Element Is Not Visible" library="Selenium2Library">
-<arg>//*[contains(text(),'loading')]</arg>
-<arg>timeout=90</arg>
-<doc>Waits until the element ``locator`` is not visible.</doc>
-<status status="PASS" starttime="20240605 17:48:04.725" endtime="20240605 17:48:04.732"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>500ms</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:48:05.234" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:48:04.732" endtime="20240605 17:48:05.234"/>
-</kw>
-<status status="PASS" starttime="20240605 17:48:04.074" endtime="20240605 17:48:05.234"/>
-</kw>
-<kw name="Check_review_asset" library="Asset_management">
-<arg>${false}</arg>
-<arg>${asset_type}</arg>
-<arg>${department_name}-${division_name}</arg>
-<for flavor="IN RANGE">
-<var>${i}</var>
-<value>1</value>
-<value>101</value>
-<iter>
-<var name="${i}">1</var>
-<kw name="Check_asset_send_status" library="Asset_management">
-<var>${asset_number_status}</var>
-<var>${asset_type_status}</var>
-<var>${asset_unit_status}</var>
-<arg>${i}</arg>
-<arg>${asset_type}</arg>
-<arg>${asset_unit}</arg>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${asset_number_status}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>//table[@id="pr_id_2-table"]/tbody/tr[${place}]/td[2][contains(text(),'DA') or contains(text(),'SW')]</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>//table[@id="pr_id_2-table"]/tbody/tr[${place}]/td[2][contains(text(),'DA') or contains(text(),'SW')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:48:05.234" endtime="20240605 17:48:05.258"/>
-</kw>
-<msg timestamp="20240605 17:48:05.259" level="INFO">${asset_number_status} = True</msg>
-<status status="PASS" starttime="20240605 17:48:05.234" endtime="20240605 17:48:05.259"/>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${asset_type_status}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>//table[@id="pr_id_2-table"]/tbody/tr[${place}]/td[6][contains(text(),'${asset_type}')]</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>//table[@id="pr_id_2-table"]/tbody/tr[${place}]/td[6][contains(text(),'${asset_type}')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<msg timestamp="20240605 17:48:10.427" level="FAIL">Element '//table[@id="pr_id_2-table"]/tbody/tr[1]/td[6][contains(text(),'資料')]' not visible after 5 seconds.</msg>
-<status status="FAIL" starttime="20240605 17:48:05.260" endtime="20240605 17:48:10.429"/>
-</kw>
-<msg timestamp="20240605 17:48:10.429" level="INFO">${asset_type_status} = False</msg>
-<status status="PASS" starttime="20240605 17:48:05.259" endtime="20240605 17:48:10.429"/>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${asset_unit_status}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>//table[@id="pr_id_2-table"]/tbody/tr[${place}]/td[8]/p[1][contains(text(),'${asset_unit}')]</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>//table[@id="pr_id_2-table"]/tbody/tr[${place}]/td[8]/p[1][contains(text(),'${asset_unit}')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:48:10.430" endtime="20240605 17:48:10.449"/>
-</kw>
-<msg timestamp="20240605 17:48:10.449" level="INFO">${asset_unit_status} = True</msg>
-<status status="PASS" starttime="20240605 17:48:10.429" endtime="20240605 17:48:10.449"/>
-</kw>
-<msg timestamp="20240605 17:48:10.449" level="INFO">${asset_number_status} = True</msg>
-<msg timestamp="20240605 17:48:10.449" level="INFO">${asset_type_status} = False</msg>
-<msg timestamp="20240605 17:48:10.449" level="INFO">${asset_unit_status} = True</msg>
-<status status="PASS" starttime="20240605 17:48:05.234" endtime="20240605 17:48:10.449"/>
-</kw>
-<kw name="Get Text" library="Selenium2Library">
-<var>${save_hostname}</var>
-<arg>//table[@id="pr_id_2-table"]/tbody//tr[${i}]/td[10][text()]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20240605 17:48:10.476" level="INFO">${save_hostname} = apigee-proxy-34z7</msg>
-<status status="PASS" starttime="20240605 17:48:10.449" endtime="20240605 17:48:10.476"/>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<var>${save_asset_number}</var>
-<arg>'${asset_number_status}'=='${true}'</arg>
-<arg>Get Text</arg>
-<arg>//table[@id="pr_id_2-table"]/tbody//tr[${i}]/td[2][text()]</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<kw name="Get Text" library="Selenium2Library">
-<arg>//table[@id="pr_id_2-table"]/tbody//tr[${i}]/td[2][text()]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="PASS" starttime="20240605 17:48:10.476" endtime="20240605 17:48:10.481"/>
-</kw>
-<msg timestamp="20240605 17:48:10.481" level="INFO">${save_asset_number} = SW-00079236</msg>
-<status status="PASS" starttime="20240605 17:48:10.476" endtime="20240605 17:48:10.481"/>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<var>${send_status_result}</var>
-<arg>'${asset_number_status}'=='${asset_number_yesorno}' and '${asset_type_status}'=='${true}' and '${asset_unit_status}'=='${true}'</arg>
-<arg>Asset_to_review</arg>
-<arg>${i}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<msg timestamp="20240605 17:48:10.481" level="INFO">${send_status_result} = None</msg>
-<status status="PASS" starttime="20240605 17:48:10.481" endtime="20240605 17:48:10.481"/>
-</kw>
-<kw name="Exit For Loop If" library="BuiltIn">
-<arg>'${asset_number_status}'=='${asset_number_yesorno}' and '${asset_type_status}'=='${true}' and '${asset_unit_status}'=='${true}'</arg>
-<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
-<status status="PASS" starttime="20240605 17:48:10.481" endtime="20240605 17:48:10.481"/>
-</kw>
-<status status="PASS" starttime="20240605 17:48:05.234" endtime="20240605 17:48:10.481"/>
-</iter>
-<iter>
-<var name="${i}">2</var>
-<kw name="Check_asset_send_status" library="Asset_management">
-<var>${asset_number_status}</var>
-<var>${asset_type_status}</var>
-<var>${asset_unit_status}</var>
-<arg>${i}</arg>
-<arg>${asset_type}</arg>
-<arg>${asset_unit}</arg>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${asset_number_status}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>//table[@id="pr_id_2-table"]/tbody/tr[${place}]/td[2][contains(text(),'DA') or contains(text(),'SW')]</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>//table[@id="pr_id_2-table"]/tbody/tr[${place}]/td[2][contains(text(),'DA') or contains(text(),'SW')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<msg timestamp="20240605 17:48:15.557" level="FAIL">Element '//table[@id="pr_id_2-table"]/tbody/tr[2]/td[2][contains(text(),'DA') or contains(text(),'SW')]' not visible after 5 seconds.</msg>
-<status status="FAIL" starttime="20240605 17:48:10.481" endtime="20240605 17:48:15.558"/>
-</kw>
-<msg timestamp="20240605 17:48:15.558" level="INFO">${asset_number_status} = False</msg>
-<status status="PASS" starttime="20240605 17:48:10.481" endtime="20240605 17:48:15.558"/>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${asset_type_status}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>//table[@id="pr_id_2-table"]/tbody/tr[${place}]/td[6][contains(text(),'${asset_type}')]</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>//table[@id="pr_id_2-table"]/tbody/tr[${place}]/td[6][contains(text(),'${asset_type}')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:48:15.558" endtime="20240605 17:48:15.565"/>
-</kw>
-<msg timestamp="20240605 17:48:15.565" level="INFO">${asset_type_status} = True</msg>
-<status status="PASS" starttime="20240605 17:48:15.558" endtime="20240605 17:48:15.565"/>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${asset_unit_status}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>//table[@id="pr_id_2-table"]/tbody/tr[${place}]/td[8]/p[1][contains(text(),'${asset_unit}')]</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>//table[@id="pr_id_2-table"]/tbody/tr[${place}]/td[8]/p[1][contains(text(),'${asset_unit}')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:48:15.565" endtime="20240605 17:48:15.581"/>
-</kw>
-<msg timestamp="20240605 17:48:15.581" level="INFO">${asset_unit_status} = True</msg>
-<status status="PASS" starttime="20240605 17:48:15.565" endtime="20240605 17:48:15.581"/>
-</kw>
-<msg timestamp="20240605 17:48:15.581" level="INFO">${asset_number_status} = False</msg>
-<msg timestamp="20240605 17:48:15.581" level="INFO">${asset_type_status} = True</msg>
-<msg timestamp="20240605 17:48:15.581" level="INFO">${asset_unit_status} = True</msg>
-<status status="PASS" starttime="20240605 17:48:10.481" endtime="20240605 17:48:15.581"/>
-</kw>
-<kw name="Get Text" library="Selenium2Library">
-<var>${save_hostname}</var>
-<arg>//table[@id="pr_id_2-table"]/tbody//tr[${i}]/td[10][text()]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20240605 17:48:15.608" level="INFO">${save_hostname} = cathay-apim-ut</msg>
-<status status="PASS" starttime="20240605 17:48:15.581" endtime="20240605 17:48:15.608"/>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<var>${save_asset_number}</var>
-<arg>'${asset_number_status}'=='${true}'</arg>
-<arg>Get Text</arg>
-<arg>//table[@id="pr_id_2-table"]/tbody//tr[${i}]/td[2][text()]</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<msg timestamp="20240605 17:48:15.608" level="INFO">${save_asset_number} = None</msg>
-<status status="PASS" starttime="20240605 17:48:15.608" endtime="20240605 17:48:15.608"/>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<var>${send_status_result}</var>
-<arg>'${asset_number_status}'=='${asset_number_yesorno}' and '${asset_type_status}'=='${true}' and '${asset_unit_status}'=='${true}'</arg>
-<arg>Asset_to_review</arg>
-<arg>${i}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<kw name="Asset_to_review" library="Asset_management">
-<arg>${i}</arg>
-<kw name="Wait And Click" library="Action">
-<arg>//table[@id="pr_id_2-table"]/tbody/tr[${place}]/td[2]</arg>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:48:15.609" endtime="20240605 17:48:15.614"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20240605 17:48:15.614" endtime="20240605 17:48:15.639"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20240605 17:48:15.640" endtime="20240605 17:48:15.644"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>500ms</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:48:16.145" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:48:15.644" endtime="20240605 17:48:16.145"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20240605 17:48:16.145" level="INFO">Clicking element '//table[@id="pr_id_2-table"]/tbody/tr[2]/td[2]'.</msg>
-<status status="PASS" starttime="20240605 17:48:16.145" endtime="20240605 17:48:16.183"/>
-</kw>
-<status status="PASS" starttime="20240605 17:48:15.609" endtime="20240605 17:48:16.183"/>
-</kw>
-<kw name="Wait And Click" library="Action">
-<arg>//span[text()='${review_status}']</arg>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:48:16.183" endtime="20240605 17:48:16.197"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20240605 17:48:16.197" endtime="20240605 17:48:16.227"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20240605 17:48:16.227" endtime="20240605 17:48:16.230"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>500ms</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:48:16.731" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:48:16.230" endtime="20240605 17:48:16.731"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20240605 17:48:16.731" level="INFO">Clicking element '//span[text()='覆核']'.</msg>
-<status status="PASS" starttime="20240605 17:48:16.731" endtime="20240605 17:48:16.780"/>
-</kw>
-<status status="PASS" starttime="20240605 17:48:16.183" endtime="20240605 17:48:16.780"/>
-</kw>
-<kw name="Wait And Click" library="Action">
-<arg>//span[text()='${ok}']</arg>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:48:16.780" endtime="20240605 17:48:16.801"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20240605 17:48:16.802" endtime="20240605 17:48:16.816"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20240605 17:48:16.816" endtime="20240605 17:48:16.828"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>500ms</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:48:17.329" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:48:16.828" endtime="20240605 17:48:17.329"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20240605 17:48:17.329" level="INFO">Clicking element '//span[text()='確定']'.</msg>
-<status status="PASS" starttime="20240605 17:48:17.329" endtime="20240605 17:48:17.374"/>
-</kw>
-<status status="PASS" starttime="20240605 17:48:16.780" endtime="20240605 17:48:17.374"/>
-</kw>
-<kw name="Wait And Click" library="Action">
-<arg>//span[text()='${ok}']</arg>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:48:17.374" endtime="20240605 17:48:17.390"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20240605 17:48:17.390" endtime="20240605 17:48:17.408"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20240605 17:48:17.408" endtime="20240605 17:48:17.408"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>500ms</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:48:17.908" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:48:17.408" endtime="20240605 17:48:17.908"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20240605 17:48:17.908" level="INFO">Clicking element '//span[text()='確定']'.</msg>
-<status status="PASS" starttime="20240605 17:48:17.908" endtime="20240605 17:48:17.939"/>
-</kw>
-<status status="PASS" starttime="20240605 17:48:17.374" endtime="20240605 17:48:17.939"/>
-</kw>
-<status status="PASS" starttime="20240605 17:48:15.608" endtime="20240605 17:48:17.939"/>
-</kw>
-<msg timestamp="20240605 17:48:17.939" level="INFO">${send_status_result} = None</msg>
-<status status="PASS" starttime="20240605 17:48:15.608" endtime="20240605 17:48:17.939"/>
-</kw>
-<kw name="Exit For Loop If" library="BuiltIn">
-<arg>'${asset_number_status}'=='${asset_number_yesorno}' and '${asset_type_status}'=='${true}' and '${asset_unit_status}'=='${true}'</arg>
-<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
-<msg timestamp="20240605 17:48:17.939" level="INFO">Exiting for loop altogether.</msg>
-<status status="PASS" starttime="20240605 17:48:17.939" endtime="20240605 17:48:17.939"/>
-</kw>
-<status status="PASS" starttime="20240605 17:48:10.481" endtime="20240605 17:48:17.939"/>
-</iter>
-<status status="PASS" starttime="20240605 17:48:05.234" endtime="20240605 17:48:17.939"/>
-</for>
-<kw name="Run Keyword If" library="BuiltIn">
-<arg>'${asset_number_status}'=='${true}' and '${asset_unit}'!='${not_assign}'</arg>
-<arg>Check_review_data</arg>
-<arg>${save_asset_number}</arg>
-<arg>ELSE IF</arg>
-<arg>'${asset_unit}'!='${not_assign}'</arg>
-<arg>Check_review_no_number_data</arg>
-<arg>${asset_type}</arg>
-<arg>${save_hostname}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<kw name="Check_review_no_number_data" library="Asset_management">
-<arg>${asset_type}</arg>
-<arg>${save_hostname}</arg>
-<kw name="Open Browser Chrome and use user" library="Login">
-<kw name="Create Dictionary" library="BuiltIn">
-<var>${prefs}</var>
-<arg>download.default_directory=${OUTPUT_DIR}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20240605 17:48:17.939" level="INFO">${prefs} = {'download.default_directory': 'C:\\Users\\TPI'}</msg>
-<status status="PASS" starttime="20240605 17:48:17.939" endtime="20240605 17:48:17.939"/>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<var>${chrome_options}</var>
-<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
-<arg>sys, selenium.webdriver</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240605 17:48:17.939" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x0000020D1DC2F1D0&gt;</msg>
-<status status="PASS" starttime="20240605 17:48:17.939" endtime="20240605 17:48:17.939"/>
-</kw>
-<kw name="Call Method" library="BuiltIn">
-<arg>${chrome_options}</arg>
-<arg>add_experimental_option</arg>
-<arg>prefs</arg>
-<arg>${prefs}</arg>
-<doc>Calls the named method of the given object with the provided arguments.</doc>
-<status status="PASS" starttime="20240605 17:48:17.939" endtime="20240605 17:48:17.939"/>
-</kw>
-<kw name="Open Browser" library="Selenium2Library">
-<arg>${URL}</arg>
-<arg>chrome</arg>
-<arg>options=${chrome_options}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20240605 17:48:17.939" level="INFO">Opening browser 'chrome' to base url 'https://iasm-lab.net/change-role'.</msg>
-<status status="PASS" starttime="20240605 17:48:17.939" endtime="20240605 17:48:19.622"/>
-</kw>
-<kw name="Maximize Browser Window" library="Selenium2Library">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20240605 17:48:19.622" endtime="20240605 17:48:19.655"/>
-</kw>
-<status status="PASS" starttime="20240605 17:48:17.939" endtime="20240605 17:48:19.655"/>
+<msg timestamp="20240627 15:22:41.744" level="INFO">Opening browser 'headlesschrome' to base url 'https://iasm-lab.net/change-role'.</msg>
+<status status="PASS" starttime="20240627 15:22:41.743" endtime="20240627 15:22:43.415"/>
+</kw>
+<kw name="Set Window Size" library="Selenium2Library">
+<arg>1920</arg>
+<arg>1080</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20240627 15:22:43.415" endtime="20240627 15:22:43.438"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:41.742" endtime="20240627 15:22:43.438"/>
 </kw>
 <kw name="Login Attention" library="Login">
 <kw name="Wait And Click" library="Action">
@@ -1656,345 +727,1043 @@
 <arg>${locator}</arg>
 <arg>timeout=30s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:48:19.655" endtime="20240605 17:48:19.690"/>
+<status status="PASS" starttime="20240627 15:22:43.440" endtime="20240627 15:22:43.466"/>
 </kw>
 <kw name="Wait Until Element Is Enabled" library="Selenium2Library">
 <arg>${locator}</arg>
 <arg>timeout=30s</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20240605 17:48:19.690" endtime="20240605 17:48:19.718"/>
+<status status="PASS" starttime="20240627 15:22:43.468" endtime="20240627 15:22:43.496"/>
 </kw>
 <kw name="Wait Until Page Contains Element" library="Selenium2Library">
 <arg>${locator}</arg>
 <arg>timeout=30s</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20240605 17:48:19.718" endtime="20240605 17:48:19.738"/>
+<status status="PASS" starttime="20240627 15:22:43.496" endtime="20240627 15:22:43.507"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>500ms</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:48:20.239" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:48:19.738" endtime="20240605 17:48:20.239"/>
+<msg timestamp="20240627 15:22:44.007" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:43.507" endtime="20240627 15:22:44.007"/>
 </kw>
 <kw name="Click Element" library="Selenium2Library">
 <arg>${locator}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20240605 17:48:20.239" level="INFO">Clicking element '//button[contains(@label,'經辦')]'.</msg>
-<status status="PASS" starttime="20240605 17:48:20.239" endtime="20240605 17:48:20.298"/>
-</kw>
-<status status="PASS" starttime="20240605 17:48:19.655" endtime="20240605 17:48:20.298"/>
-</kw>
-<kw name="Wait Until Element Is Not Visible" library="Selenium2Library">
-<arg>//*[contains(text(),'loading')]</arg>
-<arg>timeout=90</arg>
-<doc>Waits until the element ``locator`` is not visible.</doc>
-<status status="PASS" starttime="20240605 17:48:20.298" endtime="20240605 17:48:20.307"/>
+<msg timestamp="20240627 15:22:44.008" level="INFO">Clicking element '//button[contains(@label,'經辦')]'.</msg>
+<status status="PASS" starttime="20240627 15:22:44.007" endtime="20240627 15:22:44.051"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>500ms</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:48:20.807" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:48:20.307" endtime="20240605 17:48:20.807"/>
+<msg timestamp="20240627 15:22:44.553" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:44.051" endtime="20240627 15:22:44.553"/>
 </kw>
-<status status="PASS" starttime="20240605 17:48:19.655" endtime="20240605 17:48:20.807"/>
+<status status="PASS" starttime="20240627 15:22:43.440" endtime="20240627 15:22:44.553"/>
 </kw>
-<kw name="Wait And Click" library="Action">
-<arg>//table[@id="pr_id_2-table"]/tbody//tr[1]</arg>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:48:20.807" endtime="20240605 17:48:20.823"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20240605 17:48:20.823" endtime="20240605 17:48:20.839"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20240605 17:48:20.839" endtime="20240605 17:48:20.854"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>500ms</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:48:21.354" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:48:20.854" endtime="20240605 17:48:21.354"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20240605 17:48:21.354" level="INFO">Clicking element '//table[@id="pr_id_2-table"]/tbody//tr[1]'.</msg>
-<status status="PASS" starttime="20240605 17:48:21.354" endtime="20240605 17:48:21.395"/>
-</kw>
-<status status="PASS" starttime="20240605 17:48:20.807" endtime="20240605 17:48:21.395"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>500ms</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:48:21.896" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:48:21.395" endtime="20240605 17:48:21.896"/>
-</kw>
-<kw name="Mouse Over" library="Selenium2Library">
-<arg>//tr[@class='p-element p-selectable-row ng-star-inserted p-highlight']//td[@class='dropdown']</arg>
-<doc>Simulates hovering the mouse over the element ``locator``.</doc>
-<msg timestamp="20240605 17:48:21.897" level="INFO">Simulating Mouse Over on element '//tr[@class='p-element p-selectable-row ng-star-inserted p-highlight']//td[@class='dropdown']'.</msg>
-<status status="PASS" starttime="20240605 17:48:21.896" endtime="20240605 17:48:22.189"/>
-</kw>
-<kw name="Mouse Over" library="Selenium2Library">
-<arg>//tr[@class='p-element p-selectable-row ng-star-inserted p-highlight']//li[1]//*[contains(text(),' ${look} ')]</arg>
-<doc>Simulates hovering the mouse over the element ``locator``.</doc>
-<msg timestamp="20240605 17:48:22.189" level="INFO">Simulating Mouse Over on element '//tr[@class='p-element p-selectable-row ng-star-inserted p-highlight']//li[1]//*[contains(text(),' 查看 ')]'.</msg>
-<status status="PASS" starttime="20240605 17:48:22.189" endtime="20240605 17:48:22.472"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>500ms</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:48:22.972" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:48:22.472" endtime="20240605 17:48:22.972"/>
-</kw>
-<kw name="Wait And Click" library="Action">
-<arg>//tr[@class='p-element p-selectable-row ng-star-inserted p-highlight']//li[1]//*[contains(text(),' ${look} ')]</arg>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:48:22.973" endtime="20240605 17:48:22.994"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20240605 17:48:22.994" endtime="20240605 17:48:23.002"/>
-</kw>
-<kw name="Wait Until Page Contains Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>timeout=30s</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20240605 17:48:23.002" endtime="20240605 17:48:23.002"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>500ms</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:48:23.502" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:48:23.002" endtime="20240605 17:48:23.502"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20240605 17:48:23.504" level="INFO">Clicking element '//tr[@class='p-element p-selectable-row ng-star-inserted p-highlight']//li[1]//*[contains(text(),' 查看 ')]'.</msg>
-<status status="PASS" starttime="20240605 17:48:23.502" endtime="20240605 17:48:23.589"/>
-</kw>
-<status status="PASS" starttime="20240605 17:48:22.972" endtime="20240605 17:48:23.589"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>500ms</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:48:24.091" level="INFO">Slept 500 milliseconds</msg>
-<status status="PASS" starttime="20240605 17:48:23.589" endtime="20240605 17:48:24.091"/>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<arg>'${asset_type}'=='${list_data}'</arg>
-<arg>Verify the testcase is pass (data is existed)</arg>
-<arg>//div[2]/div[2]/div[3][contains(text(),'${save_hostname_par} ')]</arg>
-<arg>ELSE</arg>
-<arg>Verify the testcase is pass (data is existed)</arg>
-<arg>//div[2]/div[2]/div[7][contains(text(),'${save_hostname_par} ')]</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<kw name="Verify the testcase is pass (data is existed)" library="Action">
-<arg>//div[2]/div[2]/div[3][contains(text(),'${save_hostname_par} ')]</arg>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>${locator}</arg>
-<arg>10s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20240605 17:48:24.092" endtime="20240605 17:48:24.118"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>1s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240605 17:48:25.119" level="INFO">Slept 1 second</msg>
-<status status="PASS" starttime="20240605 17:48:24.118" endtime="20240605 17:48:25.119"/>
-</kw>
-<status status="PASS" starttime="20240605 17:48:24.091" endtime="20240605 17:48:25.119"/>
-</kw>
-<status status="PASS" starttime="20240605 17:48:24.091" endtime="20240605 17:48:25.119"/>
-</kw>
-<kw name="Close Browser" library="Selenium2Library">
-<doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20240605 17:48:25.119" endtime="20240605 17:48:27.270"/>
-</kw>
-<status status="PASS" starttime="20240605 17:48:17.939" endtime="20240605 17:48:27.270"/>
-</kw>
-<status status="PASS" starttime="20240605 17:48:17.939" endtime="20240605 17:48:27.270"/>
-</kw>
-<status status="PASS" starttime="20240605 17:48:05.234" endtime="20240605 17:48:27.270"/>
-</kw>
-<kw name="Close Browser" library="Selenium2Library">
-<doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20240605 17:48:27.270" endtime="20240605 17:48:27.270"/>
-</kw>
-<kw name="Exit For Loop If" library="BuiltIn">
-<arg>'${asset_number_status}'=='${false}' and '${asset_type_status}'=='${true}' and '${asset_unit_status}'=='${true}'</arg>
-<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
-<msg timestamp="20240605 17:48:27.270" level="INFO">Exiting for loop altogether.</msg>
-<status status="PASS" starttime="20240605 17:48:27.270" endtime="20240605 17:48:27.270"/>
-</kw>
-<status status="PASS" starttime="20240605 17:47:43.797" endtime="20240605 17:48:27.270"/>
-</iter>
-<status status="PASS" starttime="20240605 17:47:43.797" endtime="20240605 17:48:27.270"/>
-</for>
-<status status="PASS" starttime="20240605 17:47:43.797" endtime="20240605 17:48:27.270"/>
-</iter>
-<iter>
-<var name="${need_create_asset_number}">1</var>
+<kw name="Check_panel_is_ready" library="Login">
 <for flavor="IN RANGE">
 <var>${i}</var>
 <value>1</value>
-<value>101</value>
+<value>10</value>
 <iter>
 <var name="${i}">1</var>
-<kw name="Check_asset_status" library="Asset_management">
-<var>${asset_number_status}</var>
-<var>${asset_type_status}</var>
-<var>${asset_unit_status}</var>
-<arg>${i}</arg>
-<arg>${asset_type}</arg>
-<arg>${asset_unit}</arg>
 <kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${asset_number_status}</var>
+<var>${loading_status}</var>
 <arg>Wait Until Element Is Visible</arg>
-<arg>//tbody/tr[${place}]/td[2][contains(text(),'DA') or contains(text(),'SW')]</arg>
+<arg>//svg[@class="p-progress-spinner-svg"]</arg>
+<arg>timeout=3</arg>
 <doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
 <kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>//tbody/tr[${place}]/td[2][contains(text(),'DA') or contains(text(),'SW')]</arg>
+<arg>//svg[@class="p-progress-spinner-svg"]</arg>
+<arg>timeout=3</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<msg timestamp="20240605 17:48:27.270" level="FAIL">No browser is open.</msg>
-<status status="FAIL" starttime="20240605 17:48:27.270" endtime="20240605 17:48:27.270"/>
+<msg timestamp="20240627 15:22:47.751" level="FAIL">Element '//svg[@class="p-progress-spinner-svg"]' not visible after 3 seconds.</msg>
+<status status="FAIL" starttime="20240627 15:22:44.554" endtime="20240627 15:22:47.752"/>
 </kw>
-<msg timestamp="20240605 17:48:27.270" level="INFO">${asset_number_status} = False</msg>
-<status status="PASS" starttime="20240605 17:48:27.270" endtime="20240605 17:48:27.270"/>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${asset_type_status}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>//tbody/tr[${place}]/td[6][contains(text(),'${asset_type}')]</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>//tbody/tr[${place}]/td[6][contains(text(),'${asset_type}')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<msg timestamp="20240605 17:48:27.270" level="FAIL">No browser is open.</msg>
-<status status="FAIL" starttime="20240605 17:48:27.270" endtime="20240605 17:48:27.270"/>
-</kw>
-<msg timestamp="20240605 17:48:27.270" level="INFO">${asset_type_status} = False</msg>
-<status status="PASS" starttime="20240605 17:48:27.270" endtime="20240605 17:48:27.270"/>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${asset_unit_status}</var>
-<arg>Wait Until Element Is Visible</arg>
-<arg>//tbody/tr[${place}]/td[8]/p[1][contains(text(),'${asset_unit}')]</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="Wait Until Element Is Visible" library="Selenium2Library">
-<arg>//tbody/tr[${place}]/td[8]/p[1][contains(text(),'${asset_unit}')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<msg timestamp="20240605 17:48:27.270" level="FAIL">No browser is open.</msg>
-<status status="FAIL" starttime="20240605 17:48:27.270" endtime="20240605 17:48:27.270"/>
-</kw>
-<msg timestamp="20240605 17:48:27.270" level="INFO">${asset_unit_status} = False</msg>
-<status status="PASS" starttime="20240605 17:48:27.270" endtime="20240605 17:48:27.270"/>
-</kw>
-<msg timestamp="20240605 17:48:27.270" level="INFO">${asset_number_status} = False</msg>
-<msg timestamp="20240605 17:48:27.270" level="INFO">${asset_type_status} = False</msg>
-<msg timestamp="20240605 17:48:27.270" level="INFO">${asset_unit_status} = False</msg>
-<status status="PASS" starttime="20240605 17:48:27.270" endtime="20240605 17:48:27.270"/>
-</kw>
-<kw name="Get Text" library="Selenium2Library">
-<var>${save_hostname}</var>
-<arg>//table[@id="pr_id_3-table"]/tbody//tr[${i}]/td[10][text()]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20240605 17:48:27.270" level="FAIL">No browser is open.</msg>
-<status status="FAIL" starttime="20240605 17:48:27.270" endtime="20240605 17:48:27.270"/>
+<msg timestamp="20240627 15:22:47.752" level="INFO">${loading_status} = False</msg>
+<status status="PASS" starttime="20240627 15:22:44.554" endtime="20240627 15:22:47.752"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
-<arg>'${asset_number_status}'=='${false}' and '${asset_type_status}'=='${true}' and '${asset_unit_status}'=='${true}'</arg>
-<arg>Asset_to_assign</arg>
-<arg>${i}</arg>
-<arg>${department_name}</arg>
-<arg>${division_name}</arg>
+<arg>'${loading_status}' == '${true}'</arg>
+<arg>Reload Page</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="NOT RUN" starttime="20240605 17:48:27.270" endtime="20240605 17:48:27.270"/>
-</kw>
-<kw name="Check_send_asset" library="Asset_management">
-<arg>${false}</arg>
-<arg>${asset_type}</arg>
-<arg>${department_name}-${division_name}</arg>
-<status status="NOT RUN" starttime="20240605 17:48:27.270" endtime="20240605 17:48:27.270"/>
-</kw>
-<kw name="Open Browser Chrome and use user" library="Login">
-<status status="NOT RUN" starttime="20240605 17:48:27.270" endtime="20240605 17:48:27.270"/>
-</kw>
-<kw name="Login Cloud Operations Supervisor" library="Login">
-<status status="NOT RUN" starttime="20240605 17:48:27.270" endtime="20240605 17:48:27.270"/>
-</kw>
-<kw name="Check_review_asset" library="Asset_management">
-<arg>${false}</arg>
-<arg>${asset_type}</arg>
-<arg>${department_name}-${division_name}</arg>
-<status status="NOT RUN" starttime="20240605 17:48:27.270" endtime="20240605 17:48:27.270"/>
-</kw>
-<kw name="Close Browser" library="Selenium2Library">
-<doc>Closes the current browser.</doc>
-<status status="NOT RUN" starttime="20240605 17:48:27.270" endtime="20240605 17:48:27.270"/>
+<status status="PASS" starttime="20240627 15:22:47.752" endtime="20240627 15:22:47.752"/>
 </kw>
 <kw name="Exit For Loop If" library="BuiltIn">
-<arg>'${asset_number_status}'=='${false}' and '${asset_type_status}'=='${true}' and '${asset_unit_status}'=='${true}'</arg>
+<arg>'${loading_status}' == '${false}'</arg>
 <doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
-<status status="NOT RUN" starttime="20240605 17:48:27.270" endtime="20240605 17:48:27.270"/>
+<msg timestamp="20240627 15:22:47.753" level="INFO">Exiting for loop altogether.</msg>
+<status status="PASS" starttime="20240627 15:22:47.753" endtime="20240627 15:22:47.753"/>
 </kw>
-<status status="FAIL" starttime="20240605 17:48:27.270" endtime="20240605 17:48:27.270"/>
+<status status="PASS" starttime="20240627 15:22:44.554" endtime="20240627 15:22:47.753"/>
 </iter>
-<status status="FAIL" starttime="20240605 17:48:27.270" endtime="20240605 17:48:27.270"/>
+<status status="PASS" starttime="20240627 15:22:44.554" endtime="20240627 15:22:47.753"/>
 </for>
-<status status="FAIL" starttime="20240605 17:48:27.270" endtime="20240605 17:48:27.270"/>
-</iter>
-<status status="FAIL" starttime="20240605 17:47:43.797" endtime="20240605 17:48:27.270"/>
-</for>
-<status status="FAIL" starttime="20240605 17:47:43.797" endtime="20240605 17:48:27.270"/>
+<status status="PASS" starttime="20240627 15:22:44.553" endtime="20240627 15:22:47.753"/>
 </kw>
-<status status="FAIL" starttime="20240605 17:47:43.797" endtime="20240605 17:48:27.270"/>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:48.254" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:47.753" endtime="20240627 15:22:48.254"/>
 </kw>
-<status status="FAIL" starttime="20240605 17:47:07.602" endtime="20240605 17:48:27.270"/>
+<status status="PASS" starttime="20240627 15:22:43.439" endtime="20240627 15:22:48.254"/>
+</kw>
+<kw name="Wait And Click" library="Action">
+<arg>//img[contains(@src,'/assets/images/image 220.png')]</arg>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:22:48.255" endtime="20240627 15:22:48.277"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20240627 15:22:48.277" endtime="20240627 15:22:48.294"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240627 15:22:48.294" endtime="20240627 15:22:48.300"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:48.801" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:48.300" endtime="20240627 15:22:48.801"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240627 15:22:48.802" level="INFO">Clicking element '//img[contains(@src,'/assets/images/image 220.png')]'.</msg>
+<status status="PASS" starttime="20240627 15:22:48.801" endtime="20240627 15:22:48.843"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:49.345" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:48.843" endtime="20240627 15:22:49.345"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:48.255" endtime="20240627 15:22:49.345"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${has_review_hard_data_status}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>//*[contains(text(),'${has_review_hard_data_name}')]</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>//*[contains(text(),'${has_review_hard_data_name}')]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:22:49.346" endtime="20240627 15:22:49.365"/>
+</kw>
+<msg timestamp="20240627 15:22:49.365" level="INFO">${has_review_hard_data_status} = True</msg>
+<status status="PASS" starttime="20240627 15:22:49.346" endtime="20240627 15:22:49.365"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${has_review_hard_data_status}' != '${true}'</arg>
+<arg>prereq to has review hard data</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20240627 15:22:49.365" endtime="20240627 15:22:49.365"/>
+</kw>
+<kw name="Wait And Click" library="Action">
+<arg>//img[contains(@src,'/assets/images/image 220.png')]</arg>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:22:49.366" endtime="20240627 15:22:49.377"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20240627 15:22:49.377" endtime="20240627 15:22:49.395"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240627 15:22:49.395" endtime="20240627 15:22:49.400"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:49.901" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:49.400" endtime="20240627 15:22:49.901"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240627 15:22:49.901" level="INFO">Clicking element '//img[contains(@src,'/assets/images/image 220.png')]'.</msg>
+<status status="PASS" starttime="20240627 15:22:49.901" endtime="20240627 15:22:49.933"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:50.434" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:49.933" endtime="20240627 15:22:50.434"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:49.365" endtime="20240627 15:22:50.434"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${has_review_soft_data_status}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>//*[contains(text(),'${has_review_soft_data_name}')]</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>//*[contains(text(),'${has_review_soft_data_name}')]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:22:50.436" endtime="20240627 15:22:50.463"/>
+</kw>
+<msg timestamp="20240627 15:22:50.463" level="INFO">${has_review_soft_data_status} = True</msg>
+<status status="PASS" starttime="20240627 15:22:50.435" endtime="20240627 15:22:50.463"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${has_review_soft_data_status}' != '${true}'</arg>
+<arg>prereq to has review soft data</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20240627 15:22:50.463" endtime="20240627 15:22:50.464"/>
+</kw>
+<kw name="Wait And Click" library="Action">
+<arg>//img[contains(@src,'/assets/images/image 220.png')]</arg>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:22:50.464" endtime="20240627 15:22:50.478"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20240627 15:22:50.478" endtime="20240627 15:22:50.495"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240627 15:22:50.495" endtime="20240627 15:22:50.500"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:51.001" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:50.500" endtime="20240627 15:22:51.001"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240627 15:22:51.002" level="INFO">Clicking element '//img[contains(@src,'/assets/images/image 220.png')]'.</msg>
+<status status="PASS" starttime="20240627 15:22:51.001" endtime="20240627 15:22:51.033"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:51.534" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:51.033" endtime="20240627 15:22:51.534"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:50.464" endtime="20240627 15:22:51.534"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${has_review_data_data_status}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>//*[contains(text(),'${has_review_data_data_name}')]</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>//*[contains(text(),'${has_review_data_data_name}')]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:22:51.536" endtime="20240627 15:22:51.560"/>
+</kw>
+<msg timestamp="20240627 15:22:51.560" level="INFO">${has_review_data_data_status} = True</msg>
+<status status="PASS" starttime="20240627 15:22:51.535" endtime="20240627 15:22:51.560"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${has_review_data_data_status}' != '${true}'</arg>
+<arg>prereq to has review data data</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20240627 15:22:51.561" endtime="20240627 15:22:51.561"/>
+</kw>
+<kw name="Wait And Click" library="Action">
+<arg>//img[contains(@src,'/assets/images/image 220.png')]</arg>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:22:51.561" endtime="20240627 15:22:51.572"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20240627 15:22:51.572" endtime="20240627 15:22:51.587"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240627 15:22:51.588" endtime="20240627 15:22:51.592"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:52.094" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:51.593" endtime="20240627 15:22:52.094"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240627 15:22:52.095" level="INFO">Clicking element '//img[contains(@src,'/assets/images/image 220.png')]'.</msg>
+<status status="PASS" starttime="20240627 15:22:52.094" endtime="20240627 15:22:52.125"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:52.626" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:52.125" endtime="20240627 15:22:52.626"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:51.561" endtime="20240627 15:22:52.626"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${has_review_paper_data_status}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>//*[contains(text(),'${has_review_paper_data_name}')]</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>//*[contains(text(),'${has_review_paper_data_name}')]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:22:52.627" endtime="20240627 15:22:52.651"/>
+</kw>
+<msg timestamp="20240627 15:22:52.651" level="INFO">${has_review_paper_data_status} = True</msg>
+<status status="PASS" starttime="20240627 15:22:52.626" endtime="20240627 15:22:52.651"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${has_review_paper_data_status}' != '${true}'</arg>
+<arg>prereq to has review paper data</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20240627 15:22:52.651" endtime="20240627 15:22:52.652"/>
+</kw>
+<kw name="Wait And Click" library="Action">
+<arg>//img[contains(@src,'/assets/images/image 220.png')]</arg>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:22:52.652" endtime="20240627 15:22:52.665"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20240627 15:22:52.665" endtime="20240627 15:22:52.680"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240627 15:22:52.680" endtime="20240627 15:22:52.686"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:53.187" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:52.686" endtime="20240627 15:22:53.187"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240627 15:22:53.188" level="INFO">Clicking element '//img[contains(@src,'/assets/images/image 220.png')]'.</msg>
+<status status="PASS" starttime="20240627 15:22:53.187" endtime="20240627 15:22:53.225"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:53.725" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:53.225" endtime="20240627 15:22:53.725"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:52.652" endtime="20240627 15:22:53.725"/>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<var>${has_review_people_data_status}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>//*[contains(text(),'${has_review_people_data_name}')]</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>//*[contains(text(),'${has_review_people_data_name}')]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:22:53.727" endtime="20240627 15:22:53.751"/>
+</kw>
+<msg timestamp="20240627 15:22:53.751" level="INFO">${has_review_people_data_status} = True</msg>
+<status status="PASS" starttime="20240627 15:22:53.726" endtime="20240627 15:22:53.751"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${has_review_people_data_status}' != '${true}'</arg>
+<arg>prereq to has review people data</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20240627 15:22:53.753" endtime="20240627 15:22:53.753"/>
 </kw>
 <kw name="Run Keyword If Test Failed" library="BuiltIn" type="TEARDOWN">
 <arg>Capture Page Screenshot</arg>
 <doc>Runs the given keyword with the given arguments, if the test failed.</doc>
-<kw name="Capture Page Screenshot" library="Selenium2Library">
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<msg timestamp="20240605 17:48:27.270" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<status status="PASS" starttime="20240605 17:48:27.270" endtime="20240605 17:48:27.270"/>
+<status status="PASS" starttime="20240627 15:22:53.753" endtime="20240627 15:22:53.753"/>
 </kw>
-<status status="PASS" starttime="20240605 17:48:27.270" endtime="20240605 17:48:27.270"/>
-</kw>
-<status status="FAIL" starttime="20240605 17:47:05.713" endtime="20240605 17:48:27.270">No browser is open.</status>
+<status status="PASS" starttime="20240627 15:22:41.740" endtime="20240627 15:22:53.754"/>
 </test>
-<kw name="Close Browser" library="Selenium2Library" type="TEARDOWN">
-<doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20240605 17:48:27.270" endtime="20240605 17:48:27.270"/>
+<test id="s1-t3" name="經辦-首頁-工作區資產查詢按鈕驗證" line="65">
+<kw name="Wait And Click" library="Action">
+<arg>//button[contains(@class,'p-element p-button action-button p-component')]</arg>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:22:53.755" endtime="20240627 15:22:53.770"/>
 </kw>
-<status status="FAIL" starttime="20240605 17:47:02.609" endtime="20240605 17:48:27.270"/>
-</suite>
-<statistics>
-<total>
-<stat pass="1" fail="1" skip="0">All Tests</stat>
-</total>
-<tag>
-</tag>
-<suite>
-<stat pass="1" fail="1" skip="0" id="s1" name="Test Code">Test Code</stat>
-</suite>
-</statistics>
-<errors>
-</errors>
-</robot>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20240627 15:22:53.770" endtime="20240627 15:22:53.786"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240627 15:22:53.786" endtime="20240627 15:22:53.791"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:54.291" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:53.791" endtime="20240627 15:22:54.291"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240627 15:22:54.291" level="INFO">Clicking element '//button[contains(@class,'p-element p-button action-button p-component')]'.</msg>
+<status status="PASS" starttime="20240627 15:22:54.291" endtime="20240627 15:22:54.328"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:54.829" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:54.328" endtime="20240627 15:22:54.829"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:53.755" endtime="20240627 15:22:54.829"/>
+</kw>
+<kw name="Verify the testcase is pass (data is existed)" library="Action">
+<arg>//*[contains(text(),'${work_search_button}')]</arg>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:22:54.830" endtime="20240627 15:22:54.852"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:55.852" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20240627 15:22:54.852" endtime="20240627 15:22:55.852"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:54.830" endtime="20240627 15:22:55.852"/>
+</kw>
+<kw name="Run Keyword If Test Failed" library="BuiltIn" type="TEARDOWN">
+<arg>Capture Page Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" starttime="20240627 15:22:55.853" endtime="20240627 15:22:55.853"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:53.754" endtime="20240627 15:22:55.853"/>
+</test>
+<test id="s1-t4" name="經辦-資產管理-單筆新增-硬體資產驗證" line="69">
+<kw name="Create hard data" library="Asset_management">
+<arg>${hard_data_name}</arg>
+<arg>${department_name}</arg>
+<arg>${division_name}</arg>
+<arg>${department_name}</arg>
+<arg>${division_name}</arg>
+<kw name="Wait And Click" library="Action">
+<arg>//i[@class='pi pi-copy']</arg>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:22:55.855" endtime="20240627 15:22:55.875"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20240627 15:22:55.875" endtime="20240627 15:22:55.893"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240627 15:22:55.893" endtime="20240627 15:22:55.901"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:56.402" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:55.901" endtime="20240627 15:22:56.402"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240627 15:22:56.402" level="INFO">Clicking element '//i[@class='pi pi-copy']'.</msg>
+<status status="PASS" starttime="20240627 15:22:56.402" endtime="20240627 15:22:56.453"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:56.954" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:56.453" endtime="20240627 15:22:56.954"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:55.855" endtime="20240627 15:22:56.954"/>
+</kw>
+<kw name="Wait And Click" library="Action">
+<arg>//a[@href='/assetsManager/add']</arg>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:22:56.954" endtime="20240627 15:22:56.970"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20240627 15:22:56.970" endtime="20240627 15:22:56.985"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240627 15:22:56.985" endtime="20240627 15:22:56.990"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:57.490" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:56.990" endtime="20240627 15:22:57.490"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240627 15:22:57.491" level="INFO">Clicking element '//a[@href='/assetsManager/add']'.</msg>
+<status status="PASS" starttime="20240627 15:22:57.490" endtime="20240627 15:22:57.599"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:58.100" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:57.599" endtime="20240627 15:22:58.100"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:56.954" endtime="20240627 15:22:58.100"/>
+</kw>
+<kw name="Wait And Click" library="Action">
+<arg>//*[text()='${table_hardware}']</arg>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:22:58.100" endtime="20240627 15:22:58.124"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20240627 15:22:58.124" endtime="20240627 15:22:58.142"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240627 15:22:58.142" endtime="20240627 15:22:58.149"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:58.650" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:58.149" endtime="20240627 15:22:58.650"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240627 15:22:58.650" level="INFO">Clicking element '//*[text()='硬體']'.</msg>
+<status status="PASS" starttime="20240627 15:22:58.650" endtime="20240627 15:22:58.688"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:59.189" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:58.688" endtime="20240627 15:22:59.189"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:58.100" endtime="20240627 15:22:59.189"/>
+</kw>
+<kw name="Wait And Click" library="Action">
+<arg>//*[text()='${select_dep}']</arg>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:22:59.189" endtime="20240627 15:22:59.206"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20240627 15:22:59.206" endtime="20240627 15:22:59.222"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240627 15:22:59.222" endtime="20240627 15:22:59.230"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:22:59.731" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:59.230" endtime="20240627 15:22:59.731"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240627 15:22:59.731" level="INFO">Clicking element '//*[text()='請選擇(部)']'.</msg>
+<status status="PASS" starttime="20240627 15:22:59.731" endtime="20240627 15:22:59.779"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:23:00.280" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:22:59.779" endtime="20240627 15:23:00.280"/>
+</kw>
+<status status="PASS" starttime="20240627 15:22:59.189" endtime="20240627 15:23:00.280"/>
+</kw>
+<kw name="Wait And Click" library="Action">
+<arg>//li[@aria-label='${inv_dep_name}']</arg>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:23:00.280" endtime="20240627 15:23:00.304"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20240627 15:23:00.304" endtime="20240627 15:23:00.322"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240627 15:23:00.322" endtime="20240627 15:23:00.329"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:23:00.830" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:23:00.329" endtime="20240627 15:23:00.830"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240627 15:23:00.830" level="INFO">Clicking element '//li[@aria-label='法令遵循部']'.</msg>
+<status status="PASS" starttime="20240627 15:23:00.830" endtime="20240627 15:23:00.875"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:23:01.376" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:23:00.875" endtime="20240627 15:23:01.376"/>
+</kw>
+<status status="PASS" starttime="20240627 15:23:00.280" endtime="20240627 15:23:01.376"/>
+</kw>
+<kw name="Wait And Click" library="Action">
+<arg>//div[@class ='input-field units-dropdown p-dropdown p-component p-dropdown-clearable']</arg>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:23:01.377" endtime="20240627 15:23:01.420"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20240627 15:23:01.420" endtime="20240627 15:23:01.482"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240627 15:23:01.482" endtime="20240627 15:23:01.500"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:23:02.001" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:23:01.500" endtime="20240627 15:23:02.001"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240627 15:23:02.003" level="INFO">Clicking element '//div[@class ='input-field units-dropdown p-dropdown p-component p-dropdown-clearable']'.</msg>
+<status status="PASS" starttime="20240627 15:23:02.001" endtime="20240627 15:23:02.059"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:23:02.560" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:23:02.059" endtime="20240627 15:23:02.560"/>
+</kw>
+<status status="PASS" starttime="20240627 15:23:01.377" endtime="20240627 15:23:02.560"/>
+</kw>
+<kw name="Wait And Click" library="Action">
+<arg>//li[@aria-label='${inv_div_name}']</arg>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:23:02.560" endtime="20240627 15:23:02.575"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20240627 15:23:02.576" endtime="20240627 15:23:02.594"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240627 15:23:02.594" endtime="20240627 15:23:02.600"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:23:03.101" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:23:02.600" endtime="20240627 15:23:03.101"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240627 15:23:03.101" level="INFO">Clicking element '//li[@aria-label='法令遵循一科']'.</msg>
+<status status="PASS" starttime="20240627 15:23:03.101" endtime="20240627 15:23:03.140"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:23:03.641" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:23:03.140" endtime="20240627 15:23:03.641"/>
+</kw>
+<status status="PASS" starttime="20240627 15:23:02.560" endtime="20240627 15:23:03.641"/>
+</kw>
+<kw name="Wait And Click" library="Action">
+<arg>//div[@class ='input-field p-dropdown p-component']</arg>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:23:03.641" endtime="20240627 15:23:03.660"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20240627 15:23:03.660" endtime="20240627 15:23:03.675"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240627 15:23:03.675" endtime="20240627 15:23:03.681"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:23:04.181" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:23:03.681" endtime="20240627 15:23:04.181"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240627 15:23:04.181" level="INFO">Clicking element '//div[@class ='input-field p-dropdown p-component']'.</msg>
+<status status="PASS" starttime="20240627 15:23:04.181" endtime="20240627 15:23:04.226"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:23:04.726" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:23:04.226" endtime="20240627 15:23:04.726"/>
+</kw>
+<status status="PASS" starttime="20240627 15:23:03.641" endtime="20240627 15:23:04.726"/>
+</kw>
+<kw name="Wait And Click" library="Action">
+<arg>//li[text()=' ${hard_group_name} ']</arg>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:23:04.726" endtime="20240627 15:23:04.745"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20240627 15:23:04.745" endtime="20240627 15:23:04.760"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240627 15:23:04.760" endtime="20240627 15:23:04.766"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:23:05.267" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:23:04.766" endtime="20240627 15:23:05.267"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240627 15:23:05.268" level="INFO">Clicking element '//li[text()=' H3-後勤支援應用硬體 ']'.</msg>
+<status status="PASS" starttime="20240627 15:23:05.267" endtime="20240627 15:23:05.312"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:23:05.813" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:23:05.312" endtime="20240627 15:23:05.813"/>
+</kw>
+<status status="PASS" starttime="20240627 15:23:04.726" endtime="20240627 15:23:05.813"/>
+</kw>
+<kw name="Wait And Input" library="Action">
+<arg>//input[@formcontrolname='nameOfAsset']</arg>
+<arg>${hard_data_name}</arg>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:23:05.814" endtime="20240627 15:23:05.834"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20240627 15:23:05.834" endtime="20240627 15:23:05.849"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240627 15:23:05.849" endtime="20240627 15:23:05.855"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:23:06.355" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:23:05.855" endtime="20240627 15:23:06.355"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240627 15:23:06.356" level="INFO">Typing text 'hard_data_name' into text field '//input[@formcontrolname='nameOfAsset']'.</msg>
+<status status="PASS" starttime="20240627 15:23:06.355" endtime="20240627 15:23:06.435"/>
+</kw>
+<status status="PASS" starttime="20240627 15:23:05.813" endtime="20240627 15:23:06.435"/>
+</kw>
+<kw name="Wait And Input" library="Action">
+<arg>//input[@formcontrolname='assetUsage']</arg>
+<arg>hard_assetUsage</arg>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:23:06.436" endtime="20240627 15:23:06.450"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20240627 15:23:06.450" endtime="20240627 15:23:06.465"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240627 15:23:06.465" endtime="20240627 15:23:06.470"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:23:06.971" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:23:06.470" endtime="20240627 15:23:06.971"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240627 15:23:06.972" level="INFO">Typing text 'hard_assetUsage' into text field '//input[@formcontrolname='assetUsage']'.</msg>
+<status status="PASS" starttime="20240627 15:23:06.971" endtime="20240627 15:23:07.038"/>
+</kw>
+<status status="PASS" starttime="20240627 15:23:06.435" endtime="20240627 15:23:07.039"/>
+</kw>
+<kw name="Wait And Input" library="Action">
+<arg>//input[@formcontrolname='physicalLocationOfTheAsset']</arg>
+<arg>hard_physicalLocationOfTheAsset</arg>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:23:07.040" endtime="20240627 15:23:07.055"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20240627 15:23:07.056" endtime="20240627 15:23:07.072"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240627 15:23:07.073" endtime="20240627 15:23:07.081"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:23:07.581" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:23:07.081" endtime="20240627 15:23:07.581"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240627 15:23:07.581" level="INFO">Typing text 'hard_physicalLocationOfTheAsset' into text field '//input[@formcontrolname='physicalLocationOfTheAsset']'.</msg>
+<status status="PASS" starttime="20240627 15:23:07.581" endtime="20240627 15:23:07.665"/>
+</kw>
+<status status="PASS" starttime="20240627 15:23:07.039" endtime="20240627 15:23:07.665"/>
+</kw>
+<kw name="Wait And Input" library="Action">
+<arg>//input[@formcontrolname='hostname']</arg>
+<arg>hard_hostname</arg>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:23:07.665" endtime="20240627 15:23:07.685"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20240627 15:23:07.685" endtime="20240627 15:23:07.699"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240627 15:23:07.699" endtime="20240627 15:23:07.704"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:23:08.206" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:23:07.705" endtime="20240627 15:23:08.206"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240627 15:23:08.206" level="INFO">Typing text 'hard_hostname' into text field '//input[@formcontrolname='hostname']'.</msg>
+<status status="PASS" starttime="20240627 15:23:08.206" endtime="20240627 15:23:08.270"/>
+</kw>
+<status status="PASS" starttime="20240627 15:23:07.665" endtime="20240627 15:23:08.270"/>
+</kw>
+<kw name="Wait And Click" library="Action">
+<arg>//div[@class ='p-multiselect-label p-placeholder']</arg>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:23:08.270" endtime="20240627 15:23:08.285"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20240627 15:23:08.285" endtime="20240627 15:23:08.301"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240627 15:23:08.301" endtime="20240627 15:23:08.306"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:23:08.806" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:23:08.306" endtime="20240627 15:23:08.806"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240627 15:23:08.806" level="INFO">Clicking element '//div[@class ='p-multiselect-label p-placeholder']'.</msg>
+<status status="PASS" starttime="20240627 15:23:08.806" endtime="20240627 15:23:08.871"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:23:09.372" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:23:08.871" endtime="20240627 15:23:09.372"/>
+</kw>
+<status status="PASS" starttime="20240627 15:23:08.270" endtime="20240627 15:23:09.372"/>
+</kw>
+<kw name="Wait And Click" library="Action">
+<arg>//div[@class='p-checkbox-box']</arg>
+<kw name="Wait Until Element Is Visible" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20240627 15:23:09.372" endtime="20240627 15:23:09.394"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20240627 15:23:09.394" endtime="20240627 15:23:09.416"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20240627 15:23:09.416" endtime="20240627 15:23:09.426"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:23:09.927" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:23:09.426" endtime="20240627 15:23:09.927"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20240627 15:23:09.928" level="INFO">Clicking element '//div[@class='p-checkbox-box']'.</msg>
+<status status="PASS" starttime="20240627 15:23:09.927" endtime="20240627 15:23:09.995"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>500ms</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240627 15:23:10.496" level="INFO">Slept 500 milliseconds</msg>
+<status status="PASS" starttime="20240627 15:23:09.995" endtime="20240627 15:23:10.496"/>
+</kw>
+<status status="PASS" starttime="20240627 15:23:09.372" endtime="20240627 15:23:10.496"/>
+</kw>

@@ -1,0 +1,9 @@
+${element} =    Get Webelement    ${XPath}  # 获取元素
+    ${actual_text} =    Get Text    ${element}  # 获取元素的文本内容
+    Should Be Equal As Strings    ${actual_text}    ${ExpectedText}  # 比对文本内容
+    
+
+
+在这个示例中，我们首先打开一个网页，然后使用Get Webelement关键字获取具有特定XPath的元素，接着使用Get Text关键字获取该元素的文本内容。最后，我们使用Should Be Equal As Strings关键字将抓取到的文本内容与预期的文本进行比对。
+
+你可以根据实际需要修改${XPath}和${ExpectedText}以匹配你的网页上的元素和预期的文本。这个示例演示了如何抓取元素的文本内容并进行比对。

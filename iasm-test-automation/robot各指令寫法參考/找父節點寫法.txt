@@ -1,0 +1,12 @@
+    
+
+#找父節點寫法
+    ${ancestor_element_xpath} =    Get Ancestor XPath    //*[contains(text(),'${Role_function_management_name_zh}')]    ancestor::tr
+    Wait And Click    ${ancestor_element_xpath}/td[2]/div/button[1]/span[contains(text(),'修改')]
+    Sleep    500ms
+
+
+Get Ancestor XPath
+    [Arguments]    ${child_xpath}    ${ancestor_expression}
+    ${ancestor_xpath} =    Set Variable    ${child_xpath}/${ancestor_expression}
+    [Return]    ${ancestor_xpath}

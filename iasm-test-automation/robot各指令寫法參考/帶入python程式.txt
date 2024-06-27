@@ -1,0 +1,14 @@
+my_custom_library.py
+
+def calculate_sum(a, b):
+    return int(a)+int(b)
+
+
+
+
+Library    Resource/my_custom_library.py
+
+#測試python寫法
+Calculate Sum Test
+    ${result}=    Calculate Sum(calculate_sum也可以)    2    3
+    Should Be Equal As Numbers    ${result}    5

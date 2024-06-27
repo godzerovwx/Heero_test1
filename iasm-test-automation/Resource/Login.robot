@@ -1,73 +1,70 @@
 *** Settings ***
 Resource    Action.robot
+Resource  IASMImportLib.robot
 
 *** Variables ***
-${ZOOM_LEVEL}    0.75
+
 
 *** Keywords ***
 Open Browser Chrome and use user
-#下載路徑寫法
+    #下載路徑寫法
     ${prefs}    Create Dictionary    download.default_directory=${OUTPUT_DIR}
     ${chrome_options}    evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
     Call Method    ${chrome_options}   add_experimental_option    prefs    ${prefs}
     
+    #瀏覽器模式
     Open Browser  ${URL}  chrome    options=${chrome_options}
     Maximize Browser Window
-    #Set Zoom Level    ${ZOOM_LEVEL}
+    
+    #無瀏覽器模式
     #Open Browser  ${URL}  headlesschrome    options=${chrome_options}
     #Set Window Size    1920    1080
 
-Set Zoom Level
-    [Arguments]    ${zoom_level}
-    Execute JavaScript    document.body.style.zoom="${zoom_level}"
+Check_panel_is_ready
+#判斷角色登入後頁面是否loading完畢
+    FOR    ${i}    IN RANGE    1    10
+        ${loading_status} =    Run Keyword And Return Status    Wait Until Element Is Visible    //svg[@class="p-progress-spinner-svg"]    timeout=3
+        Run Keyword If  '${loading_status}' == '${true}'    Reload Page
+        Exit For Loop If    '${loading_status}' == '${false}'
+    END
 
 Login Attention
     Wait And Click  //button[contains(@label,'${Attention}')]
-    Wait Until Element Is Not Visible    //*[contains(text(),'loading')]    timeout=90
-    Sleep    500ms
-
-Login Dep Attention
-    Wait And Click  //button[contains(@label,'${dep_Attention}')]
-    Wait Until Element Is Not Visible    //*[contains(text(),'loading')]    timeout=90
+    Check_panel_is_ready
     Sleep    500ms
 
 Login ISOAttention
     Wait And Click  //button[contains(@label,'${ISOAttention}')]
-    Wait Until Element Is Not Visible    //*[contains(text(),'loading')]    timeout=90
+    Check_panel_is_ready
     Sleep    500ms
 
 Login Operations Supervisor
     Wait And Click  //button[contains(@label,'${Operations_Supervisor}')]
-    Wait Until Element Is Not Visible    //*[contains(text(),'loading')]    timeout=90
+    Check_panel_is_ready
     Sleep    500ms
 
 Login System Admin
     Wait And Click  //button[contains(@label,'${System_Admin}')]
-    Wait Until Element Is Not Visible    //*[contains(text(),'loading')]    timeout=90
+    Check_panel_is_ready
     Sleep    500ms
 
 Login Unit Head
     Wait And Click  //button[contains(@label,'${Unit_Head}')]
-    Wait Until Element Is Not Visible    //*[contains(text(),'loading')]    timeout=90
-    Sleep    500ms
-
-Login Dep Unit Head
-    Wait And Click  //button[contains(@label,'${dep_Unit_Head}')]
-    Wait Until Element Is Not Visible    //*[contains(text(),'loading')]    timeout=90
+    Check_panel_is_ready
     Sleep    500ms
 
 Login Cloud Attention
     Wait And Click  //button[contains(@label,'${Cloud_Attention}')]
-    Wait Until Element Is Not Visible    //*[contains(text(),'loading')]    timeout=90
+    Check_panel_is_ready
     Sleep    500ms
 
 Login Cloud Operations Supervisor
     Wait And Click  //button[contains(@label,'${Cloud_Operations_Supervisor}')]
-    Wait Until Element Is Not Visible    //*[contains(text(),'loading')]    timeout=90
+    Check_panel_is_ready
     Sleep    500ms
 
 Login Cloud Unit Head
     Wait And Click  //button[contains(@label,'${Cloud_Unit_Head}')]
-    Wait Until Element Is Not Visible    //*[contains(text(),'loading')]    timeout=90
+    Check_panel_is_ready
     Sleep    500ms
 *** Comments ***

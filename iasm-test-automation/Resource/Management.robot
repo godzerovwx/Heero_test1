@@ -7,6 +7,7 @@ Library  Selenium2Library    run_on_failure=Nothing
 *** Keywords ***
 #資產群組維護
 Asset group maintenance add
+#新增 資產群組維護的資料
     Wait And Click    //i[@class='pi pi-book']
     Wait And Click    //a[@href='/system/menus']
     Wait And Click    //*[text()='${select_asset_group}']
@@ -23,6 +24,7 @@ Asset group maintenance add
     Wait And Click    //*[text()='${ok}']
     Sleep    500ms
 Asset group maintenance update
+#更新 資產群組維護的資料
     Wait And Click    //tbody[@class='p-element p-datatable-tbody']/tr[1]//span[text()='修改']
     Wait And Input    //input[@formcontrolname='apCode']    ${Asset_group_hard_code_update}
     Wait And Click    //*[text()='${save}']
@@ -30,11 +32,13 @@ Asset group maintenance update
     Sleep    500ms
 
 Asset group maintenance enable and disable
+#啟用停用 資產群組維護的資料
     Wait And Click    //tbody[@class='p-element p-datatable-tbody']/tr[1]//span[@class='p-inputswitch-slider']
     Wait And Click    //*[text()='${ok}']
     Wait And Click    //*[text()='${ok}']
     Sleep    500ms
 Asset group maintenance delete
+#刪除 資產群組維護的資料
     Wait And Click    //tbody[@class='p-element p-datatable-tbody']/tr[1]//span[text()='刪除']
     Wait And Click    //*[text()='${ok}']
     Wait And Click    //*[text()='${ok}']
@@ -42,8 +46,8 @@ Asset group maintenance delete
 
 #角色功能管理
 Role function management add
+#新增角色
     [Arguments]    ${Role_function_management_name_zh}    ${Role_function_management_name_en}    ${Role_function_management_scope}
-    #Wait And Click    //a[@href='/system/roles']
     Wait And Click    //*[text()='${add_role_link}']
     Wait And Input    //input[@formcontrolname='nameTW']    ${Role_function_management_name_zh}
     Wait And Input    //input[@formcontrolname='nameEN']    ${Role_function_management_name_en}
@@ -54,6 +58,7 @@ Role function management add
     Sleep    500ms
 
 Role function management enable and disable
+#啟用停用 角色
     [Arguments]    ${Role_function_management_name_zh} 
     ${ancestor_element_xpath} =    Get Ancestor XPath    //*[contains(text(),'${Role_function_management_name_zh}')]    ancestor::tr
     Wait And Click    ${ancestor_element_xpath}/td[2]/div/span/p-inputswitch/div/span
@@ -62,6 +67,7 @@ Role function management enable and disable
     Sleep    500ms
 
 Role function management update
+#更新角色
     [Arguments]    ${Role_function_management_name_zh} 
     #找父節點寫法
     ${ancestor_element_xpath} =    Get Ancestor XPath    //*[contains(text(),'${Role_function_management_name_zh}')]    ancestor::tr
@@ -73,6 +79,7 @@ Role function management update
     Sleep    500ms
 
 Role function management delete
+#刪除角色
     [Arguments]    ${Role_function_management_name_zh} 
     ${ancestor_element_xpath} =    Get Ancestor XPath    //*[contains(text(),'${Role_function_management_name_zh}')]    ancestor::tr
     Wait And Click    ${ancestor_element_xpath}/td[2]//span[contains(text(),'刪除')]
@@ -81,69 +88,44 @@ Role function management delete
     Sleep    500ms
 
 Role function management verify default roles
+#驗證預設角色
     [Arguments]    ${Role_function_management_name_zh} 
     ${ancestor_element_xpath} =    Get Ancestor XPath    //*[contains(text(),'${Role_function_management_name_zh}')]    ancestor::tr
     Wait And Click    ${ancestor_element_xpath}/td[2]//span[contains(text(),'修改')]
-    
 
-#常用部門組織管理
-Most used department management list
-    Wait And Click  //i[@class='pi pi-book']
-    Wait And Click  //a[@href='/system/most-used']
-    Sleep    500ms
-
-Most used department management edit
-    Wait And Click  //span[@class='label-function clickable']
-    Wait And Click  //p-checkbox[@inputid='all']
-    Wait And Click  //*[text()='${save}']
-    Wait And Click  //*[text()='${ok}']
-    Sleep    500ms
-
-Most used department management add
-    Wait And Click  //span[@class='label-function']
-    Wait And Click  //p-checkbox[@inputid='all']
-    Wait And Click  //*[text()='${save}']
-    Wait And Click  //*[text()='${ok}']
-    Sleep    500ms
 
 #使用者權限管理
-User permission management Search    
+User permission management Search
+#使用員工姓名搜尋
     [Arguments]    ${permission_management_name}
-    #Wait And Click  //p-dropdown[@classname='units-dropdown']//*[contains(text(),'${select_dep}')] 
-    #Wait And Click  //li[contains(@aria-label,'${department_name}')]
-    #Wait And Click  //div[@class='p-multiselect-label p-placeholder' and contains(text(),'${select_div}')]
-    #Wait And Click    //div[@class='p-checkbox p-component ng-star-inserted']
-    #Wait And Click    //span[@class='p-multiselect-close-icon pi pi-times']
     Wait And Input    //div[contains(@class,'col-4')]/div[2]/input[contains(@type,'text')]    ${permission_management_name}
     Wait And Click    //*[contains(text(),'${search}')] 
     Sleep    500ms
 
 User permission management Search default
+#使用員工編號搜尋
     [Arguments]    ${permission_management_number}
-    #Wait And Click  //p-dropdown[@classname='units-dropdown']//*[contains(text(),'${select_dep}')] 
-    #Wait And Click  //li[contains(@aria-label,'${department_name}')]
-    #Wait And Click  //div[@class='p-multiselect-label p-placeholder' and contains(text(),'${select_div}')]
-    #Wait And Click    //div[@class='p-checkbox p-component ng-star-inserted']
-    #Wait And Click    //span[@class='p-multiselect-close-icon pi pi-times']
     Wait And Input    //div[contains(@class,'col-4')]/div[1]/input[contains(@type,'text')]    ${permission_management_number}
     Wait And Click    //*[contains(text(),'${search}')]
     Wait And Click    //button[@icon='pi pi-file-edit']
     Sleep    500ms
 
 User permission management add - dep
+#新增角色-部門
     [Arguments]  ${role_name}    ${permission_management_dep_name}
     ${ancestor_element_xpath} =    Get Ancestor XPath    //*[contains(text(),'${role_name}')]    ancestor::tr
-    #Wait And Click  ${ancestor_element_xpath}/td[2]//p-dropdown[@classname='units-dropdown']//*[contains(text(),'${select_dep}')] 
     Wait And Click  ${ancestor_element_xpath}/td[2]//p-dropdown[1]
     Wait And Click  //li[contains(@aria-label,'${permission_management_dep_name}')]
     Wait And Click    ${ancestor_element_xpath}/td[3]/div/button/span[contains(text(),'${add}')]
 
 User permission management add - dep again
+#再一次新增角色-部門
     [Arguments]  ${role_name}
     ${ancestor_element_xpath} =    Get Ancestor XPath    //*[contains(text(),'${role_name}')]    ancestor::tr
     Wait And Click    ${ancestor_element_xpath}/td[3]/div/button/span[contains(text(),'${add}')]
 
 User permission management add - dep div
+#新增角色-部門科別
     [Arguments]  ${role_name}    ${permission_management_dep_name}    ${permission_management_div_name}   
     ${ancestor_element_xpath} =    Get Ancestor XPath    //*[contains(text(),'${role_name}')]    ancestor::tr
     Wait And Click  ${ancestor_element_xpath}/td[2]//p-dropdown[1] 
@@ -154,30 +136,35 @@ User permission management add - dep div
     Sleep    500ms
 
 User permission management add - dep div again
+#再一次新增角色-部門科別
     [Arguments]  ${role_name}    
     ${ancestor_element_xpath} =    Get Ancestor XPath    //*[contains(text(),'${role_name}')]    ancestor::tr
     Wait And Click    ${ancestor_element_xpath}/td[3]/div/button/span[contains(text(),'${add}')]
     Sleep    500ms
 
 User permission management add - system admin
+#新增角色-公司負責人
     [Arguments]  ${role_name}    
     ${ancestor_element_xpath} =    Get Ancestor XPath    //*[contains(text(),'${role_name}')]    ancestor::tr
     Wait And Click    ${ancestor_element_xpath}/td[3]/div/button/span[contains(text(),'${add}')]
     Sleep    500ms
 
 User permission management save
+#新增角色-儲存
     Wait And Click  //button[contains(@class,'p-element p-button functional-button p-component')]/span[contains(text(),'${save}')]
     Wait And Click  //button[contains(@class,'p-element p-button functional-button p-component ng-star-inserted')]/span[contains(text(),'${ok}')]
     Wait And Click  //button[contains(@class,'p-element p-button functional-button-sub')]/span[contains(text(),'取消')]
     Sleep    500ms
 
 User permission management delete
+#新增角色-刪除
     [Arguments]  ${role_name}
     ${ancestor_element_xpath} =    Get Ancestor XPath    //table[contains(@class,'table section-width')]//*[contains(text(),' ${role_name} ')]    ancestor::tr
     Wait And Click    ${ancestor_element_xpath}/td[3]/div/button/span[text()='${delete}']
     Sleep    500ms
 
 attention role not add manager role permission
+#經辦角色不能新增主管角色流程
     [Arguments]    ${number_attention}    ${O_S}   ${U_H}    
     ...    ${permission_dep_name}    ${permission_div_name}
     Wait And Click  //a[@href='/system/users']
@@ -190,6 +177,7 @@ attention role not add manager role permission
     Wait And Click    //*[text()='${ok}']
 
 manager role not add attention role permission
+#主管角色不能新增經辦角色流程
     [Arguments]    ${number_operations_supervisor}    ${number_unit_head}   ${At}    ${permission_dep_name}    ${permission_div_name}
     Wait And Click  //a[@href='/system/users']
     User permission management Search default    ${number_operations_supervisor}
@@ -203,6 +191,7 @@ manager role not add attention role permission
     Wait And Click    //*[text()='${ok}']
 
 attention agent role not add manager role permission
+#經辦代理人不能新增主管角色流程
     [Arguments]    ${login_user}  ${agent_name_attention}  ${number_attention}    ${O_S}   ${U_H}     ${permission_dep_name}    ${permission_div_name}
     Open Browser Chrome and use user
     Run Keyword  ${login_user}
@@ -233,6 +222,7 @@ attention agent role not add manager role permission
     Close Browser
 
 manager agent role not add attention role permission
+#主管代理人不能新增經辦角色流程
     [Arguments]    ${login_user}  ${agent_name_Operations_Supervisor}    ${number_operations_supervisor}  ${At}    ${permission_dep_name}    ${permission_div_name}
     Open Browser Chrome and use user
     Run Keyword  ${login_user}
@@ -257,6 +247,7 @@ manager agent role not add attention role permission
     Close Browser
 
 attention role not add manager agent role permission
+#經辦角色不能新增主管代理人流程
     [Arguments]    ${login_user}  ${agent_name_attention}  ${number_attention}    ${At}    ${permission_dep_name}    ${permission_div_name}
     Open Browser Chrome and use user
     Login System Admin
@@ -293,6 +284,7 @@ attention role not add manager agent role permission
     Close Browser
 
 manager role not add attention agent role permission
+#主管角色不能新增經辦代理人流程
     [Arguments]    ${login_user}  ${agent_name_attention}  ${number_attention}    ${OS}    ${UH}    ${permission_dep_name}    ${permission_div_name}
     Open Browser Chrome and use user
     Login System Admin
@@ -332,8 +324,8 @@ manager role not add attention agent role permission
 
 #ISO使用者權限管理
 User permission management add - ISO Attention
+#新增 ISO經辦
     Wait And Click  //button[@icon='pi pi-file-edit']
-
     ${ancestor_element_xpath} =    Get Ancestor XPath    //div[3]/span[contains(text(),'${permission_management_now_role}')]    ancestor::div
     ${ISO_Attention_status} =    Run Keyword And Return Status    Wait Until Element Is Visible    ${ancestor_element_xpath}/div[3]//td[contains(text(),'${ISOAttention}')]
     Run Keyword If  '${ISO_Attention_status}' == '${false}'   Wait And Click  //*[text()='${add}']
@@ -343,17 +335,16 @@ User permission management add - ISO Attention
     Sleep    500ms
 
 User permission management add - ISO Attention again
+#再一次新增 ISO經辦
     Wait And Click  //*[text()='${add}']
     Sleep    500ms
 
 #共用選單管理
 Shared menu management add
+#新增 共用選單管理
     Wait And Click    //p-dropdown[@styleclass='drop-down no-outlined'] 
     Wait And Click  //*[text()='${Shared_menu_management_list}']
     Wait And Click  //*[text()='${add}']
-    #Wait And Input    //div[@role='dialog']/div[3]/div[2]/div[1]/input    ${Shared_menu_management_list_code}
-    #Wait And Input    //div[@role='dialog']/div[3]/div[2]/div[2]/input    ${Shared_menu_management_list_name_zh}
-    #Wait And Input    //div[@role='dialog']/div[3]/div[2]/div[3]/input    ${Shared_menu_management_list_name_en}
     Wait And Input    //div[3]/form/div/div[1]/div/div/input    ${Shared_menu_management_list_code}
     Wait And Input    //div[3]/form/div/div[2]/div/div/input    ${Shared_menu_management_list_name_zh}
     Wait And Input    //div[3]/form/div/div[3]/div/div/input    ${Shared_menu_management_list_name_en}
@@ -362,6 +353,7 @@ Shared menu management add
     Sleep    500ms
 
 Shared menu management update
+#更新 共用選單管理
     ${ancestor_element_xpath} =    Get Ancestor XPath    //*[contains(text(),'${Shared_menu_management_list_code}')]    ancestor::tr
     Wait And Click    ${ancestor_element_xpath}//*[text()='${update}']
     Wait And Input    ${ancestor_element_xpath}//td[2]//p-celleditor/input    ${Shared_menu_management_list_name_zh_update} 
@@ -369,6 +361,7 @@ Shared menu management update
     Wait And Click    //*[text()='${ok}']
     Sleep    500ms
 Shared menu management delete
+#刪除 共用選單管理
     ${ancestor_element_xpath} =    Get Ancestor XPath    //*[contains(text(),'${Shared_menu_management_list_code}')]    ancestor::tr
     Wait And Click    ${ancestor_element_xpath}//*[text()='${update}']
     Wait And Click    ${ancestor_element_xpath}//*[text()='${delete}']
@@ -377,6 +370,7 @@ Shared menu management delete
 
 #代理人管理
 Agent manage add
+#新增 代理人
     [Arguments]  ${agent_name}
     Wait And Click  //i[@class='pi pi-book']
     Wait And Click  //a[@href='/system/substitute']
@@ -394,6 +388,7 @@ Agent manage add
     Sleep    500ms    
 
 Agent manage add again
+#再一次新增 代理人
     [Arguments]  ${agent_name}
     Wait And Click  //span[@class='p-button-icon p-button-icon-left pi pi-plus']
     Wait And Click  //div[@class='drop-down sub p-dropdown p-component']//div[@class='p-dropdown-trigger']
@@ -409,6 +404,7 @@ Agent manage add again
     Sleep    500ms  
 
 Agent manage update
+#更新 代理人
     Wait And Click  //button[@class='p-element p-button functional-button me-2 p-component ng-star-inserted']
     Wait And Input  //textarea[contains(@formcontrolname,'notes')]    ${agent_update_reason} 
     Wait And Click  //span[text()='${save}']
@@ -416,6 +412,7 @@ Agent manage update
     Sleep    500ms  
 
 Agent manage search
+#搜尋 代理人
     Wait And Click    //*[contains(text(),'${clear}')]
     Wait And Click    //*[contains(text(),'${ok}')]
     Wait And Click    //*[contains(text(),'${ok}')]
@@ -427,12 +424,14 @@ Agent manage search
     Sleep    500ms   
 
 Agent manage delete
+#刪除 代理人
     Wait And Click  //button[@class='p-element p-button functional-button-sub me-2 p-component ng-star-inserted']
     Wait And Click  //button[@class='p-element p-button functional-button p-component ng-star-inserted']
     Wait And Click  //button[@class='p-element p-button functional-button p-component ng-star-inserted']
     Sleep    500ms  
 
 attention and manager agent role are conflict
+#經辦,科級主管代理人不可互加流程
     [Arguments]    ${login_user_first}  ${login_user_second}  ${agent_name}
     Open Browser Chrome and use user
     Run Keyword    ${login_user_first}
@@ -466,6 +465,7 @@ attention and manager agent role are conflict
     Close Browser
 
 attention and manager agent role are cross conflict
+#其中一個為雲端的經辦,科級主管代理人不可互加流程
     [Arguments]    ${login_user_first}  ${login_user_second}  ${agent_name}    ${permission_number}    ${add_permission}
     Open Browser Chrome and use user
     Run Keyword    ${login_user_first}
@@ -520,6 +520,7 @@ attention and manager agent role are cross conflict
 
 #欄位說明管理
 Field description management update
+#更新 欄位說明管理內容
     Wait And Click    //p-dropdown[@styleclass='drop-down no-outlined']
     Wait And Click  //*[text()='${Field_description_management_list}']
     Wait And Click  //*[text()='${update}']
@@ -529,6 +530,7 @@ Field description management update
     Sleep    500ms 
 
 Field description management delete
+#刪除 欄位說明管理內容
     Wait And Click  //*[text()='${update}']
     Wait And Input  //div[@role='dialog']//div[3]/div[2]/div[5]/input    ${space}
     Wait And Click  //*[text()='${save}']
@@ -536,6 +538,7 @@ Field description management delete
     Sleep    500ms 
 
 Verification unit management stop/start
+#啟動停用 驗證單位管理部門
     [Arguments]  ${agent_name}
     ${ancestor_element_xpath} =    Get Ancestor XPath    //*[contains(text(),'${agent_name}')]    ancestor::tr
     Wait And Click    ${ancestor_element_xpath}//span[@class='p-inputswitch-slider']
@@ -543,6 +546,7 @@ Verification unit management stop/start
     Wait And Click  //*[text()='${ok}'] 
 
 Verification unit management check start
+#確認 驗證單位管理部門為啟用
     [Arguments]  ${agent_name}
     ${ancestor_element_xpath} =    Get Ancestor XPath    //*[contains(text(),'${agent_name}')]    ancestor::tr
     ${Verification_unit_status} =     Run Keyword And Return Status    Wait Until Element Is Visible    ${ancestor_element_xpath}//div[@class='p-inputswitch p-component p-inputswitch-checked']
@@ -550,5 +554,23 @@ Verification unit management check start
 
 
 *** Comments ***
+#常用部門組織管理
+Most used department management list
+    Wait And Click  //i[@class='pi pi-book']
+    Wait And Click  //a[@href='/system/most-used']
+    Sleep    500ms
 
+Most used department management edit
+    Wait And Click  //span[@class='label-function clickable']
+    Wait And Click  //p-checkbox[@inputid='all']
+    Wait And Click  //*[text()='${save}']
+    Wait And Click  //*[text()='${ok}']
+    Sleep    500ms
+
+Most used department management add
+    Wait And Click  //span[@class='label-function']
+    Wait And Click  //p-checkbox[@inputid='all']
+    Wait And Click  //*[text()='${save}']
+    Wait And Click  //*[text()='${ok}']
+    Sleep    500ms
 

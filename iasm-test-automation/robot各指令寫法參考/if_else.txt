@@ -1,0 +1,8 @@
+${stocktaking_plan_review_all_data_status} =    Run Keyword And Return Status    Wait Until Element Is Visible    //span[contains(text(),'${stocktaking_plan_review_all_data}')]
+    Run Keyword If  '${stocktaking_plan_review_all_data_status}' == '${true}'    Check all data of stocktaking plan to review 
+    ...    ELSE    Wait And Click    //span[text()='下載 Excel']
+    
+Run Keyword If 裡面要執行多個key
+Run Keyword If    '${condition}' == 'True'    Run Keywords
+        Log    Condition is True
+        AND    Log    Performing additional steps

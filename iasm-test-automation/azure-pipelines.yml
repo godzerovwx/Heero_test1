@@ -10,9 +10,9 @@ pool:
   gcp-iasm-lab
 
 stages:
-  - stage: Attention_data
+  - stage: Land_Attention_data
     jobs:
-      - job: Attention_data
+      - job: Land_Attention_data
         timeoutInMinutes: 120
         continueOnError: true
         steps:
@@ -25,13 +25,13 @@ stages:
             pip install -r requirements.txt
           displayName: 'Install dependencies'
         - script: |
-            robot -x outputxunit.xml ./Attention_data.robot
+            robot -x outputxunit.xml ./Land_Attention_data.robot
           displayName: 'Run Robot'
 
         - task: PublishTestResults@2
           inputs:
             testResultsFiles: 'outputxunit.xml'
-            testRunTitle: Attention_data test
+            testRunTitle: Land_Attention_data test
           condition: succeededOrFailed()
           displayName: 'Publish Test Results outputxunit.xml'
         - task: CmdLine@2
@@ -45,13 +45,13 @@ stages:
         - task: PublishBuildArtifacts@1
           inputs:
             PathtoPublish: '$(System.DefaultWorkingDirectory)/log'
-            ArtifactName: 'Attention_data_log'
+            ArtifactName: 'Land_Attention_data_log'
           condition: succeededOrFailed()
           displayName: upload log
 
-  - stage: Operations_Supervisor_data
+  - stage: Land_Operations_Supervisor_data
     jobs:
-      - job: Operations_Supervisor_data
+      - job: Land_Operations_Supervisor_data
         timeoutInMinutes: 120
         continueOnError: true
         steps:
@@ -64,13 +64,13 @@ stages:
             pip install -r requirements.txt
           displayName: 'Install dependencies'
         - script: |
-            robot -x outputxunit.xml ./Operations_Supervisor_data.robot
+            robot -x outputxunit.xml ./Land_Operations_Supervisor_data.robot
           displayName: 'Run Robot'
 
         - task: PublishTestResults@2
           inputs:
             testResultsFiles: 'outputxunit.xml'
-            testRunTitle: Operations_Supervisor_data test
+            testRunTitle: Land_Operations_Supervisor_data test
           condition: succeededOrFailed()
           displayName: 'Publish Test Results outputxunit.xml'
         - task: CmdLine@2
@@ -84,12 +84,12 @@ stages:
         - task: PublishBuildArtifacts@1
           inputs:
             PathtoPublish: '$(System.DefaultWorkingDirectory)/log'
-            ArtifactName: 'Operations_Supervisor_data_log'
+            ArtifactName: 'Land_Operations_Supervisor_data_log'
           condition: succeededOrFailed()
           displayName: upload log
-  - stage: ISOAttention_data
+  - stage: Land_ISOAttention_data
     jobs:
-      - job: ISOAttention_data
+      - job: Land_ISOAttention_data
         timeoutInMinutes: 120
         continueOnError: true
         steps:
@@ -98,13 +98,13 @@ stages:
             echo See https://aka.ms/yaml
           displayName: 'Run a multi-line script'
         - script: |
-            robot -x outputxunit.xml ./ISOAttention_data.robot
+            robot -x outputxunit.xml ./Land_ISOAttention_data.robot
           displayName: 'Run Robot'
 
         - task: PublishTestResults@2
           inputs:
             testResultsFiles: 'outputxunit.xml'
-            testRunTitle: ISOAttention_data test
+            testRunTitle: Land_ISOAttention_data test
           condition: succeededOrFailed()
           displayName: 'Publish Test Results outputxunit.xml'
         - task: CmdLine@2
@@ -118,12 +118,12 @@ stages:
         - task: PublishBuildArtifacts@1
           inputs:
             PathtoPublish: '$(System.DefaultWorkingDirectory)/log'
-            ArtifactName: 'ISOAttention_data_log'
+            ArtifactName: 'Land_ISOAttention_data_log'
           condition: succeededOrFailed()
           displayName: upload log
-  - stage: Unit_Head
+  - stage: Land_Unit_Head
     jobs:
-      - job: Unit_Head
+      - job: Land_Unit_Head
         timeoutInMinutes: 120
         continueOnError: true
         steps:
@@ -132,13 +132,13 @@ stages:
             echo See https://aka.ms/yaml
           displayName: 'Run a multi-line script'
         - script: |
-            robot -x outputxunit.xml ./Unit_Head.robot
+            robot -x outputxunit.xml ./Land_Unit_Head.robot
           displayName: 'Run Robot'
 
         - task: PublishTestResults@2
           inputs:
             testResultsFiles: 'outputxunit.xml'
-            testRunTitle: Unit_Head test
+            testRunTitle: Land_Unit_Head test
           condition: succeededOrFailed()
           displayName: 'Publish Test Results outputxunit.xml'
         - task: CmdLine@2
@@ -152,12 +152,12 @@ stages:
         - task: PublishBuildArtifacts@1
           inputs:
             PathtoPublish: '$(System.DefaultWorkingDirectory)/log'
-            ArtifactName: 'Unit_Head_log'
+            ArtifactName: 'Land_Unit_Head_log'
           condition: succeededOrFailed()
           displayName: upload log
-  - stage: System_Admin
+  - stage: Land_System_Admin
     jobs:
-      - job: System_Admin
+      - job: Land_System_Admin
         timeoutInMinutes: 120
         continueOnError: true
         steps:
@@ -166,13 +166,13 @@ stages:
             echo See https://aka.ms/yaml
           displayName: 'Run a multi-line script'
         - script: |
-            robot -x outputxunit.xml ./System_Admin.robot
+            robot -x outputxunit.xml ./Land_System_Admin.robot
           displayName: 'Run Robot'
 
         - task: PublishTestResults@2
           inputs:
             testResultsFiles: 'outputxunit.xml'
-            testRunTitle: System_Admin test
+            testRunTitle: Land_System_Admin test
           condition: succeededOrFailed()
           displayName: 'Publish Test Results outputxunit.xml'
         - task: CmdLine@2
@@ -186,7 +186,121 @@ stages:
         - task: PublishBuildArtifacts@1
           inputs:
             PathtoPublish: '$(System.DefaultWorkingDirectory)/log'
-            ArtifactName: 'System_Admin_log'
+            ArtifactName: 'Land_System_Admin_log'
+          condition: succeededOrFailed()
+          displayName: upload log
+  - stage: Cloud_Attention_data
+    jobs:
+      - job: Cloud_Attention_data
+        timeoutInMinutes: 120
+        continueOnError: true
+        steps:
+        - script: |
+            echo Add other tasks to build, test, and deploy your project.
+            echo See https://aka.ms/yaml
+          displayName: 'Run a multi-line script'
+        - script: |
+            python -m pip install --upgrade pip
+            pip install -r requirements.txt
+          displayName: 'Install dependencies'
+        - script: |
+            robot -x outputxunit.xml ./Cloud_Attention_data.robot
+          displayName: 'Run Robot'
+
+        - task: PublishTestResults@2
+          inputs:
+            testResultsFiles: 'outputxunit.xml'
+            testRunTitle: Cloud_Attention_data test
+          condition: succeededOrFailed()
+          displayName: 'Publish Test Results outputxunit.xml'
+        - task: CmdLine@2
+          inputs:
+            script: |
+              mkdir $(System.DefaultWorkingDirectory)/log
+              cp ./*.png $(System.DefaultWorkingDirectory)/log
+              cp ./*.html $(System.DefaultWorkingDirectory)/log
+          condition: succeededOrFailed()
+          displayName: 'Copy screenshot and html to folder'
+        - task: PublishBuildArtifacts@1
+          inputs:
+            PathtoPublish: '$(System.DefaultWorkingDirectory)/log'
+            ArtifactName: 'Cloud_Attention_data_log'
+          condition: succeededOrFailed()
+          displayName: upload log
+  - stage: Cloud_Operations_Supervisor
+    jobs:
+      - job: Cloud_Operations_Supervisor
+        timeoutInMinutes: 120
+        continueOnError: true
+        steps:
+        - script: |
+            echo Add other tasks to build, test, and deploy your project.
+            echo See https://aka.ms/yaml
+          displayName: 'Run a multi-line script'
+        - script: |
+            python -m pip install --upgrade pip
+            pip install -r requirements.txt
+          displayName: 'Install dependencies'
+        - script: |
+            robot -x outputxunit.xml ./Cloud_Operations_Supervisor.robot
+          displayName: 'Run Robot'
+
+        - task: PublishTestResults@2
+          inputs:
+            testResultsFiles: 'outputxunit.xml'
+            testRunTitle: Cloud_Operations_Supervisor test
+          condition: succeededOrFailed()
+          displayName: 'Publish Test Results outputxunit.xml'
+        - task: CmdLine@2
+          inputs:
+            script: |
+              mkdir $(System.DefaultWorkingDirectory)/log
+              cp ./*.png $(System.DefaultWorkingDirectory)/log
+              cp ./*.html $(System.DefaultWorkingDirectory)/log
+          condition: succeededOrFailed()
+          displayName: 'Copy screenshot and html to folder'
+        - task: PublishBuildArtifacts@1
+          inputs:
+            PathtoPublish: '$(System.DefaultWorkingDirectory)/log'
+            ArtifactName: 'Cloud_Operations_Supervisor_log'
+          condition: succeededOrFailed()
+          displayName: upload log
+  - stage: Cloud_Unit_Head
+    jobs:
+      - job: Cloud_Unit_Head
+        timeoutInMinutes: 120
+        continueOnError: true
+        steps:
+        - script: |
+            echo Add other tasks to build, test, and deploy your project.
+            echo See https://aka.ms/yaml
+          displayName: 'Run a multi-line script'
+        - script: |
+            python -m pip install --upgrade pip
+            pip install -r requirements.txt
+          displayName: 'Install dependencies'
+        - script: |
+            robot -x outputxunit.xml ./Cloud_Unit_Head.robot
+          displayName: 'Run Robot'
+
+        - task: PublishTestResults@2
+          inputs:
+            testResultsFiles: 'outputxunit.xml'
+            testRunTitle: Cloud_Unit_Head test
+          condition: succeededOrFailed()
+          displayName: 'Publish Test Results outputxunit.xml'
+        - task: CmdLine@2
+          inputs:
+            script: |
+              mkdir $(System.DefaultWorkingDirectory)/log
+              cp ./*.png $(System.DefaultWorkingDirectory)/log
+              cp ./*.html $(System.DefaultWorkingDirectory)/log
+          condition: succeededOrFailed()
+          displayName: 'Copy screenshot and html to folder'
+        - task: PublishBuildArtifacts@1
+          inputs:
+            PathtoPublish: '$(System.DefaultWorkingDirectory)/log'
+            ArtifactName: 'Cloud_Unit_Head_log'
           condition: succeededOrFailed()
           displayName: upload log
 

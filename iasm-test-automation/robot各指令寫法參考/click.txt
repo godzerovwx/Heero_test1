@@ -1,0 +1,11 @@
+  Wait And Click  //a[@href='/assetsManager/import']
+  Wait And Click  //*[@aria-describedby='nameOfAsset' and @formcontrolname='nameOfAsset']
+建議!  Wait And Click    //span[contains(text(),'點擊')]  
+contains類似模糊搜尋, 沒加的話就類似精準搜尋
+
+
+Wait And Click
+  [Arguments]  ${locator}
+  Wait Until Page Contains Element   ${locator}    5s
+  Sleep    200ms
+  Click Element  ${locator}

@@ -2,8 +2,8 @@
 Resource  Resource/IASMImportLib.robot
 
 Suite Setup    Open Browser Chrome and use user
-Suite Teardown    Close Browser 
 Test Teardown	Run Keyword If Test Failed	Capture Page Screenshot
+Suite Teardown    Close Browser 
 
 *** Variables ***
 

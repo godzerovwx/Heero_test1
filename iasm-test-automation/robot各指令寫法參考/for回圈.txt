@@ -1,0 +1,10 @@
+FOR    ${i}    IN RANGE    1    210
+        Wait And Click    //tr[@class='ng-star-inserted']//div[@role='checkbox']
+        Wait And Click    //*[text()='覆核']
+        Sleep    500ms
+        Wait And Click    //*[text()='確定']
+        Sleep    500ms
+        Wait And Click    //*[text()='確定']
+	Exit For Loop If    '${asset_number_status}'=='${false}' and '${asset_type_status}'=='${true}' and '${asset_unit_status}'=='${true}'
+        
+    END

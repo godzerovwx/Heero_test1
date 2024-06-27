@@ -1,0 +1,6 @@
+Library    OperatingSystem
+
+#抓當時時間寫法
+Get Epoch Time
+    ${epoch}=    Evaluate    time.time()
+    Log    Current Epoch Time: ${epoch}

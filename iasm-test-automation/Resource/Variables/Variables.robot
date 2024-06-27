@@ -70,6 +70,8 @@ ${list_software}    軟體
 ${list_data}    資料
 ${list_paper}    紙本
 ${list_people}    人員
+${every_month}    每月
+${cloud_service_IaaS}    IaaS
 
 
 #功能列表參數
@@ -249,10 +251,10 @@ ${agent_name_for_ISOAttention}    陳○茜
 ${agent_name_for_Operations_Supervisor}    李○
 ${agent_name_for_number_Operations_Supervisor}    00583311
 ${agent_name_for_Unit_Head}    周○宏
-${agent_name_for_Cloud_Attention}    何○宇
-${agent_name_for_number_Cloud_Attention}    00596425
-${agent_name_for_Cloud_Operations_Supervisor}    顏○軒
-${agent_name_for_number_Cloud_Operations_Supervisor}    00596558
+${agent_name_for_Cloud_Attention}    蘇○昕
+${agent_name_for_number_Cloud_Attention}    00590870
+${agent_name_for_Cloud_Operations_Supervisor}    劉○余
+${agent_name_for_number_Cloud_Operations_Supervisor}    00586810
 ${agent_name_for_Cloud_Unit_Head}    
 ${agent_start_year}    2023
 ${agent_start_month}    十二月
@@ -269,7 +271,7 @@ ${permission_management_now_role}    現有角色
 ${permission_management_Attention}    陳○茜
 ${permission_management_Operations_Supervisor}    李○
 ${permission_management_Unit_Head}    陳○喧
-${permission_management_Cloud_Attention}    何○宇
+${permission_management_Cloud_Attention}    蘇○昕
 ${permission_management_Cloud_Operations_Supervisor}    李○展
 ${permission_management_Cloud_Unit_Head}    劉○余
 ${permission_management_number_Attention}    00589597	
